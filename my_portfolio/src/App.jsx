@@ -1,25 +1,26 @@
 import React from 'react';
-import { Container, AppBar, Toolbar, Typography, Box } from '@mui/material';
-import { About, Projects, Skills, Contact } from './Sections';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Container, AppBar, Toolbar, Box } from '@mui/material';
+import Portfolio from './Portfolio';
+import Landing from './Landing';
 
 function App() {
   return (
-    <Box sx={{ bgcolor: '#f5f5f5', minHeight: '100vh' }}>
-      <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            My Portfolio
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Container maxWidth="md" sx={{ py: 4 }}>
-        <About />
-        <Projects />
-        <Skills />
-        <Contact />
+    <Router>
+      <Container sx={{ 
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'center', 
+        minHeight: '100vh', 
+        minWidth: '100vw',
+        backgroundColor: '#1A1818' 
+      }} >
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+        </Routes>
       </Container>
-    </Box>
+    </Router>
   );
 }
 
