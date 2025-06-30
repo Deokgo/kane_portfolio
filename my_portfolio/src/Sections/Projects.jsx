@@ -161,7 +161,7 @@ export function Projects() {
                       lineHeight: 1.6, 
                       fontSize: '0.95rem',
                       textAlign: 'left', // Explicitly left align description
-                      color: '#93BBD2'
+                      color: '#FFF'
                     }}
                   >
                     {project.description}
@@ -187,7 +187,8 @@ export function Projects() {
                             color: '#E7694B',
                             borderColor: '#E7694B',
                             '&:hover': {
-                              backgroundColor: '#e9ecef'
+                              backgroundColor: '#E7694B',
+                              color: '#FFF'
                             }
                           }}
                         />

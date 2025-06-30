@@ -60,7 +60,7 @@ export default function Landing() {
             left: 0,
             width: '100vw',
             height: '100vh',
-            bgcolor: 'rgba(40, 48, 63, 0.7)',
+            bgcolor: 'rgba(40, 48, 63, 0.5)',
             zIndex: 1,
           }}
         />
@@ -76,13 +76,13 @@ export default function Landing() {
             maxWidth: 600,
           }}
         >
-          <Box sx={{ mb: { xs: 3, sm: 4 } }}>
+          <Box sx={{ mb: 3 }}>
             <Box
               component="img"
-              src="/src/assets/kane_outline.png"
+              src="/src/assets/profile_small.svg"
               alt="Logo"
               sx={{
-                height: { xs: '7rem', sm: '9rem', md: '10rem' },
+                height: { xs: '7rem', sm: '9rem', md: '15rem' },
                 maxWidth: '100%',
               }}
             />
@@ -92,13 +92,13 @@ export default function Landing() {
             sx={{
               mb: 2,
               transition: 'transform 0.3s',
-              transform: unlocked ? 'rotate(-20deg) scale(1.2)' : 'none',
+              transform: unlocked ? 'rotate(20deg) scale(1.2)' : 'none',
             }}
           >
             {unlocked ? (
-              <LockOpenIcon sx={{ fontSize: 40, color: '#E7694B' }} />
+              <LockOpenIcon sx={{ fontSize: 30, color: '#fff' }} />
             ) : (
-              <LockIcon sx={{ fontSize: 40, color: '#fff' }} />
+              <LockIcon sx={{ fontSize: 30, color: '#fff' }} />
             )}
           </Box>
 
@@ -112,7 +112,7 @@ export default function Landing() {
 
           <Typography
             variant={isMobile ? 'body2' : 'body1'}
-            color="#e0e0e0"
+            color="#FFF"
             gutterBottom
             sx={{ maxWidth: 500, px: { xs: 2, sm: 0 } }}
           >
@@ -124,6 +124,7 @@ export default function Landing() {
             size="large"
             sx={{
               color: '#fff',
+              fontWeight: 'bold',
               borderColor: '#fff',
               mt: 4,
               width: { xs: '100%', sm: 'auto' },

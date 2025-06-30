@@ -6,7 +6,18 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 export function Contact() {
   return (
-    <Box sx={{ p: 3, mb: 4 }}>
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: { xs: '100vh', md: 'unset' },
+        position: 'relative',
+        mt: 15,
+        pb: 5,
+        px: 5,
+        gap: { xs: 2, sm: 3 },
+      }}
+    >
         <Typography variant="h4" gutterBottom>Contact</Typography>
         <Box component="form" sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
           <TextField label="Name" variant="outlined" required />

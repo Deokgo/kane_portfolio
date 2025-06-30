@@ -63,14 +63,14 @@ export default function Portfolio() {
   return (
     <Box>
       <AppBar sx={{ backgroundColor: '#1A1818' }}>
-        <Toolbar sx={{ height: 80, px: { xs: 1, sm: 2 } }}>
+        <Toolbar sx={{ height: 70, px: { xs: 1, sm: 2 } }}>
           <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', px: 20}}>
             <IconButton
               color="inherit"
               onClick={() => navigate('/')}
               sx={{ mr: 2 }}
             >
-              <img src="/src/assets/kane_logo.png" alt="Logo" style={{ height: 60 }} />
+              <img src="/src/assets/kane_white.svg" alt="Logo" style={{ height: 50 }} />
             </IconButton>
             {/* Hamburger for mobile */}
             <Box sx={{ display: { xs: 'flex', md: 'none' }, alignItems: 'center' }}>
@@ -93,7 +93,7 @@ export default function Portfolio() {
                   '& .MuiTab-root': {
                     minHeight: 70,
                     paddingBottom: 0,
-                    color: '#fff',
+                    color: '#FFF',
                     transition: 'color 0.3s ease',
                   },
                   '& .MuiTab-root.Mui-selected': {
