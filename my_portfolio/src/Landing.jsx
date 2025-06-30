@@ -1,95 +1,183 @@
 import React from 'react';
-import { Box, Typography, Button, Container } from '@mui/material';
+import { Box, Typography, Button, useMediaQuery, useTheme } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import EmailIcon from '@mui/icons-material/Email';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import Fade from '@mui/material/Fade';
+import LockIcon from '@mui/icons-material/Lock';
+import LockOpenIcon from '@mui/icons-material/LockOpen';
+import Slide from '@mui/material/Slide';
 
 export default function Landing() {
   const navigate = useNavigate();
-  const [fadeOut, setFadeOut] = React.useState(false);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const [slideOut, setSlideOut] = React.useState(false);
+  const [unlocked, setUnlocked] = React.useState(false);
 
   const handlePortfolioClick = () => {
-    setFadeOut(true);
-    setTimeout(() => navigate('/portfolio'), 500); // match Fade timeout
+    setUnlocked(true);
+    setTimeout(() => {
+      setSlideOut(true);
+      setTimeout(() => navigate('/portfolio'), 500);
+    }, 400);
   };
 
   return (
-    <Fade in={!fadeOut} timeout={500}>
+    <Slide
+      in={!slideOut}
+      direction="down"
+      timeout={{ enter: 350, exit: 250 }}
+      easing={{
+        enter: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+        exit: 'cubic-bezier(0.55, 0.06, 0.68, 0.19)',
+      }}
+      mountOnEnter
+      unmountOnExit
+    >
       <Box
         sx={{
           minHeight: '100vh',
-          minWidth: '100vw',
           width: '100vw',
-          height: '100vh',
+          overflowY: 'auto',         // ✅ Allow vertical scroll
+          overflowX: 'hidden',
           position: 'fixed',
           top: 0,
           left: 0,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundImage: 'url(/src/assets/bg_image.jpg)', // Replace with your image path
+          backgroundImage: 'url(/src/assets/poly_image.svg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           zIndex: 0,
         }}
       >
         <Box
-            sx={{
+          sx={{
             position: 'absolute',
             top: 0,
             left: 0,
             width: '100vw',
             height: '100vh',
-            bgcolor: 'rgba(40, 48, 63, 0.8)', // dark overlay for text visibility
+            bgcolor: 'rgba(40, 48, 63, 0.7)',
             zIndex: 1,
-            }}
+          }}
         />
-        <Box sx={{ display: 'flex', flexDirection: 'row', position: 'relative', zIndex: 2, textAlign: 'center' }}>
-            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mb: 4 }}>
-                <Box sx={{ mb: 4 }}>
-                    <img src="/src/assets/kane_outline.png" alt="Logo" style={{ height: '10rem' }} />
-                </Box>
-                <Typography variant="h6" color="#e0e0e0">
-                    Hi, I'm
-                </Typography>
-                <Typography variant="h2" gutterBottom sx={{ color: '#fff', fontWeight: 'bold' }}>
-                    Kane Justine Cometa
-                </Typography>
-                <Typography variant="h6" color="#e0e0e0" gutterBottom>
-                    Aspiring Front-end Developer | Data Engineer | Data Scientist
-                </Typography>
-                <Button
-                    variant="outlined"
-                    size="large"
-                    sx={{
-                        color: '#fff',
-                        borderColor: '#fff',
-                        mt: 4,
-                        '&:hover': {
-                            borderColor: '#E7694B',
-                            backgroundColor: '#E7694B', // optional: light hover effect
-                        },
-                    }}
-                    onClick={handlePortfolioClick}
-                >
-                    View Portfolio
-                </Button>
-                <Box sx={{ mt: 5, display: 'flex', justifyContent: 'center', gap: 1 }}>
-                    <Button size="extra-large" startIcon={<EmailIcon />} href="mailto:2021kjcometa@live.mcl.edu.ph" 
-                        sx={{color: 'white', '&:hover': {
-                            color: '#E7694B'},}}></Button>
-                    <Button size="extra-large" startIcon={<GitHubIcon />} href="https://github.com/Deokgo" target="_blank"
-                        sx={{color: 'white', '&:hover': {
-                            color: '#E7694B'},}}></Button>
-                    <Button size="extra-large" startIcon={<LinkedInIcon />} href="https://linkedin.com/in/kane-justine-cometa" target="_blank"
-                        sx={{color: 'white', '&:hover': {
-                            color: '#E7694B'},}}></Button>
-                </Box>
-            </Box>  
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            textAlign: 'center',
+            zIndex: 2,
+            p: { xs: 3, sm: 4 },
+            width: '100%',
+            maxWidth: 600,
+          }}
+        >
+          <Box sx={{ mb: { xs: 3, sm: 4 } }}>
+            <Box
+              component="img"
+              src="/src/assets/kane_outline.png"
+              alt="Logo"
+              sx={{
+                height: { xs: '7rem', sm: '9rem', md: '10rem' },
+                maxWidth: '100%',
+              }}
+            />
+          </Box>
+
+          <Box
+            sx={{
+              mb: 2,
+              transition: 'transform 0.3s',
+              transform: unlocked ? 'rotate(-20deg) scale(1.2)' : 'none',
+            }}
+          >
+            {unlocked ? (
+              <LockOpenIcon sx={{ fontSize: 40, color: '#E7694B' }} />
+            ) : (
+              <LockIcon sx={{ fontSize: 40, color: '#fff' }} />
+            )}
+          </Box>
+
+          <Typography
+            variant={isMobile ? 'h4' : 'h3'}
+            gutterBottom
+            sx={{ color: '#fff', fontWeight: 'bold' }}
+          >
+            Kane Justine Cometa
+          </Typography>
+
+          <Typography
+            variant={isMobile ? 'body2' : 'body1'}
+            color="#e0e0e0"
+            gutterBottom
+            sx={{ maxWidth: 500, px: { xs: 2, sm: 0 } }}
+          >
+            Aspiring Front-End Developer | Data Engineer | Data Scientist
+          </Typography>
+
+          <Button
+            variant="outlined"
+            size="large"
+            sx={{
+              color: '#fff',
+              borderColor: '#fff',
+              mt: 4,
+              width: { xs: '100%', sm: 'auto' },
+              '&:hover': {
+                borderColor: '#E7694B',
+                backgroundColor: '#E7694B',
+              },
+            }}
+            onClick={handlePortfolioClick}
+          >
+            View Portfolio
+          </Button>
+
+          <Box
+            sx={{
+              mt: 5,
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              gap: 2,
+            }}
+          >
+            <Button
+              size="large"
+              startIcon={<EmailIcon />}
+              href="mailto:2021kjcometa@live.mcl.edu.ph"
+              sx={{
+                color: 'white',
+                '&:hover': { color: '#E7694B' },
+              }}
+            />
+            <Button
+              size="large"
+              startIcon={<GitHubIcon />}
+              href="https://github.com/Deokgo"
+              target="_blank"
+              sx={{
+                color: 'white',
+                '&:hover': { color: '#E7694B' },
+              }}
+            />
+            <Button
+              size="large"
+              startIcon={<LinkedInIcon />}
+              href="https://linkedin.com/in/kane-justine-cometa"
+              target="_blank"
+              sx={{
+                color: 'white',
+                '&:hover': { color: '#E7694B' },
+              }}
+            />
+          </Box>
         </Box>
       </Box>
-    </Fade>
+    </Slide>
   );
 }
