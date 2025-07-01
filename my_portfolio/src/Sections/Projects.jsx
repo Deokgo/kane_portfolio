@@ -27,7 +27,7 @@ export function Projects() {
       name: "Institutional Research Repository",
       description: "Integrated user-friendly interface for managing and visualizing institutional research data with advanced search capabilities and data analytics dashboard.",
       technologies: ["Python", "React", "Postgresql", "Github"],
-      githubUrl: null,
+      githubUrl: "https://github.com/Deokgo/ResearchRepo-Web",
       liveUrl: null,
       imageUrl: "/src/assets/poly_image.svg",
     },
@@ -36,7 +36,7 @@ export function Projects() {
       name: "Procurement and Inventory Management System",
       description: "Integrated a simple user interface to facilitate company daily tasks (procurement and inventory management).",
       technologies: ["C#", "SQL", "Github", "Figma"],
-      githubUrl: null,
+      githubUrl: "https://github.com/Deokgo/Procurement_Inventory_System",
       liveUrl: null,
       imageUrl: "/src/assets/poly_image.svg",
     },
@@ -45,7 +45,7 @@ export function Projects() {
       name: "Final Revelation",
       description: "A game-based software application using Unity game engine and MySQL which consists of interactive puzzle game interface which can be controlled using keyboard.",
       technologies: ["Unity", "MySQL", "Github"],
-      githubUrl: null,
+      githubUrl: "https://github.com/Deokgo/Final_Revelation_Software_Application",
       liveUrl: null,
       imageUrl: "/src/assets/poly_image.svg",
     },
@@ -54,7 +54,7 @@ export function Projects() {
       name: "OMG.co",
       description: "Integrated user-friendly interface for handling inventory management, customer orders, and sales, reports.",
       technologies: ["ASP.NET", "C#", "MySQL", "Github"],
-      githubUrl: null,
+      githubUrl: "https://github.com/Deokgo/OMG.co",
       liveUrl: null,
       imageUrl: "/src/assets/poly_image.svg",
     }
@@ -94,7 +94,7 @@ export function Projects() {
               }}
             >
               <Paper
-                elevation={0} // disables default MUI shadow
+                elevation={0}
                 sx={{
                   maxWidth: { xs: 350, sm: 350, md: 380 },
                   minHeight: 'auto',
@@ -103,10 +103,10 @@ export function Projects() {
                   borderRadius: 3,
                   backgroundColor: 'rgba(255, 255, 255, 0.05)',
                   backdropFilter: 'blur(10px)',
-                  boxShadow: 'none',              // ✅ no shadow
+                  boxShadow: 'none',
                   transition: 'all 0.3s ease-in-out',
                   '&:hover': {
-                    boxShadow: '0 2px 10px #fff'  // Optional hover effect
+                    boxShadow: '0 2px 10px #fff'
                   }
                 }}
               >
@@ -119,28 +119,35 @@ export function Projects() {
                       width: '100%',
                       height: 120,
                       objectFit: 'cover',
-                      borderTopLeftRadius: 10,  // ✅ Apply top-left radius
-                      borderTopRightRadius: 10, // ✅ Apply top-right radius
+                      borderTopLeftRadius: 10,
+                      borderTopRightRadius: 10,
                       borderBottomLeftRadius: 0,
                       borderBottomRightRadius: 0,
                     }}
                   />
                 )}
-                <Box sx={{ p: { xs: 2.5, sm: 3 }, }}>
-                  {/* Project Header - Left aligned */}
+                
+                {/* Main content container - this will grow and push bottom content down */}
+                <Box sx={{ 
+                  p: { xs: 2.5, sm: 3 }, 
+                  display: 'flex', 
+                  flexDirection: 'column', 
+                  flexGrow: 1 // This makes the content area expand
+                }}>
+                  {/* Project Header */}
                   <Box sx={{ 
                     display: 'flex', 
-                    justifyContent: 'flex-start', // Left align header content
+                    justifyContent: 'flex-start',
                     alignItems: 'flex-start', 
                     mb: 2,
-                    textAlign: 'left' // Ensure text alignment is left
+                    textAlign: 'left'
                   }}>
                     <Typography 
                       variant="h5" 
                       sx={{ 
                         fontFamily: 'Kalnia, serif',
                         lineHeight: 1.3,
-                        textAlign: 'left', // Explicitly left align title
+                        textAlign: 'left',
                         color: '#fff',
                       }}
                     >
@@ -148,26 +155,33 @@ export function Projects() {
                     </Typography>
                   </Box>
 
-                  {/* Project Description - Left aligned */}
+                  {/* Project Description - this will grow to fill available space */}
                   <Typography 
                     color="text.secondary"
                     sx={{ 
                       lineHeight: 1.6, 
                       fontSize: '0.95rem',
-                      textAlign: 'left', // Explicitly left align description
-                      color: '#FFF'
+                      textAlign: 'left',
+                      color: '#FFF',
+                      flexGrow: 1, // This makes the description expand to fill space
+                      mb: 2 // Add margin bottom to separate from the anchored section
                     }}
                   >
                     {project.description}
                   </Typography>
 
-                  {/* Technologies Section - Left aligned */}
-                  <Box sx={{ mt: 2 }}>
+                  {/* Technologies and Buttons - anchored at bottom */}
+                  <Box sx={{
+                    display: 'flex', 
+                    justifyContent: 'space-between', 
+                    flexDirection: 'row',
+                    mt: 'auto' // This pushes the section to the bottom
+                  }}>
                     <Box sx={{ 
                       display: 'flex', 
                       flexWrap: 'wrap', 
                       gap: 0.5,
-                      justifyContent: 'flex-start' // Left align chips
+                      justifyContent: 'flex-start'
                     }}>
                       {project.technologies.map((tech, index) => (
                         <Chip
@@ -176,7 +190,8 @@ export function Projects() {
                           variant="outlined"
                           size="small"
                           sx={{
-                            fontSize: '0.7rem',
+                            fontSize: '0.8rem',
+                            fontWeight: 'bold',
                             height: 22,
                             color: '#E7694B',
                             borderColor: '#E7694B',
@@ -188,54 +203,54 @@ export function Projects() {
                         />
                       ))}
                     </Box>
-                  </Box>
 
-                  {/* Action Buttons - Left aligned */}
-                  <Box sx={{ 
-                    display: 'flex', 
-                    gap: 1, 
-                    justifyContent: 'flex-start' // Left align buttons
-                  }}>
-                    {project.githubUrl && (
-                      <Button
-                        variant="outlined"
-                        startIcon={<GitHub />}
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        size="small"
-                        sx={{
-                          borderColor: '#6c757d',
-                          color: '#6c757d',
-                          fontSize: '0.7rem',
-                          '&:hover': {
-                            borderColor: '#495057',
-                            backgroundColor: '#f8f9fa'
-                          }
-                        }}
-                      >
-                        Code
-                      </Button>
-                    )}
-                    {project.liveUrl && (
-                      <Button
-                        variant="contained"
-                        startIcon={<Launch />}
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        size="small"
-                        sx={{
-                          backgroundColor: '#E7694B',
-                          fontSize: '0.7rem',
-                          '&:hover': {
-                            backgroundColor: '#d85d42'
-                          }
-                        }}
-                      >
-                        Live Demo
-                      </Button>
-                    )}
+                    {/* Action Buttons */}
+                    <Box sx={{ 
+                      gap: 1, 
+                      px: 1,
+                      justifyContent: 'flex-start'
+                    }}>
+                      {project.githubUrl && (
+                        <Button
+                          variant="outlined"
+                          startIcon={<GitHub />}
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          size="small"
+                          sx={{
+                            color: '#FFF',
+                            borderColor: '#FFF',
+                            fontSize: '0.8rem',
+                            '&:hover': {
+                              borderColor: '#E7694B',
+                              color: '#E7694B',
+                            }
+                          }}
+                        >
+                          Code
+                        </Button>
+                      )}
+                      {project.liveUrl && (
+                        <Button
+                          variant="contained"
+                          startIcon={<Launch />}
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          size="small"
+                          sx={{
+                            backgroundColor: '#E7694B',
+                            fontSize: '0.7rem',
+                            '&:hover': {
+                              backgroundColor: '#d85d42'
+                            }
+                          }}
+                        >
+                          Live Demo
+                        </Button>
+                      )}
+                    </Box>
                   </Box>
                 </Box>
               </Paper>
