@@ -18,18 +18,37 @@ export function Contact() {
         gap: { xs: 2, sm: 3 },
       }}
     >
-        <Typography variant="h4" gutterBottom>Contact</Typography>
-        <Box component="form" sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-          <TextField label="Name" variant="outlined" required />
-          <TextField label="Email" variant="outlined" required />
-          <TextField label="Message" variant="outlined" multiline rows={4} required />
-          <Button variant="contained" color="primary">Send</Button>
-        </Box>
-        <Box sx={{ mt: 2, display: 'flex', gap: 2 }}>
-          <Button startIcon={<EmailIcon />} href="mailto:your.email@example.com">Email</Button>
-          <Button startIcon={<GitHubIcon />} href="https://github.com/yourusername" target="_blank">GitHub</Button>
-          <Button startIcon={<LinkedInIcon />} href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</Button>
-        </Box>
+        <Paper
+          elevation={0} // disables default MUI shadow
+          sx={{
+            p: 3, 
+            minHeight: 'auto',
+            display: 'flex',
+            flexDirection: 'column',
+            borderRadius: 3,
+            backgroundColor: 'rgba(255, 255, 255, 0.05)',
+            backdropFilter: 'blur(10px)',
+            boxShadow: 'none',              // ✅ no shadow
+            transition: 'all 0.3s ease-in-out',
+            '&:hover': {
+              boxShadow: '0 2px 10px #E7694B'  // Optional hover effect
+            }
+          }}
+        >
+          <Typography variant="h4" gutterBottom>Contact</Typography>
+          <Box component="form" sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+            <TextField label="Name" variant="outlined" required sx={{ color: '#FFF'}}/>
+            <TextField label="Email" variant="outlined" required sx={{ color: '#FFF'}}/>
+            <TextField label="Message" variant="outlined" multiline rows={4} required sx={{ color: '#FFF'}}/>
+            <Button variant="contained" color="primary">Send</Button>
+          </Box>
+          <Box sx={{ mt: 2, display: 'flex', gap: 2 }}>
+            <Button startIcon={<EmailIcon />} href="mailto:your.email@example.com">Email</Button>
+            <Button startIcon={<GitHubIcon />} href="https://github.com/yourusername" target="_blank">GitHub</Button>
+            <Button startIcon={<LinkedInIcon />} href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</Button>
+          </Box>
+        </Paper>
+        
     </Box>
   );
 }

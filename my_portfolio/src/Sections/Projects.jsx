@@ -8,7 +8,7 @@ export function Projects() {
       id: 1,
       name: "Portfolio Website",
       description: "A personal portfolio built with React and Material-UI showcasing projects, skills, and professional experience with smooth animations and responsive design.",
-      technologies: ["React", "Material-UI", "JavaScript", "CSS"],
+      technologies: ["React", "Figma"],
       githubUrl: null,
       liveUrl: null,
       imageUrl: "/src/assets/poly_image.svg",
@@ -86,13 +86,7 @@ export function Projects() {
           }}
         >
           {projects.map((project) => (
-            <Grid 
-              item 
-              xs={12}    // Full width on mobile
-              sm={6}     // 2 columns on small screens
-              md={6}     // 2 columns on medium screens
-              lg={4}     // 3 columns on large screens
-              xl={3}     // 4 columns on extra large screens
+            <Grid  
               key={project.id}
               sx={{
                 display: 'flex',

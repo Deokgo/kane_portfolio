@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Container, AppBar, Toolbar, Typography, Box, Tabs, Tab, Button, IconButton, Drawer, List, ListItem, ListItemButton, ListItemText } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Contact } from './Sections/Contacts';
@@ -6,7 +7,6 @@ import { About } from './Sections/About';
 import { Projects } from './Sections/Projects';
 import { Practicum } from './Sections/Practicum';
 import { useNavigate, useLocation } from 'react-router-dom';
-import Slide from '@mui/material/Slide';
 
 const sections = [
   { label: 'About Me', id: 'about', component: <About /> },
@@ -25,29 +25,28 @@ export default function Portfolio() {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
 
   React.useEffect(() => {
-    if (location.hash) {
-      const idx = sections.findIndex(s => `#${s.id}` === location.hash);
-      if (idx !== -1 && idx !== tab) {
-        // Handle direct URL access without animation
-        setTab(idx);
-        setDisplayTab(idx);
-      }
+    const path = location.pathname.split('/')[2] || 'about';
+    const idx = sections.findIndex((s) => s.id === path); // ✅ declared here
+    if (idx !== -1 && idx !== tab) {
+      setTab(idx);
+      setDisplayTab(idx);
     }
-  }, [location.hash]);
+  }, [location.pathname]);
+
 
   const handleTabChange = (e, newValue) => {
     if (newValue === tab || isTransitioning) return;
-    
+
     setSlideDirection(newValue > tab ? 'left' : 'right');
     setIsTransitioning(true);
-    
+
     // Phase 1: Fade out current content
     setTimeout(() => {
       // Phase 2: Change content and start slide in
       setDisplayTab(newValue);
       setTab(newValue);
-      navigate(`#${sections[newValue].id}`);
-      
+      navigate(`/portfolio/${sections[newValue].id}`); // <-- FIXED HERE
+
       // Phase 3: Complete transition
       setTimeout(() => {
         setIsTransitioning(false);
@@ -70,7 +69,7 @@ export default function Portfolio() {
               onClick={() => navigate('/')}
               sx={{ mr: 2 }}
             >
-              <img src="/src/assets/kane_white.svg" alt="Logo" style={{ height: 50 }} />
+              <img src="/src/assets/kane_white.svg" alt="Logo" style={{ height: 60 }} />
             </IconButton>
             {/* Hamburger for mobile */}
             <Box sx={{ display: { xs: 'flex', md: 'none' }, alignItems: 'center' }}>
@@ -156,7 +155,28 @@ export default function Portfolio() {
             textAlign: 'center',
           }}
         >
-          {sections[displayTab].component}
+          <Routes>
+            {sections.map((section) => (
+              <Route
+                key={section.id}
+                path={section.id}
+                element={
+                  <Box
+                    sx={{
+                      opacity: isTransitioning ? 0 : 1,
+                      transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                      filter: isTransitioning ? 'blur(2px)' : 'blur(0px)',
+                      textAlign: 'center',
+                    }}
+                  >
+                    {section.component}
+                  </Box>
+                }
+              />
+            ))}
+            {/* Optional fallback if no path matches */}
+            <Route path="*" element={<About />} />
+          </Routes>
         </Box>
       </Box>
     </Box>

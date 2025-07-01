@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Container, AppBar, Toolbar, Box } from '@mui/material';
+import { Box  } from '@mui/material';
 import Portfolio from './Portfolio';
-import Landing from './Landing';
+import Landing from './Landing'; // your landing/home component
 
 function App() {
   return (
@@ -22,10 +22,10 @@ function App() {
           zIndex: 0,
         }}
       />
-        <Box sx={{ position: 'relative', zIndex: 1 }}>
+      <Box sx={{ position: 'relative', zIndex: 1 }}>
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/portfolio/*" element={<Portfolio />} />
         </Routes>
       </Box>
     </Router>

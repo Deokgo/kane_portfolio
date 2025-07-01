@@ -26,77 +26,78 @@ export function About() {
           display: { xs: 'none', md: 'flex' }, // 🔥 Hide on mobile
           alignItems: 'flex-end',
           justifyContent: 'center',
-          backgroundImage: { md: "url('/src/assets/poly_image.svg')" },
+          backgroundImage: { md: "url('/src/assets/poly_image3.svg')" },
           backgroundSize: 'full',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center ',
         }}
       >
-        {/* Decorative blobs (already hidden on mobile via condition) 
-          <Box
-            component="img"
-            src="/src/assets/object_blob2.svg"
-            alt="Decorative blob"
-            sx={{
-              position: 'absolute',
-              top: '15%',
-              left: '5%',
-              transform: 'rotate(205deg)',
-              opacity: 0.4,
-              zIndex: 0,
-              width: '50%',
-              minWidth: 80,
-            }}
-          />
+        {/* Decorative blobs (already hidden on mobile via condition)*/}
+        <Box
+          component="img"
+          src="/src/assets/poly.svg"
+          alt="Decorative blob"
+          sx={{
+            position: 'absolute',
+            top: '10%',
+            right: '15%',
+            transform: 'rotate(85deg)',
+            opacity: 0.8,
+            zIndex: 0,
+            width: '10%',
+            minWidth: 80,
+            animation: 'fadeIn 2s ease-in, float4 4s ease-in-out infinite',
+              '@keyframes float4': {
+                '0%': { transform: 'rotate(85deg) translateY(0px)' },
+                '50%': { transform: 'rotate(85deg) translateX(-10px)' },
+                '100%': { transform: 'rotate(85deg) translateY(0px)' },
+              },
+          }}
+        />
 
-          <Box
-            component="img"
-            src="/src/assets/object_blob.svg"
-            alt="Decorative blob"
-            sx={{
-              position: 'absolute',
-              right: '5%',
-              bottom: '15%',
-              transform: 'rotate(85deg)',
-              opacity: 0.4,
-              zIndex: 3,
-              width: '40%',
-              minWidth: 60,
-            }}
-          />
+        <Box
+          component="img"
+          src="/src/assets/poly.svg"
+          alt="Decorative blob"
+          sx={{
+            position: 'absolute',
+            right: '10%',
+            bottom: '10%',
+            transform: 'rotate(255deg)',
+            opacity: 0.6,
+            zIndex: 3,
+            width: '20%',
+            minWidth: 60,
+            animation: 'fadeIn 2s ease-in, float3 4s ease-in-out infinite',
+            '@keyframes float3': {
+              '0%': { transform: 'rotate(255deg) translateY(0px)' },
+              '50%': { transform: 'rotate(255deg) translateX(-10px)' },
+              '100%': { transform: 'rotate(255deg) translateY(0px)' },
+            },
+          }}
+        />
 
-          <Box
-            component="img"
-            src="/src/assets/object_blob.svg"
-            alt="Decorative blob"
-            sx={{
-              position: 'absolute',
-              left: '5%',
-              bottom: '16%',
-              transform: 'rotate(85deg)',
-              opacity: 0.2,
-              zIndex: 2,
-              width: '25%',
-              minWidth: 60,
-            }}
-          />
-
-          <Box
-            component="img"
-            src="/src/assets/object_blob2.svg"
-            alt="Decorative blob"
-            sx={{
-              position: 'absolute',
-              left: '5%',
-              bottom: '-15%',
-              transform: 'rotate(15deg)',
-              zIndex: 2,
-              width: '50%',
-              minWidth: 60,
-            }}
-          />
-        */}
-        
+        <Box
+          component="img"
+          src="/src/assets/poly.svg"
+          alt="Decorative blob"
+          sx={{
+            position: 'absolute',
+            left: '15%',
+            bottom: '3%',
+            transformOrigin: 'center center', // You can also try 'bottom left' or 'top right' depending on the effect
+            opacity: 0.4,
+            zIndex: 2,
+            width: '25%',
+            minWidth: 60,
+            animation: 'fadeIn 2s ease-in, float2 4s ease-in-out infinite',
+            '@keyframes float2': {
+              '0%': { transform: 'rotate(75deg) translateY(0px)' },
+              '50%': { transform: 'rotate(75deg) translateX(-5px)' },
+              '100%': { transform: 'rotate(75deg) translateY(0px)' },
+            },
+          }}
+        />
 
         {/* Profile image */}
         <Box
@@ -146,7 +147,7 @@ export function About() {
         <Typography
           sx={{
             fontFamily: 'Kalnia, serif',
-            color: '#93BBD',
+            color: '#FFF',
             lineHeight: 1,
             textAlign: 'center',
             fontSize: {xs: '0.8rem', md: '1.5rem'}
@@ -195,7 +196,7 @@ export function About() {
             borderRadius: 3,
             backgroundColor: 'rgba(255, 255, 255, 0.05)',
             backdropFilter: 'blur(10px)',
-            boxShadow: 'none',              // ✅ no shadow
+            boxShadow: '0 2px 10px #FFF',              // ✅ no shadow
             transition: 'all 0.3s ease-in-out',
             '&:hover': {
               boxShadow: '0 2px 10px #E7694B'  // Optional hover effect
@@ -203,7 +204,7 @@ export function About() {
           }}
         >
           <Typography
-            variant="h6"
+            variant={isMobile ? 'body1' : 'h6'}
             gutterBottom
             sx={{
               color: '#FFF',

@@ -105,7 +105,7 @@ export default function Landing() {
           <Typography
             variant={isMobile ? 'h4' : 'h3'}
             gutterBottom
-            sx={{ color: '#fff', fontWeight: 'bold' }}
+            sx={{ color: '#fff', fontFamily: 'Kalnia, serif', }}
           >
             Kane Justine Cometa
           </Typography>
