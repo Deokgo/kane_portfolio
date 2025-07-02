@@ -106,7 +106,8 @@ export function Projects() {
                   boxShadow: 'none',
                   transition: 'all 0.3s ease-in-out',
                   '&:hover': {
-                    boxShadow: '0 2px 10px #fff'
+                    boxShadow: '0 1px 7px #fff',
+                    transform: 'translateY(-5px)'
                   }
                 }}
               >
@@ -174,6 +175,7 @@ export function Projects() {
                   <Box sx={{
                     display: 'flex', 
                     justifyContent: 'space-between', 
+                    gap: 5,
                     flexDirection: 'row',
                     mt: 'auto' // This pushes the section to the bottom
                   }}>
