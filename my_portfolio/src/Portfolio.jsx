@@ -63,14 +63,25 @@ export default function Portfolio() {
     <Box>
       <AppBar sx={{ backgroundColor: '#1A1818' }}>
         <Toolbar sx={{ height: 70, px: { xs: 1, sm: 2 } }}>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', px: 20}}>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', px: {xs: 5, md: 20}}}>
             <IconButton
               color="inherit"
               onClick={() => navigate('/')}
-              sx={{ mr: 2 }}
             >
               <img src="/src/assets/kane_white.svg" alt="Logo" style={{ height: 60 }} />
             </IconButton>
+            <Typography
+              sx={{
+                display: { xs: 'flex', md: 'none' },
+                fontFamily: 'Kalnia, serif',
+                color: '#E7694B',
+                py: 3,
+                textAlign: 'center',
+                fontSize: '1.5rem'
+              }}
+            >
+              {sections[tab].label}
+            </Typography>
             {/* Hamburger for mobile */}
             <Box sx={{ display: { xs: 'flex', md: 'none' }, alignItems: 'center' }}>
               <IconButton color="inherit" onClick={() => setDrawerOpen(true)}>
@@ -78,7 +89,7 @@ export default function Portfolio() {
               </IconButton>
             </Box>
             {/* Tabs for desktop */}
-            <Box sx={{ display: { xs: 'none', md: 'flex' }, flex: 1, justifyContent: 'center' }}>
+            <Box sx={{ display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
               <Tabs
                 value={tab}
                 onChange={handleTabChange}
@@ -128,6 +139,18 @@ export default function Portfolio() {
         onClose={() => setDrawerOpen(false)}
         PaperProps={{ sx: { width: 220, bgcolor: '#1A1818', color: '#fff' } }}
       >
+        <Typography
+          sx={{
+            fontFamily: 'Kalnia, serif',
+            color: '#FFF',
+            lineHeight: 1,
+            py: 3,
+            textAlign: 'center',
+            fontSize: '2rem'
+          }}
+        >
+          Menu
+        </Typography>
         <List>
           {sections.map((section, idx) => (
             <ListItem key={section.id} disablePadding>

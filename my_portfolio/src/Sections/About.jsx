@@ -15,7 +15,7 @@ export function About() {
         position: 'relative',
         overflow: 'hidden',
         mt: { xs: 10, md: 0 },
-        px: { xs: 5, sm: 10, md: 10 },
+        px: { xs: 0, md: 10 },
         gap: { xs: 2, sm: 3 },
       }}
     >
@@ -139,7 +139,8 @@ export function About() {
             src="/src/assets/profile_small.svg"
             alt="Profile"
             sx={{
-              height: '15rem' ,
+              py: 2,
+              height: '13rem' ,
               maxWidth: '100%',
             }}
           />

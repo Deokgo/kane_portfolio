@@ -82,7 +82,7 @@ export default function Landing() {
               src="/src/assets/profile_small.svg"
               alt="Logo"
               sx={{
-                height: { xs: '7rem', sm: '9rem', md: '15rem' },
+                height: { xs: '10rem', md: '15rem' },
                 maxWidth: '100%',
               }}
             />

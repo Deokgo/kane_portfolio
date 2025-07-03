@@ -67,9 +67,8 @@ export function Projects() {
         flexDirection: { xs: 'column', md: 'row' },
         minHeight: { xs: '100vh', md: 'unset' },
         position: 'relative',
-        mt: 15,
+        mt: {xs: 13, md: 15},
         pb: 5,
-        px: 5,
         gap: { xs: 2, sm: 3 },
       }}
     >

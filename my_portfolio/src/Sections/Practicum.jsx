@@ -12,7 +12,7 @@ export function Practicum() {
         flexDirection: 'column',
         minHeight: { xs: '100vh', md: 'unset' },
         position: 'relative',
-        mt: 15,
+        mt: {xs: 13, md: 15},
         pb: 5,
         px: 5,
         gap: { xs: 2, sm: 3 },
@@ -21,7 +21,7 @@ export function Practicum() {
       <Paper
         elevation={0}
         sx={{
-          width: '70vw',
+          width: {xs: '90vw', md: '70vw'},
           minHeight: 'auto',
           display: 'flex',
           flexDirection: 'column',
