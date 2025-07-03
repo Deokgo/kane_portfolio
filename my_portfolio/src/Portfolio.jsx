@@ -7,6 +7,7 @@ import { About } from './Sections/About';
 import { Projects } from './Sections/Projects';
 import { Practicum } from './Sections/Practicum';
 import { useNavigate, useLocation } from 'react-router-dom';
+import logo from './assets/kane_white.svg';
 
 const sections = [
   { label: 'About Me', id: 'about', component: <About /> },
@@ -68,7 +69,7 @@ export default function Portfolio() {
               color="inherit"
               onClick={() => navigate('/')}
             >
-              <img src="/src/assets/kane_white.svg" alt="Logo" style={{ height: 60 }} />
+              <img src={logo} alt="Logo" style={{ height: 60 }} />
             </IconButton>
             <Typography
               sx={{

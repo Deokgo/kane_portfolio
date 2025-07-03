@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Box, Typography, AppBar, Toolbar, Button, Grid, Paper, List, ListItem, ListItemIcon, ListItemText, TextField, Chip, IconButton } from '@mui/material';
 import { GitHub, Launch, Code } from '@mui/icons-material';
+import polyImage from '../assets/poly_image.svg';
 
 export function Projects() {
   const projects = [
@@ -11,7 +12,7 @@ export function Projects() {
       technologies: ["React", "Figma"],
       githubUrl: null,
       liveUrl: null,
-      imageUrl: "/src/assets/poly_image.svg",
+      imageUrl: polyImage,
     },
         {
       id: 2,
@@ -20,7 +21,7 @@ export function Projects() {
       technologies: ["Python", "React", "PostgreSQL", "Github", "Figma"],
       githubUrl: null,
       liveUrl: null,
-      imageUrl: "/src/assets/poly_image.svg",
+      imageUrl: polyImage,
     },
     {
       id: 3,
@@ -29,7 +30,7 @@ export function Projects() {
       technologies: ["Python", "React", "Postgresql", "Github"],
       githubUrl: "https://github.com/Deokgo/ResearchRepo-Web",
       liveUrl: null,
-      imageUrl: "/src/assets/poly_image.svg",
+      imageUrl: polyImage,
     },
     {
       id: 4,
@@ -38,7 +39,7 @@ export function Projects() {
       technologies: ["C#", "SQL", "Github", "Figma"],
       githubUrl: "https://github.com/Deokgo/Procurement_Inventory_System",
       liveUrl: null,
-      imageUrl: "/src/assets/poly_image.svg",
+      imageUrl: polyImage,
     },
     {
       id: 5,
@@ -47,7 +48,8 @@ export function Projects() {
       technologies: ["Unity", "MySQL", "Github"],
       githubUrl: "https://github.com/Deokgo/Final_Revelation_Software_Application",
       liveUrl: null,
-      imageUrl: "/src/assets/poly_image.svg",
+      imageUrl: polyImage,
+
     },
     {
       id: 6,
@@ -56,7 +58,7 @@ export function Projects() {
       technologies: ["ASP.NET", "C#", "MySQL", "Github"],
       githubUrl: "https://github.com/Deokgo/OMG.co",
       liveUrl: null,
-      imageUrl: "/src/assets/poly_image.svg",
+      imageUrl: polyImage,
     }
   ];
 
@@ -113,7 +115,7 @@ export function Projects() {
                 {project.imageUrl && (
                   <Box
                     component="img"
-                    src={project.imageUrl || '/src/assets/poly_image2.svg'}
+                    src={project.imageUrl || polyImage}
                     alt={`${project.name} image`}
                     sx={{
                       width: '100%',
@@ -192,7 +194,6 @@ export function Projects() {
                           size="small"
                           sx={{
                             fontSize: '0.8rem',
-                            fontWeight: 'bold',
                             height: 22,
                             color: '#E7694B',
                             borderColor: '#E7694B',

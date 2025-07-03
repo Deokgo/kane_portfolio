@@ -1,5 +1,9 @@
 import React from 'react';
 import { Box, Typography, useMediaQuery, useTheme, Paper } from '@mui/material';
+import polyImage from '../assets/poly_image3.svg';
+import poly from '../assets/poly.svg';
+import profile from '../assets/profile.png';
+import profileSmall from '../assets/profile_small.svg';
 
 export function About() {
   const theme = useTheme();
@@ -26,7 +30,7 @@ export function About() {
           display: { xs: 'none', md: 'flex' }, // 🔥 Hide on mobile
           alignItems: 'flex-end',
           justifyContent: 'center',
-          backgroundImage: { md: "url('/src/assets/poly_image3.svg')" },
+          backgroundImage: `url(${polyImage})`,
           backgroundSize: 'full',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center ',
@@ -35,7 +39,7 @@ export function About() {
         {/* Decorative blobs (already hidden on mobile via condition)*/}
         <Box
           component="img"
-          src="/src/assets/poly.svg"
+          src={poly}
           alt="Decorative blob"
           sx={{
             position: 'absolute',
@@ -57,7 +61,7 @@ export function About() {
 
         <Box
           component="img"
-          src="/src/assets/poly.svg"
+          src={poly}
           alt="Decorative blob"
           sx={{
             position: 'absolute',
@@ -79,7 +83,7 @@ export function About() {
 
         <Box
           component="img"
-          src="/src/assets/poly.svg"
+          src={poly}
           alt="Decorative blob"
           sx={{
             position: 'absolute',
@@ -102,7 +106,7 @@ export function About() {
         {/* Profile image */}
         <Box
           component="img"
-          src="/src/assets/profile.png"
+          src={profile}
           alt="Profile"
           sx={{
             height: '85vh',
@@ -136,7 +140,7 @@ export function About() {
         }}>
           <Box
             component="img"
-            src="/src/assets/profile_small.svg"
+            src={profileSmall}
             alt="Profile"
             sx={{
               py: 2,

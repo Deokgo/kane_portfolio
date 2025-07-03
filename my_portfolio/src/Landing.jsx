@@ -6,6 +6,8 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import LockIcon from '@mui/icons-material/Lock';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
+import polyImage from './assets/poly_image.svg';
+import profileSmall from './assets/profile_small.svg';
 import Slide from '@mui/material/Slide';
 
 export default function Landing() {
@@ -47,7 +49,7 @@ export default function Landing() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundImage: 'url(/src/assets/poly_image.svg)',
+          backgroundImage: `url(${polyImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           zIndex: 0,
@@ -79,7 +81,7 @@ export default function Landing() {
           <Box sx={{ mb: 3 }}>
             <Box
               component="img"
-              src="/src/assets/profile_small.svg"
+              src={profileSmall}
               alt="Logo"
               sx={{
                 height: { xs: '10rem', md: '15rem' },

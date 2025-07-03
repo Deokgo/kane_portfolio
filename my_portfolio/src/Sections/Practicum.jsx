@@ -3,6 +3,7 @@ import { Box, Typography, Paper, Divider } from '@mui/material';
 import BusinessIcon from '@mui/icons-material/Business';
 import ListAltIcon from '@mui/icons-material/ListAlt';
 import HourglassBottomIcon from '@mui/icons-material/HourglassBottom';
+import practicum from '../assets/practicum.jpg'; 
 
 export function Practicum() {
   return (
@@ -40,7 +41,7 @@ export function Practicum() {
           {/* Background image */}
           <Box
             component="img"
-            src={'/src/assets/practicum.jpg'}
+            src={practicum}
             alt='image'
             sx={{
               width: '100%',
