@@ -7,7 +7,7 @@ import polyImage from './assets/poly_image2.svg';
 
 function App() {
   return (
-    <Router basename="/kane_portfolio/">
+    <Router>
       {/* Background image overlay with opacity */}
       <Box
         sx={{
