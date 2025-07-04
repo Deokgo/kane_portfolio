@@ -75,7 +75,7 @@ export default function Portfolio() {
               sx={{
                 display: { xs: 'flex', md: 'none' },
                 fontFamily: 'Kalnia, serif',
-                color: '#E7694B',
+                color: '#FFF',
                 py: 3,
                 textAlign: 'center',
                 fontSize: '1.5rem'
