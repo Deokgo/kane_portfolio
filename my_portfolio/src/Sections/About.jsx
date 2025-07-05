@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Typography, useMediaQuery, useTheme, Paper } from '@mui/material';
+import { useThemeMode } from '../ThemeContext';
 import polyImage from '../assets/poly_image3.svg';
 import poly from '../assets/poly.svg';
 import profile from '../assets/profile.png';
@@ -7,6 +8,7 @@ import profileSmall from '../assets/profile_small.svg';
 
 export function About() {
   const theme = useTheme();
+  const { mode } = useThemeMode();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
@@ -152,7 +154,7 @@ export function About() {
         <Typography
           sx={{
             fontFamily: 'Kalnia, serif',
-            color: '#FFF',
+            color: theme.palette.text.primary,
             lineHeight: 1,
             textAlign: 'center',
             fontSize: {xs: '0.8rem', md: '1.5rem'}
@@ -185,7 +187,7 @@ export function About() {
           gutterBottom
           sx={{
             fontFamily: 'Kalnia, serif',
-            color: '#93BBD',
+            color: mode === 'light' ? '#666' : '#93BBD',
             mb: 4,
             textAlign: 'center',
           }}
@@ -200,12 +202,16 @@ export function About() {
             display: 'flex',
             flexDirection: 'column',
             borderRadius: 3,
-            backgroundColor: 'rgba(255, 255, 255, 0.05)',
+            backgroundColor: mode === 'light' 
+              ? 'rgba(255, 255, 255, 0.9)' 
+              : 'rgba(255, 255, 255, 0.05)',
             backdropFilter: 'blur(10px)',
-            boxShadow: '0 2px 10px #FFF',              // ✅ no shadow
+            boxShadow: mode === 'light' 
+              ? '0 2px 10px rgba(0, 0, 0, 0.1)' 
+              : '0 2px 10px #FFF',
             transition: 'all 0.3s ease-in-out',
             '&:hover': {
-              boxShadow: '0 2px 10px #E7694B'  // Optional hover effect
+              boxShadow: '0 2px 10px #E7694B'
             }
           }}
         >
@@ -213,7 +219,7 @@ export function About() {
             variant={isMobile ? 'body1' : 'h6'}
             gutterBottom
             sx={{
-              color: '#FFF',
+              color: theme.palette.text.primary,
               lineHeight: 1.5,
               textAlign: 'justify',
               px: { xs: 1, sm: 0 },

@@ -1,11 +1,17 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Box  } from '@mui/material';
+import { Box, useTheme } from '@mui/material';
+import { useThemeMode } from './ThemeContext';
 import Portfolio from './Portfolio';
 import Landing from './Landing'; // your landing/home component
-import polyImage from './assets/poly_image2.svg';
+import polyDark from './assets/poly_image_dark.svg';
+import polyLight from './assets/poly_image_light.svg';
 
 function App() {
+  const theme = useTheme();
+  const { mode } = useThemeMode();
+  
+
   return (
     <Router>
       {/* Background image overlay with opacity */}
@@ -24,10 +30,11 @@ function App() {
           sx={{
             width: '100%',
             height: '100%',
-            backgroundImage: `url(${polyImage})`,
+            backgroundImage: mode === 'light' ? `url(${polyLight})` : `url(${polyDark})`, // Use different images for different modes
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            opacity: 0.5, // Change this value for desired transparency
+            opacity: 0.3,
+            filter: mode === 'light' ? 'brightness(2)' : 'brightness(0.6)', // Darken the image (0.5 = 50% darker, 1.0 = normal)
           }}
         />
       </Box>

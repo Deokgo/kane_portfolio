@@ -1,18 +1,22 @@
 import React from 'react';
 import { Box, Typography, Button, useMediaQuery, useTheme } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { useThemeMode } from './ThemeContext';
 import EmailIcon from '@mui/icons-material/Email';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import LockIcon from '@mui/icons-material/Lock';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
-import polyImage from './assets/poly_image.svg';
+import ThemeToggleButton from './ThemeToggleButton';
+import polyDark from './assets/poly_image_dark.svg';
+import polyLight from './assets/poly_image_light.svg';
 import profileSmall from './assets/profile_small.svg';
 import Slide from '@mui/material/Slide';
 
 export default function Landing() {
   const navigate = useNavigate();
   const theme = useTheme();
+  const { mode } = useThemeMode();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [slideOut, setSlideOut] = React.useState(false);
   const [unlocked, setUnlocked] = React.useState(false);
@@ -49,7 +53,7 @@ export default function Landing() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundImage: `url(${polyImage})`,
+          backgroundImage: mode === 'light' ? `url(${polyLight})` : `url(${polyDark})`, // Use different images for different modes
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           zIndex: 0,
@@ -62,10 +66,24 @@ export default function Landing() {
             left: 0,
             width: '100vw',
             height: '100vh',
-            bgcolor: 'rgba(40, 48, 63, 0.5)',
+            opacity: 0.9,
+            bgcolor: mode === 'light' 
+              ? 'rgba(255, 255, 255, 0.3)' 
+              : 'rgba(40, 48, 63, 0.5)',
             zIndex: 1,
           }}
         />
+        {/* Theme toggle button */}
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 20,
+            right: 20,
+            zIndex: 3,
+          }}
+        >
+          <ThemeToggleButton />
+        </Box>
         <Box
           sx={{
             display: 'flex',
@@ -98,25 +116,31 @@ export default function Landing() {
             }}
           >
             {unlocked ? (
-              <LockOpenIcon sx={{ fontSize: 30, color: '#fff' }} />
+              <LockOpenIcon sx={{ fontSize: 30, color: theme.palette.text.primary }} />
             ) : (
-              <LockIcon sx={{ fontSize: 30, color: '#fff' }} />
+              <LockIcon sx={{ fontSize: 30, color: theme.palette.text.primary }} />
             )}
           </Box>
 
           <Typography
             variant={isMobile ? 'h4' : 'h3'}
             gutterBottom
-            sx={{ color: '#fff', fontFamily: 'Kalnia, serif', }}
+            sx={{ 
+              color: theme.palette.text.primary, 
+              fontFamily: 'Kalnia, serif',
+            }}
           >
             Kane Justine Cometa
           </Typography>
 
           <Typography
             variant={isMobile ? 'body2' : 'body1'}
-            color="#FFF"
             gutterBottom
-            sx={{ maxWidth: 500, px: { xs: 2, sm: 0 } }}
+            sx={{ 
+              maxWidth: 500, 
+              px: { xs: 2, sm: 0 },
+              color: theme.palette.text.secondary,
+            }}
           >
             Aspiring Front-End Developer | Data Engineer | Data Scientist
           </Typography>
@@ -125,14 +149,15 @@ export default function Landing() {
             variant="outlined"
             size="large"
             sx={{
-              color: '#fff',
+              color: theme.palette.text.primary,
               fontWeight: 'bold',
-              borderColor: '#fff',
+              borderColor: theme.palette.text.primary,
               mt: 4,
               width: { xs: '100%', sm: 'auto' },
               '&:hover': {
                 borderColor: '#E7694B',
                 backgroundColor: '#E7694B',
+                color: '#fff',
               },
             }}
             onClick={handlePortfolioClick}
@@ -154,7 +179,7 @@ export default function Landing() {
               startIcon={<EmailIcon />}
               href="mailto:2021kjcometa@live.mcl.edu.ph"
               sx={{
-                color: 'white',
+                color: theme.palette.text.primary,
                 '&:hover': { color: '#E7694B' },
               }}
             />
@@ -164,7 +189,7 @@ export default function Landing() {
               href="https://github.com/Deokgo"
               target="_blank"
               sx={{
-                color: 'white',
+                color: theme.palette.text.primary,
                 '&:hover': { color: '#E7694B' },
               }}
             />
@@ -174,7 +199,7 @@ export default function Landing() {
               href="https://linkedin.com/in/kane-justine-cometa"
               target="_blank"
               sx={{
-                color: 'white',
+                color: theme.palette.text.primary,
                 '&:hover': { color: '#E7694B' },
               }}
             />

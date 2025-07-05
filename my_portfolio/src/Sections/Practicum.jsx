@@ -1,21 +1,24 @@
 import React from 'react';
-import { Box, Typography, Paper, Divider } from '@mui/material';
+import { Box, Typography, Paper, Divider, useTheme } from '@mui/material';
+import { useThemeMode } from '../ThemeContext';
 import BusinessIcon from '@mui/icons-material/Business';
 import ListAltIcon from '@mui/icons-material/ListAlt';
 import HourglassBottomIcon from '@mui/icons-material/HourglassBottom';
 import practicum from '../assets/practicum.jpg'; 
 
 export function Practicum() {
+  const theme = useTheme();
+  const { mode } = useThemeMode();
+  
   return (
     <Box
       sx={{
         display: 'flex',
-        flexDirection: 'column',
+        flexDirection: { xs: 'column', md: 'row' },
         minHeight: { xs: '100vh', md: 'unset' },
         position: 'relative',
         mt: {xs: 13, md: 15},
         pb: 5,
-        px: 5,
         gap: { xs: 2, sm: 3 },
       }}
     >
@@ -27,12 +30,18 @@ export function Practicum() {
           display: 'flex',
           flexDirection: 'column',
           borderRadius: 3,
-          backgroundColor: 'rgba(255, 255, 255, 0.05)',
+          backgroundColor: mode === 'light' 
+            ? 'rgba(255, 255, 255, 0.9)' 
+            : 'rgba(255, 255, 255, 0.05)',
           backdropFilter: 'blur(10px)',
-          boxShadow: 'none',
+          boxShadow: mode === 'light' 
+            ? '0 2px 10px rgba(0, 0, 0, 0.1)' 
+            : 'none',
           transition: 'all 0.3s ease-in-out',
           '&:hover': {
-            boxShadow: '0 1px 7px #fff'
+            boxShadow: mode === 'light' 
+              ? '0 4px 20px rgba(231, 105, 75, 0.3)' 
+              : '0 1px 7px #fff'
           }
         }}
       >
@@ -47,6 +56,7 @@ export function Practicum() {
               width: '100%',
               height: 250,
               objectFit: 'cover',
+              filter: 'brightness(0.5)', // Darken the image (0.5 = 50% darker, 1.0 = normal)
               borderTopLeftRadius: 10,
               borderTopRightRadius: 10,
               borderBottomLeftRadius: 0,
@@ -62,7 +72,6 @@ export function Practicum() {
               left: 0,
               right: 0,
               bottom: 0,
-              backgroundColor: 'rgba(2, 0, 0, 0.6)', // ← Adjust color & transparency here
               borderTopLeftRadius: 10,
               borderTopRightRadius: 10,
               zIndex: 1, // Ensure it's above the image
@@ -108,7 +117,7 @@ export function Practicum() {
                 fontFamily: 'Kalnia, serif',
                 lineHeight: 1.3,
                 textAlign: 'left',
-                color: '#fff',
+                color: theme.palette.text.primary,
               }}
             >
               <BusinessIcon sx={{fontSize: '1.2rem'}}></BusinessIcon> Company Overview
@@ -125,7 +134,7 @@ export function Practicum() {
                 lineHeight: 1.8,
                 textAlign: 'justify',
                 textIndent: '2rem',
-                color: '#fff',
+                color: theme.palette.text.primary,
               }}
             >
               PetroEnergy Resources Corporation (PERC), a renewable energy firm located in Ortigas Business Center, Pasig City. The company is 
@@ -144,7 +153,7 @@ export function Practicum() {
                 fontFamily: 'Kalnia, serif',
                 lineHeight: 1.3,
                 textAlign: 'left',
-                color: '#fff',
+                color: theme.palette.text.primary,
               }}
             >
               <ListAltIcon sx={{fontSize: '1.2rem'}}></ListAltIcon> Nature of Assignments or Tasks Given
@@ -161,7 +170,7 @@ export function Practicum() {
                 lineHeight: 1.8,
                 textAlign: 'justify',
                 textIndent: '2rem',
-                color: '#fff',
+                color: theme.palette.text.primary,
               }}
             >
               My practicum involves a full-cycle software development which starts with project orientation and setup, 
@@ -180,7 +189,7 @@ export function Practicum() {
                 fontFamily: 'Kalnia, serif',
                 lineHeight: 1.3,
                 textAlign: 'left',
-                color: '#fff',
+                color: theme.palette.text.primary,
               }}
             >
               <HourglassBottomIcon sx={{fontSize: '1.2rem'}}></HourglassBottomIcon> Total Hours Rendered
@@ -197,7 +206,7 @@ export function Practicum() {
                 lineHeight: 1.8,
                 textAlign: 'justify',
                 textIndent: '2rem',
-                color: '#fff',
+                color: theme.palette.text.primary,
               }}
             >
               I completed a total of 379 hours during the practicum. This includes 96 hours for project setup and 
@@ -220,7 +229,7 @@ export function Practicum() {
                 fontFamily: 'Kalnia, serif',
                 lineHeight: 1.3,
                 textAlign: 'left',
-                color: '#fff',
+                color: theme.palette.text.primary,
               }}
             >
               Conclusion
@@ -237,7 +246,7 @@ export function Practicum() {
                 fontFamily: 'Kalnia, serif',
                 lineHeight: 1.3,
                 textAlign: 'left',
-                color: '#fff',
+                color: theme.palette.text.primary,
               }}
             >
               [content]

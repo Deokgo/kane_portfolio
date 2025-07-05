@@ -1,13 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Container, AppBar, Toolbar, Typography, Box, Tabs, Tab, Button, IconButton, Drawer, List, ListItem, ListItemButton, ListItemText } from '@mui/material';
+import { Container, AppBar, Toolbar, Typography, Box, Tabs, Tab, Button, IconButton, Drawer, List, ListItem, ListItemButton, ListItemText, useTheme } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import ThemeToggleButton from './ThemeToggleButton';
+import { useThemeMode } from './ThemeContext';
 import { Contact } from './Sections/Contacts';
 import { About } from './Sections/About';
 import { Projects } from './Sections/Projects';
 import { Practicum } from './Sections/Practicum';
 import { useNavigate, useLocation } from 'react-router-dom';
-import logo from './assets/kane_white.svg';
+import dark from './assets/kane_white.svg';
+import light from './assets/kane_light.svg';
 
 const sections = [
   { label: 'About Me', id: 'about', component: <About /> },
@@ -19,6 +22,8 @@ const sections = [
 export default function Portfolio() {
   const location = useLocation();
   const navigate = useNavigate();
+  const theme = useTheme();
+  const { mode } = useThemeMode();
   const [tab, setTab] = React.useState(0);
   const [displayTab, setDisplayTab] = React.useState(0);
   const [isTransitioning, setIsTransitioning] = React.useState(false);
@@ -62,20 +67,23 @@ export default function Portfolio() {
 
   return (
     <Box>
-      <AppBar sx={{ backgroundColor: '#1A1818' }}>
-        <Toolbar sx={{ height: 70, px: { xs: 1, sm: 2 } }}>
+      <AppBar sx={{ 
+        backgroundColor: mode === 'light' ? '#fff' : '#1A1818',
+        color: theme.palette.text.primary,
+        boxShadow: mode === 'light' ? '0 2px 4px rgba(0,0,0,0.1)' : 'none',
+      }}>
+        <Toolbar sx={{ height: 40, px: { xs: 1, sm: 2 } }}>
           <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', px: {xs: 5, md: 20}}}>
             <IconButton
-              color="inherit"
               onClick={() => navigate('/')}
             >
-              <img src={logo} alt="Logo" style={{ height: 60 }} />
+              <img src={mode === 'light' ? light : dark} alt="Logo" style={{ height: 60 }} />
             </IconButton>
             <Typography
               sx={{
                 display: { xs: 'flex', md: 'none' },
                 fontFamily: 'Kalnia, serif',
-                color: '#FFF',
+                color: theme.palette.text.primary,
                 py: 3,
                 textAlign: 'center',
                 fontSize: '1.5rem'
@@ -83,14 +91,15 @@ export default function Portfolio() {
             >
               {sections[tab].label}
             </Typography>
-            {/* Hamburger for mobile */}
-            <Box sx={{ display: { xs: 'flex', md: 'none' }, alignItems: 'center' }}>
-              <IconButton color="inherit" onClick={() => setDrawerOpen(true)}>
+            {/* Theme toggle for mobile */}
+            <Box sx={{ display: { xs: 'flex', md: 'none' }, alignItems: 'center', gap: 1 }}>
+              <ThemeToggleButton />
+              <IconButton sx={{ color: theme.palette.text.primary }} onClick={() => setDrawerOpen(true)}>
                 <MenuIcon />
               </IconButton>
             </Box>
             {/* Tabs for desktop */}
-            <Box sx={{ display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
+            <Box sx={{ display: { xs: 'none', md: 'flex' }, justifyContent: 'center', alignItems: 'center', gap: 2 }}>
               <Tabs
                 value={tab}
                 onChange={handleTabChange}
@@ -104,7 +113,7 @@ export default function Portfolio() {
                   '& .MuiTab-root': {
                     minHeight: 70,
                     paddingBottom: 0,
-                    color: '#FFF',
+                    color: theme.palette.text.primary,
                     transition: 'color 0.3s ease',
                   },
                   '& .MuiTab-root.Mui-selected': {
@@ -129,6 +138,8 @@ export default function Portfolio() {
                   <Tab key={section.id} label={section.label} />
                 ))}
               </Tabs>
+              {/* Theme toggle for desktop */}
+              <ThemeToggleButton />
             </Box>
           </Box>
         </Toolbar>
@@ -138,12 +149,18 @@ export default function Portfolio() {
         anchor="right"
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
-        PaperProps={{ sx: { width: 220, bgcolor: '#1A1818', color: '#fff' } }}
+        PaperProps={{ 
+          sx: { 
+            width: 220, 
+            bgcolor: mode === 'light' ? '#fff' : '#1A1818', 
+            color: theme.palette.text.primary 
+          } 
+        }}
       >
         <Typography
           sx={{
             fontFamily: 'Kalnia, serif',
-            color: '#FFF',
+            color: theme.palette.text.primary,
             lineHeight: 1,
             py: 3,
             textAlign: 'center',
@@ -156,7 +173,13 @@ export default function Portfolio() {
           {sections.map((section, idx) => (
             <ListItem key={section.id} disablePadding>
               <ListItemButton selected={tab === idx} onClick={() => handleDrawerTabClick(idx)}>
-                <ListItemText primary={section.label} sx={{ pl: 1, color: tab === idx ? '#E7694B' : '#fff' }} />
+                <ListItemText 
+                  primary={section.label} 
+                  sx={{ 
+                    pl: 1, 
+                    color: tab === idx ? '#E7694B' : theme.palette.text.primary 
+                  }} 
+                />
               </ListItemButton>
             </ListItem>
           ))}

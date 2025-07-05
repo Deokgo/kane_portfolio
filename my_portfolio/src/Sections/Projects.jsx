@@ -1,9 +1,13 @@
 import React from 'react';
-import { Container, Box, Typography, AppBar, Toolbar, Button, Grid, Paper, List, ListItem, ListItemIcon, ListItemText, TextField, Chip, IconButton } from '@mui/material';
+import { Container, Box, Typography, AppBar, Toolbar, Button, Grid, Paper, List, ListItem, ListItemIcon, ListItemText, TextField, Chip, IconButton, useTheme } from '@mui/material';
 import { GitHub, Launch, Code } from '@mui/icons-material';
+import { useThemeMode } from '../ThemeContext';
 import polyImage from '../assets/poly_image.svg';
 
 export function Projects() {
+  const theme = useTheme();
+  const { mode } = useThemeMode();
+  
   const projects = [
     {
       id: 1,
@@ -102,12 +106,18 @@ export function Projects() {
                   display: 'flex',
                   flexDirection: 'column',
                   borderRadius: 3,
-                  backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                  backgroundColor: mode === 'light' 
+                    ? 'rgba(255, 255, 255, 0.9)' 
+                    : 'rgba(255, 255, 255, 0.05)',
                   backdropFilter: 'blur(10px)',
-                  boxShadow: 'none',
+                  boxShadow: mode === 'light' 
+                    ? '0 2px 10px rgba(0, 0, 0, 0.1)' 
+                    : 'none',
                   transition: 'all 0.3s ease-in-out',
                   '&:hover': {
-                    boxShadow: '0 1px 7px #fff',
+                    boxShadow: mode === 'light' 
+                      ? '0 4px 20px rgba(231, 105, 75, 0.3)' 
+                      : '0 1px 7px #fff',
                     transform: 'translateY(-5px)'
                   }
                 }}
@@ -150,7 +160,7 @@ export function Projects() {
                         fontFamily: 'Kalnia, serif',
                         lineHeight: 1.3,
                         textAlign: 'left',
-                        color: '#fff',
+                        color: theme.palette.text.primary,
                       }}
                     >
                       {project.name}
@@ -164,7 +174,7 @@ export function Projects() {
                       lineHeight: 1.6, 
                       fontSize: '0.95rem',
                       textAlign: 'left',
-                      color: '#FFF',
+                      color: theme.palette.text.secondary,
                       flexGrow: 1, // This makes the description expand to fill space
                       mb: 2 // Add margin bottom to separate from the anchored section
                     }}
@@ -221,8 +231,8 @@ export function Projects() {
                           rel="noopener noreferrer"
                           size="small"
                           sx={{
-                            color: '#FFF',
-                            borderColor: '#FFF',
+                            color: theme.palette.text.primary,
+                            borderColor: theme.palette.text.primary,
                             fontSize: '0.8rem',
                             '&:hover': {
                               borderColor: '#E7694B',
