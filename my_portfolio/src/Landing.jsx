@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Button, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Typography, Button, useMediaQuery, useTheme, IconButton } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useThemeMode } from './ThemeContext';
 import EmailIcon from '@mui/icons-material/Email';
@@ -68,13 +68,13 @@ export default function Landing() {
             height: '100vh',
             opacity: 0.9,
             bgcolor: mode === 'light' 
-              ? 'rgba(255, 255, 255, 0.3)' 
-              : 'rgba(40, 48, 63, 0.5)',
+              ? 'rgba(255, 255, 255, 0.7)' 
+              : 'rgba(0, 0, 0, 0.7)',
             zIndex: 1,
           }}
         />
         {/* Theme toggle button */}
-        <Box
+        <IconButton
           sx={{
             position: 'absolute',
             top: 20,
@@ -83,7 +83,7 @@ export default function Landing() {
           }}
         >
           <ThemeToggleButton />
-        </Box>
+        </IconButton>
         <Box
           sx={{
             display: 'flex',
@@ -142,7 +142,7 @@ export default function Landing() {
               color: theme.palette.text.secondary,
             }}
           >
-            Aspiring Front-End Developer | Data Engineer | Data Scientist
+            UI/UX Designer | Front-End Developer | Data Engineer
           </Typography>
 
           <Button
@@ -174,35 +174,38 @@ export default function Landing() {
               gap: 2,
             }}
           >
-            <Button
+            <IconButton
               size="large"
-              startIcon={<EmailIcon />}
               href="mailto:2021kjcometa@live.mcl.edu.ph"
               sx={{
                 color: theme.palette.text.primary,
                 '&:hover': { color: '#E7694B' },
               }}
-            />
-            <Button
+            >
+              <EmailIcon />
+            </IconButton>
+            <IconButton
               size="large"
-              startIcon={<GitHubIcon />}
               href="https://github.com/Deokgo"
               target="_blank"
               sx={{
                 color: theme.palette.text.primary,
                 '&:hover': { color: '#E7694B' },
               }}
-            />
-            <Button
+            >
+              <GitHubIcon />
+            </IconButton>
+            <IconButton
               size="large"
-              startIcon={<LinkedInIcon />}
               href="https://linkedin.com/in/kane-justine-cometa"
               target="_blank"
               sx={{
                 color: theme.palette.text.primary,
                 '&:hover': { color: '#E7694B' },
               }}
-            />
+            >
+              <LinkedInIcon />
+            </IconButton>
           </Box>
         </Box>
       </Box>

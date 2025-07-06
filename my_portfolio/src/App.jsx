@@ -21,6 +21,9 @@ function App() {
           top: 0,
           left: 0,
           width: '100vw',
+          backgroundImage: mode === 'light' ? `url(${polyLight})` : `url(${polyDark})`, // Use different images for different modes
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
           height: '100vh',
           zIndex: 0,
           pointerEvents: 'none',
@@ -30,11 +33,10 @@ function App() {
           sx={{
             width: '100%',
             height: '100%',
-            backgroundImage: mode === 'light' ? `url(${polyLight})` : `url(${polyDark})`, // Use different images for different modes
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            opacity: 0.3,
-            filter: mode === 'light' ? 'brightness(2)' : 'brightness(0.6)', // Darken the image (0.5 = 50% darker, 1.0 = normal)
+            opacity: 0.9,
+            bgcolor: mode === 'light' 
+              ? 'rgba(255, 255, 255, 0.9)' 
+              : 'rgba(0, 0, 0, 0.9)',
           }}
         />
       </Box>

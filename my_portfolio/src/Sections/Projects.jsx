@@ -2,7 +2,8 @@ import React from 'react';
 import { Container, Box, Typography, AppBar, Toolbar, Button, Grid, Paper, List, ListItem, ListItemIcon, ListItemText, TextField, Chip, IconButton, useTheme } from '@mui/material';
 import { GitHub, Launch, Code } from '@mui/icons-material';
 import { useThemeMode } from '../ThemeContext';
-import polyImage from '../assets/poly_image.svg';
+import light from '../assets/poly_image_light.svg';
+import dark from '../assets/poly_image_dark.svg';
 
 export function Projects() {
   const theme = useTheme();
@@ -16,7 +17,7 @@ export function Projects() {
       technologies: ["React", "Figma"],
       githubUrl: null,
       liveUrl: null,
-      imageUrl: polyImage,
+      imageUrl: mode === 'light' ? light : dark,
     },
         {
       id: 2,
@@ -25,7 +26,7 @@ export function Projects() {
       technologies: ["Python", "React", "PostgreSQL", "Github", "Figma"],
       githubUrl: null,
       liveUrl: null,
-      imageUrl: polyImage,
+      imageUrl: mode === 'light' ? light : dark,
     },
     {
       id: 3,
@@ -34,7 +35,7 @@ export function Projects() {
       technologies: ["Python", "React", "Postgresql", "Github"],
       githubUrl: "https://github.com/Deokgo/ResearchRepo-Web",
       liveUrl: null,
-      imageUrl: polyImage,
+      imageUrl: mode === 'light' ? light : dark,
     },
     {
       id: 4,
@@ -43,7 +44,7 @@ export function Projects() {
       technologies: ["C#", "SQL", "Github", "Figma"],
       githubUrl: "https://github.com/Deokgo/Procurement_Inventory_System",
       liveUrl: null,
-      imageUrl: polyImage,
+      imageUrl: mode === 'light' ? light : dark,
     },
     {
       id: 5,
@@ -52,7 +53,7 @@ export function Projects() {
       technologies: ["Unity", "MySQL", "Github"],
       githubUrl: "https://github.com/Deokgo/Final_Revelation_Software_Application",
       liveUrl: null,
-      imageUrl: polyImage,
+      imageUrl: mode === 'light' ? light : dark,
 
     },
     {
@@ -62,7 +63,7 @@ export function Projects() {
       technologies: ["ASP.NET", "C#", "MySQL", "Github"],
       githubUrl: "https://github.com/Deokgo/OMG.co",
       liveUrl: null,
-      imageUrl: polyImage,
+      imageUrl: mode === 'light' ? light : dark,
     }
   ];
 
