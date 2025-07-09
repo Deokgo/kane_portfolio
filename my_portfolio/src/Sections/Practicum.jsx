@@ -56,7 +56,6 @@ export function Practicum() {
               width: '100%',
               height: 250,
               objectFit: 'cover',
-              filter: 'brightness(0.5)', // Darken the image (0.5 = 50% darker, 1.0 = normal)
               borderTopLeftRadius: 10,
               borderTopRightRadius: 10,
               borderBottomLeftRadius: 0,
@@ -72,6 +71,9 @@ export function Practicum() {
               left: 0,
               right: 0,
               bottom: 0,
+              backgroundColor: mode === 'light' 
+                ? 'rgba(255, 255, 255, 0.7)' // White overlay for light mode
+                : 'rgba(0, 0, 0, 0.7)', // Dark overlay for dark mode
               borderTopLeftRadius: 10,
               borderTopRightRadius: 10,
               zIndex: 1, // Ensure it's above the image
@@ -95,11 +97,11 @@ export function Practicum() {
             }}
           >
             <Typography 
-              variant="h4" 
+              variant="h3" 
               sx={{ 
                 fontFamily: 'Kalnia, serif',
                 textAlign: 'center',
-                color: '#FFF',
+                color: theme.palette.text.primary,
                 px: 2,
               }}
             >

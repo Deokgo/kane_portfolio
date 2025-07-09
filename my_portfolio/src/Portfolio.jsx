@@ -16,7 +16,7 @@ const sections = [
   { label: 'About Me', id: 'about', component: <About /> },
   { label: 'Projects', id: 'projects', component: <Projects /> },
   { label: 'Practicum', id: 'practicum', component: <Practicum /> },
-  { label: 'Contact', id: 'contact', component: <Contact /> },
+  { label: 'Contacts', id: 'contact', component: <Contact /> },
 ];
 
 export default function Portfolio() {
@@ -115,16 +115,26 @@ export default function Portfolio() {
                     paddingBottom: 0,
                     color: theme.palette.text.primary,
                     transition: 'color 0.3s ease',
+                    border: 'none',           // Remove borders
+                    outline: 'none',          // Remove outline
+                    boxShadow: 'none',        // Remove box shadow
                   },
                   '& .MuiTab-root.Mui-selected': {
                     color: '#E7694B',
                     fontWeight: 'bold',
                     px: 2,
                     fontSize: '1.1rem',
+                    border: 'none',           // Remove any borders
+                    outline: 'none',          // Remove outline
+                    boxShadow: 'none',        // Remove box shadow
                   },
                   '& .MuiTab-root:hover': {
                     color: '#E7694B',
                     opacity: 0.8,
+                  },
+                  '& .MuiTab-root:focus': {
+                    outline: 'none',
+                    border: 'none',
                   },
                 }}
                 TabIndicatorProps={{ 
