@@ -152,6 +152,7 @@ export default function Landing() {
               color: theme.palette.text.primary,
               fontWeight: 'bold',
               borderColor: theme.palette.text.primary,
+              borderWidth: 2,
               mt: 4,
               width: { xs: '100%', sm: 'auto' },
               '&:hover': {

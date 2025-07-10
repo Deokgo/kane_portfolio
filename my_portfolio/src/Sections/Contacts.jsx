@@ -20,6 +20,11 @@ export function Contact() {
   
   const [loading, setLoading] = useState(false);
   const [alert, setAlert] = useState({ open: false, message: '', severity: 'success' });
+  const [cooldownActive, setCooldownActive] = useState(false);
+  const [cooldownTime, setCooldownTime] = useState(0);
+
+  // Cooldown duration in seconds (5 minutes = 300 seconds)
+  const COOLDOWN_DURATION = 300;
 
   const handleChange = (e) => {
     setFormData({
@@ -30,6 +35,17 @@ export function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    // Check if cooldown is active
+    if (cooldownActive) {
+      setAlert({
+        open: true,
+        message: `Please wait ${Math.ceil(cooldownTime / 60)} minutes before sending another email.`,
+        severity: 'warning'
+      });
+      return;
+    }
+    
     setLoading(true);
 
     // EmailJS configuration - Using environment variables for better security
@@ -71,6 +87,9 @@ export function Contact() {
           severity: 'success'
         });
         setFormData({ time: '', name: '', email: '', message: '' }); // Reset form
+        
+        // Start cooldown
+        startCooldown();
       })
       .catch((error) => {
         console.error('FAILED...', error);
@@ -93,6 +112,55 @@ export function Contact() {
   const handleCloseAlert = () => {
     setAlert({ ...alert, open: false });
   };
+
+  // Cooldown management functions
+  const startCooldown = () => {
+    setCooldownActive(true);
+    setCooldownTime(COOLDOWN_DURATION);
+    
+    // Store cooldown end time in localStorage
+    const cooldownEndTime = Date.now() + (COOLDOWN_DURATION * 1000);
+    localStorage.setItem('emailCooldownEnd', cooldownEndTime.toString());
+    
+    // Start countdown timer
+    const timer = setInterval(() => {
+      setCooldownTime(prev => {
+        if (prev <= 1) {
+          clearInterval(timer);
+          setCooldownActive(false);
+          localStorage.removeItem('emailCooldownEnd');
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+  };
+
+  // Check for existing cooldown on component mount
+  React.useEffect(() => {
+    const cooldownEndTime = localStorage.getItem('emailCooldownEnd');
+    if (cooldownEndTime) {
+      const timeLeft = Math.max(0, parseInt(cooldownEndTime) - Date.now());
+      if (timeLeft > 0) {
+        setCooldownActive(true);
+        setCooldownTime(Math.ceil(timeLeft / 1000));
+        
+        const timer = setInterval(() => {
+          setCooldownTime(prev => {
+            if (prev <= 1) {
+              clearInterval(timer);
+              setCooldownActive(false);
+              localStorage.removeItem('emailCooldownEnd');
+              return 0;
+            }
+            return prev - 1;
+          });
+        }, 1000);
+      } else {
+        localStorage.removeItem('emailCooldownEnd');
+      }
+    }
+  }, []);
   
   return (
     <Box
@@ -217,26 +285,39 @@ export function Contact() {
               />
               <Button 
                 type="submit"
-                variant="contained" 
+                variant="outlined" 
                 size="large"
-                disabled={loading}
+                disabled={loading || cooldownActive}
                 sx={{
-                  backgroundColor: theme.palette.text.primary,
+                  color: (cooldownActive ? theme.palette.text.secondary : '#E7694B'),
+                  borderColor: (cooldownActive ? theme.palette.text.secondary : '#E7694B'),
+                  borderWidth: 2,
                   fontWeight: 'bold',
                   mt: 2,
                   width: { xs: '100%', sm: 'auto' },
                   '&:hover': {
-                    backgroundColor: '#E7694B',
-                    color: theme.palette.text.primary,
+                    color: cooldownActive ? 'gray' : '#FFF',
+                    backgroundColor: cooldownActive ? 'gray' : '#E7694B',
+                    borderColor: cooldownActive ? 'gray' : '#E7694B',
                   },
                   '&:disabled': {
-                    backgroundColor: theme.palette.text.secondary,
+                    color: theme.palette.text.secondary,
                   },
                 }}
               >
-                {loading ? 'Sending...' : 'Send'}
+                Send
               </Button>
             </Box>
+            <Typography
+              variant="body1"
+              sx={{
+                mt: 1,
+                color: theme.palette.text.primary,
+                textAlign: 'center',
+              }}
+            >
+              {loading ? 'Sending...' : cooldownActive ? `Please wait for ${Math.ceil(cooldownTime / 60)} minute/s before sending another email` : ''}
+            </Typography>
             <Typography
               variant="body1"
               sx={{

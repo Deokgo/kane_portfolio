@@ -5,6 +5,7 @@ import BusinessIcon from '@mui/icons-material/Business';
 import ListAltIcon from '@mui/icons-material/ListAlt';
 import HourglassBottomIcon from '@mui/icons-material/HourglassBottom';
 import practicum from '../assets/practicum.jpg'; 
+import company from '../assets/petroenergy_logo.svg'; // Assuming you have a company image
 
 export function Practicum() {
   const theme = useTheme();
@@ -72,8 +73,8 @@ export function Practicum() {
               right: 0,
               bottom: 0,
               backgroundColor: mode === 'light' 
-                ? 'rgba(255, 255, 255, 0.7)' // White overlay for light mode
-                : 'rgba(0, 0, 0, 0.7)', // Dark overlay for dark mode
+                ? 'rgba(255, 255, 255, 0.2)' // White overlay for light mode
+                : 'rgba(0, 0, 0, 0.5)', // Dark overlay for dark mode
               borderTopLeftRadius: 10,
               borderTopRightRadius: 10,
               zIndex: 1, // Ensure it's above the image
@@ -91,22 +92,17 @@ export function Practicum() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
+              flexDirection: 'column',
               borderTopLeftRadius: 10,
               borderTopRightRadius: 10,
               zIndex: 2, // On top of the color overlay
             }}
           >
-            <Typography 
-              variant="h3" 
-              sx={{ 
-                fontFamily: 'Kalnia, serif',
-                textAlign: 'center',
-                color: theme.palette.text.primary,
-                px: 2,
-              }}
-            >
-              PetroEnergy Resources Corporation
-            </Typography>
+            <img 
+              src={company}
+              alt="Logo"
+              style={{ display: 'flex', alignContent: 'center', height: 120, marginBottom: 10 }}
+            />
           </Box>
         </Box>
 
@@ -211,16 +207,15 @@ export function Practicum() {
                 color: theme.palette.text.primary,
               }}
             >
-              I completed a total of 379 hours during the practicum. This includes 96 hours for project setup and 
-              data familiarization, providing foundational knowledge for the student to gain a deep understanding of the project 
-              context and preparation for the technical work ahead. Followed by 139 hours for data modeling and system design, 
-              which emphasized database preparation and system design to ensure a scalable and user-friendly system. While 144 hours 
-              for the system development and implementation, performing hands-on development work such as implementing database 
-              structures, building core application functionalities, and conducting testing and quality assurance to validate system 
-              performance. Essentially, there is a documentation and training which involves 104 hours to ensure that all deliverables
-              were properly documented and transitioned to stakeholders. However. I am currently in the development phase, 
-              handling the user acceptance testing and expected to complete the practicum on July 9, 2025, fulfilling all 
-              stages of the software development lifecycle.
+              I completed a total of 395 hours during the practicum. This includes 72 hours for project setup 
+              and data familiarization, providing foundational knowledge for the student to gain a deep understanding of 
+              the project context and preparation for the technical work ahead. This is followed by 123 hours for data 
+              modeling and system design, which emphasized database preparation and system design to ensure a scalable 
+              and user-friendly system. While 176 hours for the system development and implementation, performing hands-on 
+              development work such as implementing database structures, building core application functionalities, and 
+              conducting testing and quality assurance to validate system performance. The documentation and training which 
+              involves 24 hours to ensure that all deliverables were properly documented and transitioned to stakeholders. 
+              The student was able to complete the practicum on July 9, 2025.
             </Typography>
           </Box>
           
@@ -245,13 +240,21 @@ export function Practicum() {
             <Typography 
               variant="body1" 
               sx={{ 
-                fontFamily: 'Kalnia, serif',
-                lineHeight: 1.3,
+                lineHeight: 1.8,
                 textAlign: 'left',
+                textIndent: '2rem',
                 color: theme.palette.text.primary,
               }}
             >
-              [content]
+              I gained hands-on experience in full-stack development by building the ESGDash web application using 
+              React.js, FastAPI, and PostgreSQL. I learned how frontend, backend, and data layers integrate into a 
+              cohesive system, while applying medallion architecture to transform fragmented Excel data into a 
+              structured warehouse. In Scrum Agile development, I experienced real-world project management and iterative 
+              development. I encountered enterprise-level systems such as role-based access, data validation, and 
+              multi-level approvals, while also learning to communicate technical solutions to non-technical stakeholders. 
+              I realized that intuitive UI, data quality, and clear documentation are essential for system adoption and 
+              sustainability. Overall, the practicum bridged the gap between academic theory and enterprise practice, by 
+              equipping me with the technical and professional skills needed for real-world software development.
             </Typography>
           </Box>
         </Box>
