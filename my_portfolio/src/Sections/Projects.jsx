@@ -4,6 +4,11 @@ import { GitHub, Launch, Code } from '@mui/icons-material';
 import { useThemeMode } from '../ThemeContext';
 import light from '../assets/poly_image_light.svg';
 import dark from '../assets/poly_image_dark.svg';
+import potfolio1 from '../assets/portfolio1.svg';
+import portfolio2 from '../assets/portfolio2.svg';
+import portfolio3 from '../assets/portfolio3.svg';
+import portfolio4 from '../assets/portfolio4.svg';
+import portfolio5 from '../assets/portfolio5.svg';
 
 export function Projects() {
   const theme = useTheme();
@@ -17,7 +22,7 @@ export function Projects() {
       technologies: ["React", "Figma"],
       githubUrl: null,
       liveUrl: null,
-      imageUrl: mode === 'light' ? light : dark,
+      imageUrl: potfolio1,
     },
         {
       id: 2,
@@ -26,7 +31,7 @@ export function Projects() {
       technologies: ["Python", "React", "PostgreSQL", "Github", "Figma"],
       githubUrl: null,
       liveUrl: null,
-      imageUrl: mode === 'light' ? light : dark,
+      imageUrl: portfolio2,
     },
     {
       id: 3,
@@ -35,7 +40,7 @@ export function Projects() {
       technologies: ["Python", "React", "Postgresql", "Github"],
       githubUrl: "https://github.com/Deokgo/ResearchRepo-Web",
       liveUrl: null,
-      imageUrl: mode === 'light' ? light : dark,
+      imageUrl: portfolio3,
     },
     {
       id: 4,
@@ -44,7 +49,7 @@ export function Projects() {
       technologies: ["C#", "SQL", "Github", "Figma"],
       githubUrl: "https://github.com/Deokgo/Procurement_Inventory_System",
       liveUrl: null,
-      imageUrl: mode === 'light' ? light : dark,
+      imageUrl: portfolio4,
     },
     {
       id: 5,
@@ -53,7 +58,7 @@ export function Projects() {
       technologies: ["Unity", "MySQL", "Github"],
       githubUrl: "https://github.com/Deokgo/Final_Revelation_Software_Application",
       liveUrl: null,
-      imageUrl: mode === 'light' ? light : dark,
+      imageUrl: portfolio5,
 
     },
     {
@@ -124,20 +129,39 @@ export function Projects() {
                 }}
               >
                 {project.imageUrl && (
-                  <Box
-                    component="img"
-                    src={project.imageUrl || polyImage}
-                    alt={`${project.name} image`}
-                    sx={{
-                      width: '100%',
-                      height: 120,
-                      objectFit: 'cover',
-                      borderTopLeftRadius: 10,
-                      borderTopRightRadius: 10,
-                      borderBottomLeftRadius: 0,
-                      borderBottomRightRadius: 0,
-                    }}
-                  />
+                  <Box sx={{ position: 'relative' }}>
+                      <Box
+                      component="img"
+                      src={project.imageUrl || polyImage}
+                      alt={`${project.name} image`}
+                      sx={{
+                        width: '100%',
+                        height: 120,
+                        objectFit: 'cover',
+                        borderTopLeftRadius: 10,
+                        borderTopRightRadius: 10,
+                        borderBottomLeftRadius: 0,
+                        borderBottomRightRadius: 0,
+                      }}
+                    />
+                    {/* Color overlay */}
+                    <Box
+                      sx={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        backgroundColor: mode === 'light' 
+                          ? 'none' // White overlay for light mode
+                          : 'rgba(0, 0, 0, 0.3)', // Dark overlay for dark mode
+                        borderTopLeftRadius: 10,
+                        borderTopRightRadius: 10,
+                        zIndex: 1, // Ensure it's above the image
+                      }}
+                    />
+                  </Box>
+                  
                 )}
                 
                 {/* Main content container - this will grow and push bottom content down */}
