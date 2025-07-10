@@ -98,10 +98,17 @@ export function Practicum() {
               zIndex: 2, // On top of the color overlay
             }}
           >
-            <img 
+            <Box
+              component="img"
               src={company}
               alt="Logo"
-              style={{ display: 'flex', alignContent: 'center', height: 120, marginBottom: 10 }}
+              sx={{
+                width: { xs: 250, sm: 350, md: 450},
+                height: 'auto',
+                mb: 1.5,
+                objectFit: 'contain',
+                transition: 'width 0.3s',
+              }}
             />
           </Box>
         </Box>
