@@ -225,18 +225,17 @@ export function About() {
               px: { xs: 1, sm: 0 },
             }}
           >
-            "I’ve built hands-on experience through various software projects and research tasks, including web and mobile app development,
-            game development, and software engineering. Alongside this, I've actively worked with data analytics and visualization,
-            predictive modeling, and iterative model refinement.
+            I have hands-on experience with various software projects including web and mobile app development,
+            game development, and software engineering.
 
             <br /><br />
 
-            I enjoy crafting seamless digital experiences and uncovering meaningful insights from complex datasets to support
-            informed decision-making.
+            I mostly work with React, Node.js, and Python, and I have a keen interest in Front-end Development and UI/UX Design.
+            Most of my work has been in the field of data science, where I have applied my skills in data analysis and visualization.
 
             <br /><br />
 
-            I’m currently seeking opportunities to refine my skills and contribute to innovative, data-driven technology solutions that create impact."
+            I’m currently seeking opportunities to refine my skills and contribute to innovative, data-driven technology solutions that create impact.
           </Typography>
         </Paper>
       </Box>

@@ -9,6 +9,7 @@ import portfolio2 from '../assets/portfolio2.svg';
 import portfolio3 from '../assets/portfolio3.svg';
 import portfolio4 from '../assets/portfolio4.svg';
 import portfolio5 from '../assets/portfolio5.svg';
+import portfolio6 from '../assets/portfolio6.svg';
 
 export function Projects() {
   const theme = useTheme();
@@ -21,8 +22,8 @@ export function Projects() {
       description: "A personal portfolio built with React and Material-UI showcasing projects, skills, and professional experience with smooth animations and responsive design.",
       technologies: ["React", "Figma"],
       githubUrl: null,
-      liveUrl: null,
-      imageUrl: potfolio1,
+      liveUrl: "https://kane-cometa.vercel.app/",
+      imageUrl: potfolio1 || (mode === 'light' ? light : dark),
     },
         {
       id: 2,
@@ -31,7 +32,7 @@ export function Projects() {
       technologies: ["Python", "React", "PostgreSQL", "Github", "Figma"],
       githubUrl: null,
       liveUrl: null,
-      imageUrl: portfolio2,
+      imageUrl: portfolio2 || (mode === 'light' ? light : dark),
     },
     {
       id: 3,
@@ -40,7 +41,7 @@ export function Projects() {
       technologies: ["Python", "React", "Postgresql", "Github"],
       githubUrl: "https://github.com/Deokgo/ResearchRepo-Web",
       liveUrl: null,
-      imageUrl: portfolio3,
+      imageUrl: portfolio3 || (mode === 'light' ? light : dark),
     },
     {
       id: 4,
@@ -49,7 +50,7 @@ export function Projects() {
       technologies: ["C#", "SQL", "Github", "Figma"],
       githubUrl: "https://github.com/Deokgo/Procurement_Inventory_System",
       liveUrl: null,
-      imageUrl: portfolio4,
+      imageUrl: portfolio4 || (mode === 'light' ? light : dark),
     },
     {
       id: 5,
@@ -58,17 +59,17 @@ export function Projects() {
       technologies: ["Unity", "MySQL", "Github"],
       githubUrl: "https://github.com/Deokgo/Final_Revelation_Software_Application",
       liveUrl: null,
-      imageUrl: portfolio5,
+      imageUrl: portfolio5 || (mode === 'light' ? light : dark),
 
     },
     {
       id: 6,
       name: "OMG.co",
-      description: "Integrated user-friendly interface for handling inventory management, customer orders, and sales, reports.",
+      description: "Integrated user-friendly interface for handling inventory management, customer orders, which includes sales report.",
       technologies: ["ASP.NET", "C#", "MySQL", "Github"],
       githubUrl: "https://github.com/Deokgo/OMG.co",
       liveUrl: null,
-      imageUrl: mode === 'light' ? light : dark,
+      imageUrl: portfolio6 || (mode === 'light' ? light : dark),
     }
   ];
 
@@ -154,7 +155,7 @@ export function Projects() {
                         bottom: 0,
                         backgroundColor: mode === 'light' 
                           ? 'none' // White overlay for light mode
-                          : 'rgba(0, 0, 0, 0.3)', // Dark overlay for dark mode
+                          : 'rgba(0, 0, 0, 0.2)', // Dark overlay for dark mode
                         borderTopLeftRadius: 10,
                         borderTopRightRadius: 10,
                         zIndex: 1, // Ensure it's above the image
@@ -261,7 +262,8 @@ export function Projects() {
                             fontSize: '0.8rem',
                             '&:hover': {
                               borderColor: '#E7694B',
-                              color: '#E7694B',
+                              backgroundColor: mode === 'light' ? '#E7694B' : '#FFF',
+                              color: mode === 'light' ? '#FFF' : '#E7694B',
                             }
                           }}
                         >
@@ -270,17 +272,20 @@ export function Projects() {
                       )}
                       {project.liveUrl && (
                         <Button
-                          variant="contained"
+                          variant="outlined"
                           startIcon={<Launch />}
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
                           size="small"
                           sx={{
-                            backgroundColor: '#E7694B',
-                            fontSize: '0.7rem',
+                            color: theme.palette.text.primary,
+                            borderColor: theme.palette.text.primary,
+                            fontSize: '0.8rem',
                             '&:hover': {
-                              backgroundColor: '#d85d42'
+                              borderColor: '#E7694B',
+                              backgroundColor: mode === 'light' ? '#E7694B' : '#FFF',
+                              color: mode === 'light' ? '#FFF' : '#E7694B',
                             }
                           }}
                         >
