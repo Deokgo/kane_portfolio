@@ -12,6 +12,7 @@ import polyDark from './assets/poly_image_dark.svg';
 import polyLight from './assets/poly_image_light.svg';
 import profileSmall from './assets/profile_small.svg';
 import Slide from '@mui/material/Slide';
+import DownloadIcon from '@mui/icons-material/Download';
 
 export default function Landing() {
   const navigate = useNavigate();
@@ -142,29 +143,58 @@ export default function Landing() {
               color: theme.palette.text.secondary,
             }}
           >
-            UI/UX Designer | Front-End Developer | Data Engineer
+            UI Designer | Software Developer | Data Scientist
           </Typography>
 
-          <Button
-            variant="outlined"
-            size="large"
+          <Box
             sx={{
-              color: theme.palette.text.primary,
-              fontWeight: 'bold',
-              borderColor: theme.palette.text.primary,
-              borderWidth: 2,
+              display: 'flex',
+              alignItems: 'center',
               mt: 4,
-              width: { xs: '100%', sm: 'auto' },
-              '&:hover': {
-                borderColor: '#E7694B',
-                backgroundColor: '#E7694B',
-                color: '#fff',
-              },
+              gap: 2,
             }}
-            onClick={handlePortfolioClick}
           >
-            View Portfolio
-          </Button>
+            <Button
+              variant="contained"
+              size="large"
+              sx={{
+                fontWeight: 'bold',
+                borderColor: theme.palette.text.primary,
+                borderWidth: 2,
+                width: { xs: '100%', sm: 'auto' },
+                '&:hover': {
+                  borderColor: '#E7694B',
+                  backgroundColor: '#E7694B',
+                  color: '#fff',
+                },
+              }}
+              onClick={handlePortfolioClick}
+            >
+              View Portfolio
+            </Button>
+
+            <Button
+              variant="outlined"
+              size="large"
+              component="a"
+              href="/cometa_kane_curriculum_vitae.pdf" // Make sure cv.pdf is in your public folder
+              download
+              sx={{
+                color: theme.palette.text.primary,
+                fontWeight: 'bold',
+                borderColor: theme.palette.text.primary,
+                borderWidth: 2,
+                width: { xs: '100%', sm: 'auto' },
+                '&:hover': {
+                  borderColor: '#E7694B',
+                  backgroundColor: '#E7694B',
+                  color: '#fff',
+                },
+              }}
+            >
+              <DownloadIcon sx={{ mr: 1 }} /> Download CV
+            </Button>
+          </Box>
 
           <Box
             sx={{
@@ -177,7 +207,10 @@ export default function Landing() {
           >
             <IconButton
               size="large"
-              href="mailto:2021kjcometa@live.mcl.edu.ph"
+              component="a"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=cometakanejustine@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
               sx={{
                 color: theme.palette.text.primary,
                 '&:hover': { color: '#E7694B' },

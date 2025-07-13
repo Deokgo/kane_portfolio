@@ -20,7 +20,7 @@ export function Projects() {
       id: 1,
       name: "Portfolio Website",
       description: "A personal portfolio built with React and Material-UI showcasing projects, skills, and professional experience with smooth animations and responsive design.",
-      technologies: ["React", "Figma"],
+      technologies: ["React", "Figma", "Github"],
       githubUrl: null,
       liveUrl: "https://kane-cometa.vercel.app/",
       imageUrl: potfolio1 || (mode === 'light' ? light : dark),
@@ -30,7 +30,7 @@ export function Projects() {
       name: "ESG Dash",
       description: "Integrated a repository and interactive dashboard for data analysis and visualization with multiple chart types, and export capabilities.",
       technologies: ["Python", "React", "PostgreSQL", "Github", "Figma"],
-      githubUrl: null,
+      githubUrl: "https://github.com/Deokgo/ESGDash",
       liveUrl: null,
       imageUrl: portfolio2 || (mode === 'light' ? light : dark),
     },
@@ -212,7 +212,7 @@ export function Projects() {
                   <Box sx={{
                     display: 'flex', 
                     justifyContent: 'space-between', 
-                    gap: 5,
+                    gap: 3,
                     flexDirection: 'row',
                     mt: 'auto' // This pushes the section to the bottom
                   }}>
@@ -244,9 +244,12 @@ export function Projects() {
 
                     {/* Action Buttons */}
                     <Box sx={{ 
+                      display: 'flex',
+                      flexDirection: 'row',
+                      alignItems: 'center',
+                      justifyContent: 'flex-end',
                       gap: 1, 
-                      px: 1,
-                      justifyContent: 'flex-start'
+                      px: 1
                     }}>
                       {project.githubUrl && (
                         <Button
@@ -289,7 +292,7 @@ export function Projects() {
                             }
                           }}
                         >
-                          Live Demo
+                          Demo
                         </Button>
                       )}
                     </Box>

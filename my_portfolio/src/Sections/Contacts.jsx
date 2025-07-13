@@ -339,7 +339,10 @@ export function Contact() {
             >
               <IconButton
                 size="large"
-                href="mailto:2021kjcometa@live.mcl.edu.ph"
+                component="a"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=cometakanejustine@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 sx={{
                   color: theme.palette.text.primary,
                   '&:hover': { color: '#E7694B' },
