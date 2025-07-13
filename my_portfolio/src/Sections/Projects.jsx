@@ -21,7 +21,7 @@ export function Projects() {
       name: "Portfolio Website",
       description: "A personal portfolio built with React and Material-UI showcasing projects, skills, and professional experience with smooth animations and responsive design.",
       technologies: ["React", "Figma", "Github"],
-      githubUrl: null,
+      githubUrl: "https://github.com/Deokgo/kane_portfolio",
       liveUrl: "https://kane-cometa.vercel.app/",
       imageUrl: potfolio1 || (mode === 'light' ? light : dark),
     },
@@ -115,7 +115,7 @@ export function Projects() {
                   borderRadius: 3,
                   backgroundColor: mode === 'light' 
                     ? 'rgba(255, 255, 255, 0.9)' 
-                    : 'rgba(255, 255, 255, 0.05)',
+                    : 'rgba(255, 255, 255, 0.07)',
                   backdropFilter: 'blur(10px)',
                   boxShadow: mode === 'light' 
                     ? '0 2px 10px rgba(0, 0, 0, 0.1)' 
@@ -155,7 +155,7 @@ export function Projects() {
                         bottom: 0,
                         backgroundColor: mode === 'light' 
                           ? 'none' // White overlay for light mode
-                          : 'rgba(0, 0, 0, 0.2)', // Dark overlay for dark mode
+                          : 'rgba(0, 0, 0, 0.1)', // Dark overlay for dark mode
                         borderTopLeftRadius: 10,
                         borderTopRightRadius: 10,
                         zIndex: 1, // Ensure it's above the image
@@ -245,7 +245,7 @@ export function Projects() {
                     {/* Action Buttons */}
                     <Box sx={{ 
                       display: 'flex',
-                      flexDirection: 'row',
+                      flexDirection: 'column',
                       alignItems: 'center',
                       justifyContent: 'flex-end',
                       gap: 1, 

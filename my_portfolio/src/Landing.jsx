@@ -78,6 +78,10 @@ export default function Landing() {
         <IconButton
           sx={{
             position: 'absolute',
+            color: theme.palette.text.primary,
+            border: 'none',           // Remove borders
+            outline: 'none',          // Remove outline
+            boxShadow: 'none',        // Remove box shadow
             top: 20,
             right: 20,
             zIndex: 3,

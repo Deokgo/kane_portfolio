@@ -77,7 +77,7 @@ export default function Portfolio() {
             <IconButton
               onClick={() => navigate('/')}
             >
-              <img src={mode === 'light' ? light : dark} alt="Logo" style={{ height: 60 }} />
+              <img src={mode === 'light' ? light : dark} alt="Logo" style={{ height: 45 }} />
             </IconButton>
             <Typography
               sx={{

@@ -184,7 +184,7 @@ export function Contact() {
             borderRadius: 3,
             backgroundColor: mode === 'light' 
               ? 'rgba(255, 255, 255, 0.9)' 
-              : 'rgba(255, 255, 255, 0.05)',
+              : 'rgba(255, 255, 255, 0.07)',
             backdropFilter: 'blur(10px)',
             boxShadow: mode === 'light' 
               ? '0 2px 10px rgba(0, 0, 0, 0.1)' 
