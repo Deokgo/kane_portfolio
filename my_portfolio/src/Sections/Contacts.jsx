@@ -199,6 +199,17 @@ export function Contact() {
         >
           <Box sx={{ p: { xs: 2.5, sm: 3 } }}>
             <Box component="form" ref={form} onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+              <Typography 
+                variant="h4" 
+                sx={{ 
+                  fontFamily: 'Kalnia, serif',
+                  lineHeight: 1.3,
+                  textAlign: 'center',
+                  color: theme.palette.text.primary,
+                }}
+              >
+                Let's Connect!
+              </Typography>
               <TextField 
                 name="name"
                 label="Name" 

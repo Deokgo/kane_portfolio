@@ -7,21 +7,33 @@ export const ThemeToggleButton = ({ sx = {} }) => {
   const { mode, toggleTheme } = useThemeMode();
 
   return (
-    <Tooltip title={`Switch to ${mode === 'light' ? 'dark' : 'light'} mode`}>
-      <IconButton
-        onClick={toggleTheme}
-        color="inherit"
-        sx={{
-          ...sx,
-          transition: 'all 0.3s ease',
-          '&:hover': {
-            color: '#E7694B',
-            transform: 'rotate(180deg)',
+    <Tooltip title={`Switch to ${mode === 'light' ? 'dark' : 'light'} mode`} 
+      componentsProps={{
+        popper: {
+          sx: {
+            '& .MuiTooltip-tooltip': {
+              fontSize: '0.75rem',
+            },
           },
-        }}
-      >
-        {mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
-      </IconButton>
+        },
+      }}
+    >
+      <span style={{ display: 'inline-flex' }}>
+        <IconButton
+          onClick={toggleTheme}
+          color="inherit"
+          sx={{
+            ...sx,
+            transition: 'all 0.3s ease',
+            '&:hover': {
+              color: '#E7694B',
+              transform: 'rotate(180deg)',
+            },
+          }}
+        >
+          {mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
+        </IconButton>
+      </span>
     </Tooltip>
   );
 };

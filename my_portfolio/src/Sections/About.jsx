@@ -4,7 +4,7 @@ import { useThemeMode } from '../ThemeContext';
 import polyImage from '../assets/poly_image3.svg';
 import poly from '../assets/poly.svg';
 import profile from '../assets/profile.png';
-import profileSmall from '../assets/profile_small.svg';
+import profileSmall from '../assets/profile_small.png';
 
 export function About() {
   const theme = useTheme();

@@ -10,7 +10,7 @@ import LockOpenIcon from '@mui/icons-material/LockOpen';
 import ThemeToggleButton from './ThemeToggleButton';
 import polyDark from './assets/poly_image_dark.svg';
 import polyLight from './assets/poly_image_light.svg';
-import profileSmall from './assets/profile_small.svg';
+import profileSmall from './assets/profile_small.png';
 import Slide from '@mui/material/Slide';
 import DownloadIcon from '@mui/icons-material/Download';
 
@@ -75,20 +75,16 @@ export default function Landing() {
           }}
         />
         {/* Theme toggle button */}
-        <IconButton
+        <Box
           sx={{
             position: 'absolute',
-            color: theme.palette.text.primary,
-            border: 'none',           // Remove borders
-            outline: 'none',          // Remove outline
-            boxShadow: 'none',        // Remove box shadow
             top: 20,
             right: 20,
             zIndex: 3,
           }}
         >
-          <ThemeToggleButton />
-        </IconButton>
+          <ThemeToggleButton sx={{ color: theme.palette.text.primary }} />
+        </Box>
         <Box
           sx={{
             display: 'flex',
@@ -153,6 +149,7 @@ export default function Landing() {
           <Box
             sx={{
               display: 'flex',
+              flexDirection: { xs: 'column', sm: 'row' },
               alignItems: 'center',
               mt: 4,
               gap: 2,
