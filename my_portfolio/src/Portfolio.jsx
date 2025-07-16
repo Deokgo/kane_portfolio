@@ -8,12 +8,14 @@ import { Contact } from './Sections/Contacts';
 import { About } from './Sections/About';
 import { Projects } from './Sections/Projects';
 import { Practicum } from './Sections/Practicum';
+import { Experience } from './Sections/Experience';
 import { useNavigate, useLocation } from 'react-router-dom';
 import dark from './assets/kane_white.svg';
 import light from './assets/kane_light.svg';
 
 const sections = [
   { label: 'About Me', id: 'about', component: <About /> },
+  { label: 'Experience', id: 'experience', component: <Experience /> },
   { label: 'Projects', id: 'projects', component: <Projects /> },
   { label: 'Practicum', id: 'practicum', component: <Practicum /> },
   { label: 'Contacts', id: 'contact', component: <Contact /> },

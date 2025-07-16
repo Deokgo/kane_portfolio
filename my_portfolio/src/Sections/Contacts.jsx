@@ -204,6 +204,7 @@ export function Contact() {
                 sx={{ 
                   fontFamily: 'Kalnia, serif',
                   lineHeight: 1.3,
+                  m: 2,
                   textAlign: 'center',
                   color: theme.palette.text.primary,
                 }}

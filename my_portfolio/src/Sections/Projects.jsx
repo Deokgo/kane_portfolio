@@ -112,20 +112,21 @@ export function Projects() {
                   minHeight: 'auto',
                   display: 'flex',
                   flexDirection: 'column',
-                  borderRadius: 3,
                   backgroundColor: mode === 'light' 
-                    ? 'rgba(255, 255, 255, 0.9)' 
-                    : 'rgba(255, 255, 255, 0.07)',
-                  backdropFilter: 'blur(10px)',
-                  boxShadow: mode === 'light' 
-                    ? '0 2px 10px rgba(0, 0, 0, 0.1)' 
-                    : 'none',
-                  transition: 'all 0.3s ease-in-out',
+                        ? 'rgba(255, 255, 255, 0.8)' 
+                        : 'rgba(255, 255, 255, 0.03)',
+                  border: `1px solid ${mode === 'light' ? '#E0E0E0' : '#424242'}`,
+                  borderRadius: 2,
+                  transition: 'all 0.3s ease',
                   '&:hover': {
+                    backgroundColor: mode === 'light' 
+                      ? 'rgba(231, 105, 75, 0.05)' 
+                      : 'rgba(255, 255, 255, 0.08)',
+                    borderColor: '#E7694B',
+                    transform: 'translateY(-2px)',
                     boxShadow: mode === 'light' 
-                      ? '0 4px 20px rgba(231, 105, 75, 0.3)' 
-                      : '0 1px 7px #fff',
-                    transform: 'translateY(-5px)'
+                      ? '0 4px 12px rgba(231, 105, 75, 0.2)' 
+                      : '0 4px 12px rgba(255, 255, 255, 0.1)'
                   }
                 }}
               >

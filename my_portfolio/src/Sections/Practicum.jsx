@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Paper, Divider, useTheme } from '@mui/material';
+import { Box, Typography, Paper, Divider, useTheme, Button } from '@mui/material';
 import { useThemeMode } from '../ThemeContext';
 import BusinessIcon from '@mui/icons-material/Business';
 import ListAltIcon from '@mui/icons-material/ListAlt';
@@ -264,6 +264,28 @@ export function Practicum() {
               equipping me with the technical and professional skills needed for real-world software development.
             </Typography>
           </Box>
+          <Button
+            variant="outlined"
+            size="large"
+            component="a"
+            href="/cometa_practicum_narrative_report.pdf" // Make sure cv.pdf is in your public folder
+            download
+            sx={{
+              m: 5,
+              color: theme.palette.text.primary,
+              fontWeight: 'bold',
+              borderColor: theme.palette.text.primary,
+              borderWidth: 2,
+              width: { xs: '100%', sm: 'auto' },
+              '&:hover': {
+                borderColor: '#E7694B',
+                backgroundColor: '#E7694B',
+                color: '#fff',
+              },
+            }}
+          >
+            View Full Report
+          </Button>
         </Box>
       </Paper>
     </Box>
