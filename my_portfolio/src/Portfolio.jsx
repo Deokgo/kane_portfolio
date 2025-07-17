@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Container, AppBar, Toolbar, Typography, Box, Tabs, Tab, Button, IconButton, Drawer, List, ListItem, ListItemButton, ListItemText, useTheme } from '@mui/material';
+import { Container, AppBar, Toolbar, Typography, Box, Tabs, Tab, Button, IconButton, Drawer, List, ListItem, ListItemButton, ListItemText, useTheme, Tooltip } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import ThemeToggleButton from './ThemeToggleButton';
 import { useThemeMode } from './ThemeContext';
@@ -9,7 +9,9 @@ import { About } from './Sections/About';
 import { Projects } from './Sections/Projects';
 import { Practicum } from './Sections/Practicum';
 import { Experience } from './Sections/Experience';
+import Analytics from './Analytics';
 import { useNavigate, useLocation } from 'react-router-dom';
+import AnalyticsIcon from '@mui/icons-material/Analytics';
 import dark from './assets/kane_white.svg';
 import light from './assets/kane_light.svg';
 
@@ -19,6 +21,7 @@ const sections = [
   { label: 'Projects', id: 'projects', component: <Projects /> },
   { label: 'Practicum', id: 'practicum', component: <Practicum /> },
   { label: 'Contacts', id: 'contact', component: <Contact /> },
+  { label: <AnalyticsIcon/>, id: 'analytics', component: <Analytics /> },
 ];
 
 export default function Portfolio() {
