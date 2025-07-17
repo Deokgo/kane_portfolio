@@ -68,8 +68,6 @@ export default function Analytics() {
 
   useEffect(() => {
     loadAnalyticsData();
-    // Track analytics page view
-    AnalyticsUtils.trackPageView('analytics');
   }, []);
 
   const handleTabChange = (event, newValue) => {
@@ -252,7 +250,7 @@ export default function Analytics() {
             <Table size="small">
               <TableHead>
                 <TableRow>
-                  <TableCell align="center">Date</TableCell>
+                  <TableCell>Date</TableCell>
                   <TableCell align="center">Total Views</TableCell>
                   <TableCell align="center">Sessions</TableCell>
                   <TableCell align="center">Top Pages</TableCell>
@@ -302,7 +300,7 @@ export default function Analytics() {
             <Table>
               <TableHead>
                 <TableRow>
-                  <TableCell align="center">Week</TableCell>
+                  <TableCell>Week</TableCell>
                   <TableCell align="center">Total Views</TableCell>
                   <TableCell align="center">Top Pages</TableCell>
                 </TableRow>
@@ -344,7 +342,7 @@ export default function Analytics() {
             <Table>
               <TableHead>
                 <TableRow>
-                  <TableCell align="center">Month</TableCell>
+                  <TableCell>Month</TableCell>
                   <TableCell align="center">Total Views</TableCell>
                   <TableCell align="center">Top Pages</TableCell>
                 </TableRow>
