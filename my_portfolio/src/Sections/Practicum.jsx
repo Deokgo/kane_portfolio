@@ -103,7 +103,7 @@ export function Practicum() {
               src={company}
               alt="Logo"
               sx={{
-                width: { xs: 250, sm: 350, md: 450},
+                width: { xs: 325, md: 450},
                 height: 'auto',
                 mb: 1.5,
                 objectFit: 'contain',
@@ -276,7 +276,7 @@ export function Practicum() {
               fontWeight: 'bold',
               borderColor: theme.palette.text.primary,
               borderWidth: 2,
-              width: { xs: '100%', sm: 'auto' },
+              width: 'auto',
               '&:hover': {
                 borderColor: '#E7694B',
                 backgroundColor: '#E7694B',
