@@ -177,7 +177,7 @@ export function Contact() {
         <Paper
           elevation={0}
           sx={{
-            width: {xs: '80vw', md: '40vw'},
+            width: {xs: '80vw', md: '30vw'},
             minHeight: 'auto',
             display: 'flex',
             flexDirection: 'column',

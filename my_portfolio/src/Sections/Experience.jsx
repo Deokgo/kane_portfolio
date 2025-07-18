@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Paper, useTheme, Chip} from '@mui/material';
+import { Box, Typography, Paper, useTheme, Chip, useMediaQuery } from '@mui/material';
 import { Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot, TimelineOppositeContent } from '@mui/lab';
 import { useThemeMode } from '../ThemeContext';
 import WorkIcon from '@mui/icons-material/Work';
@@ -10,6 +10,7 @@ import BusinessIcon from '@mui/icons-material/Business';
 export function Experience() {
   const theme = useTheme();
   const { mode } = useThemeMode();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   
   const experiences = [
     {
@@ -88,14 +89,14 @@ export function Experience() {
         minHeight: { xs: '100vh', md: 'unset' },
         position: 'relative',
         mt: 5,
-        ml: 10,
-        mr: 10,
+        ml: { xs: 0, md: 10 }, // Adjusted for smaller screens
+        mr: { xs: 0, md: 10 }, // Adjusted for smaller screens
         pb: 5,
         gap: { xs: 2, sm: 3 },
       }}
     >
         <Box sx={{ p: { xs: 2.5, sm: 4 } }}>
-          <Timeline position="alternate">
+          <Timeline position={isMobile ? "right" : "alternate"}>
             {experiences.map((experience, index) => (
               <TimelineItem key={experience.id}>
                 <TimelineOppositeContent
@@ -103,9 +104,10 @@ export function Experience() {
                     m: 'auto 0',
                     color: theme.palette.text.secondary,
                     fontWeight: 'bold',
-                    fontSize: { xs: '0.9rem', sm: '1rem' }
+                    fontSize: { xs: '0.9rem', sm: '1rem' },
+                    display: { xs: 'none', sm: index % 2 !== 0 ? 'block' : 'block'}
                   }}
-                  align={index % 2 === 0 ? "right" : "left"}
+                  align={isMobile ? "right" : (index % 2 === 0 ? "right" : "left")}
                   variant="body2"
                 >
                   {experience.period}
@@ -163,6 +165,19 @@ export function Experience() {
                       }
                     }}
                   >
+                    {/* Mobile-only period display (when TimelineOppositeContent is hidden) */}
+                    <Typography 
+                      variant="body2"
+                      sx={{ 
+                        color: theme.palette.text.secondary,
+                        fontWeight: 'bold',
+                        fontSize: '0.9rem',
+                        mb: 1.5,
+                        display: { xs: 'block', sm: 'none' }
+                      }}
+                    >
+                      {experience.period}
+                    </Typography>
                     <Typography 
                       variant="h5" 
                       sx={{ 
@@ -189,7 +204,7 @@ export function Experience() {
                       variant="body2"
                       sx={{ 
                         color: theme.palette.text.secondary,
-                        mb: 2,
+                        mb: 1.5,
                         fontStyle: 'italic'
                       }}
                     >
