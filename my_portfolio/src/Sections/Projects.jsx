@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Box, Typography, AppBar, Toolbar, Button, Grid, Paper, List, ListItem, ListItemIcon, ListItemText, TextField, Chip, IconButton, useTheme } from '@mui/material';
-import { GitHub, Launch, Code } from '@mui/icons-material';
+import { GitHub, Launch, Slideshow } from '@mui/icons-material';
 import { useThemeMode } from '../ThemeContext';
 import light from '../assets/poly_image_light.svg';
 import dark from '../assets/poly_image_dark.svg';
@@ -23,15 +23,17 @@ export function Projects() {
       technologies: ["React", "Figma", "Github"],
       githubUrl: "https://github.com/Deokgo/kane_portfolio",
       liveUrl: "https://kane-cometa.vercel.app/",
+      figmaUrl: null,
       imageUrl: potfolio1 || (mode === 'light' ? light : dark),
     },
-        {
+    {
       id: 2,
       name: "ESG Dash",
       description: "Integrated a repository and interactive dashboard for data analysis and visualization with multiple chart types, and export capabilities.",
       technologies: ["Python", "React", "PostgreSQL", "Github", "Figma"],
       githubUrl: "https://github.com/Deokgo/ESGDash",
       liveUrl: null,
+      figmaUrl: "https://www.figma.com/design/CWwOjtrFtjc5pD3XCcJixc/PetroDash---Wireframe?node-id=867-681&t=AHearSpcsmBe1K3B-1",
       imageUrl: portfolio2 || (mode === 'light' ? light : dark),
     },
     {
@@ -41,6 +43,7 @@ export function Projects() {
       technologies: ["Python", "React", "Postgresql", "Github"],
       githubUrl: "https://github.com/Deokgo/ResearchRepo-Web",
       liveUrl: null,
+      figmaUrl: "https://www.figma.com/proto/jnV1GSlOOGuVEqG1sFv6r9/Research-Repository?node-id=776-1401&t=pXTNVBnlj7XuY9pK-1&scaling=scale-down-width&content-scaling=fixed&page-id=441%3A397",
       imageUrl: portfolio3 || (mode === 'light' ? light : dark),
     },
     {
@@ -50,6 +53,7 @@ export function Projects() {
       technologies: ["C#", "SQL", "Github", "Figma"],
       githubUrl: "https://github.com/Deokgo/Procurement_Inventory_System",
       liveUrl: null,
+      figmaUrl: "https://www.figma.com/proto/JOthfOB98p3PRumO2uEni1/Sample-UI-Design--NCT-Corp.-?node-id=12-3&t=tqp8R6KMnSR1d4Fz-1",
       imageUrl: portfolio4 || (mode === 'light' ? light : dark),
     },
     {
@@ -59,8 +63,8 @@ export function Projects() {
       technologies: ["Unity", "MySQL", "Github"],
       githubUrl: "https://github.com/Deokgo/Final_Revelation_Software_Application",
       liveUrl: null,
+      figmaUrl: null,
       imageUrl: portfolio5 || (mode === 'light' ? light : dark),
-
     },
     {
       id: 6,
@@ -69,6 +73,7 @@ export function Projects() {
       technologies: ["ASP.NET", "C#", "MySQL", "Github"],
       githubUrl: "https://github.com/Deokgo/OMG.co",
       liveUrl: null,
+      figmaUrl: null,
       imageUrl: portfolio6 || (mode === 'light' ? light : dark),
     }
   ];
@@ -132,7 +137,7 @@ export function Projects() {
               >
                 {project.imageUrl && (
                   <Box sx={{ position: 'relative' }}>
-                      <Box
+                    <Box
                       component="img"
                       src={project.imageUrl || polyImage}
                       alt={`${project.name} image`}
@@ -162,6 +167,31 @@ export function Projects() {
                         zIndex: 1, // Ensure it's above the image
                       }}
                     />
+                    {/* Figma action button overlay */}
+                    {project.figmaUrl && (
+                      <IconButton 
+                        href={project.figmaUrl}
+                        target="_blank"
+                        title="View Figma Design"
+                        rel="noopener noreferrer"
+                        sx={{
+                          position: 'absolute',
+                          top: 8,
+                          right: 8,
+                          backgroundColor: '#E7694B',
+                          color: '#FFF',
+                          padding: '0.5rem',
+                          borderRadius: '50%',
+                          zIndex: 2,
+                          '&:hover': {
+                            backgroundColor: '#1A1A1A',
+                            color: '#FFF',
+                          }
+                        }}
+                      >
+                        <Slideshow fontSize="small" />
+                      </IconButton>
+                    )}
                   </Box>
                   
                 )}
@@ -256,6 +286,7 @@ export function Projects() {
                         <Button
                           variant="outlined"
                           startIcon={<GitHub />}
+                          title="View Source Code"
                           href={project.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -278,6 +309,7 @@ export function Projects() {
                         <Button
                           variant="outlined"
                           startIcon={<Launch />}
+                          title="View Deployed Project"
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"

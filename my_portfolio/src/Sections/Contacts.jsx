@@ -169,7 +169,7 @@ export function Contact() {
         flexDirection: { xs: 'column', md: 'row' },
         minHeight: { xs: '100vh', md: 'unset' },
         position: 'relative',
-        mt: {xs: 10, sm: 11, md: 13},
+        mt: 13,
         pb: 5,
         gap: { xs: 2, sm: 3 },
       }}

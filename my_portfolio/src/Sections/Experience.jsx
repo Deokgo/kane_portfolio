@@ -88,11 +88,11 @@ export function Experience() {
         flexDirection: { xs: 'column', md: 'row' },
         minHeight: { xs: '100vh', md: 'unset' },
         position: 'relative',
-        mt: 5,
+        mt: 7,
         ml: { xs: 0, md: 10 }, // Adjusted for smaller screens
         mr: { xs: 0, md: 10 }, // Adjusted for smaller screens
         pb: 5,
-        gap: { xs: 2, sm: 3 },
+        gap: 3,
       }}
     >
         <Box sx={{ p: { xs: 2.5, sm: 4 } }}>
