@@ -94,14 +94,14 @@ export function Experience() {
         flexDirection: { xs: 'column', md: 'row' },
         minHeight: { xs: '100vh', md: 'unset' },
         position: 'relative',
-        mt: 7,
-        ml: { xs: 0, md: 10 }, // Adjusted for smaller screens
-        mr: { xs: 0, md: 10 }, // Adjusted for smaller screens
+        mt: 8,
+        ml: { xs: 0, md: 15 }, // Adjusted for smaller screens
+        mr: { xs: 0, md: 15 }, // Adjusted for smaller screens
         pb: 5,
         gap: 3,
       }}
     >
-        <Box sx={{ p: { xs: 2.5, sm: 4 } }}>
+        <Box sx={{ p: { xs: 'none', sm: 3 } }}>
           <Timeline position={isMobile ? "right" : "alternate"}>
             {experiences.map((experience, index) => (
               <TimelineItem key={experience.id}>
@@ -128,7 +128,7 @@ export function Experience() {
                       src={experience.companyLogo}
                       alt="Logo"
                       sx={{
-                        width: { xs: 125, sm: 175, md: 250, lg: 350 },
+                        width: { xs: 150, sm: 200, md: 250, lg: 300 },
                         height: 'auto',
                         mb: 1.5,
                         objectFit: 'contain',
@@ -241,6 +241,7 @@ export function Experience() {
                       variant="body2"
                       sx={{ 
                         color: theme.palette.text.primary,
+                        textAlign: 'justify',
                         lineHeight: 1.6,
                         mb: 2
                       }}

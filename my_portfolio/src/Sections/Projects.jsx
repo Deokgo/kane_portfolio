@@ -96,7 +96,7 @@ export function Projects() {
       >
         <Grid 
           container 
-          spacing={{ xs: 2, sm: 3, md: 3 }} // Responsive spacing
+          spacing={{ xs: 3, sm: 2 }}
           sx={{ 
             justifyContent: 'center',
             alignItems: 'stretch', // Equal height cards
@@ -113,7 +113,7 @@ export function Projects() {
               <Paper
                 elevation={0}
                 sx={{
-                  maxWidth: { xs: 350, sm: 300, md: 450, lg: 550 }, // Responsive max width
+                  maxWidth: { xs: 350, sm: 450, md: 550 }, // Responsive max width
                   minHeight: 'auto',
                   display: 'flex',
                   flexDirection: 'column',

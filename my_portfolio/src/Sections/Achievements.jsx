@@ -92,13 +92,13 @@ export function Achievements() {
       }}
     >
       <Container maxWidth="auto">
-        <Grid container spacing={{ xs: 2, sm: 3, md: 4 }} justifyContent="center">
+        <Grid container spacing={{ xs: 3, sm: 2 }} justifyContent="center">
           {achievements.map((achievement) => (
             <Grid key={achievement.id} sx={{ display: 'flex' }}>
               <Paper
                 elevation={0}
                 sx={{
-                  maxWidth: 400 , // Responsive max width
+                  maxWidth: 360,
                   display: 'flex',
                   flexDirection: 'column',
                   backgroundColor: mode === 'light' 

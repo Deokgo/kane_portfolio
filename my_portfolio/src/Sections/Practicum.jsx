@@ -26,7 +26,7 @@ export function Practicum() {
       <Paper
         elevation={0}
         sx={{
-          width: {xs: '90vw', md: '70vw'},
+          width: {xs: '85vw', md: '75vw'},
           minHeight: 'auto',
           display: 'flex',
           flexDirection: 'column',
@@ -103,7 +103,7 @@ export function Practicum() {
               src={company}
               alt="Logo"
               sx={{
-                width: { xs: 325, md: 450},
+                width: { xs: 300, sm: 350, md: 400, lg: 450 },
                 height: 'auto',
                 mb: 1.5,
                 objectFit: 'contain',
@@ -114,7 +114,7 @@ export function Practicum() {
         </Box>
 
 
-        <Box sx={{ p: { xs: 2.5, sm: 3 } }}>
+        <Box sx={{ p: { xs: 0.75, sm: 1 } }}>
           <Box sx={{ p: { xs: 2.5, sm: 3 } }}>
             <Typography 
               variant="h5" 
@@ -248,7 +248,7 @@ export function Practicum() {
               variant="body1" 
               sx={{ 
                 lineHeight: 1.8,
-                textAlign: 'left',
+                textAlign: 'justify',
                 textIndent: '2rem',
                 color: theme.palette.text.primary,
               }}

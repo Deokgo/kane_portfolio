@@ -157,7 +157,7 @@ export function About() {
             color: theme.palette.text.primary,
             lineHeight: 1,
             textAlign: 'center',
-            fontSize: {xs: '0.8rem', md: '1.5rem'}
+            fontSize: {xs: '1rem', md: '1.5rem'}
           }}
         >
           Hi, I'm
@@ -197,7 +197,7 @@ export function About() {
         <Paper
           elevation={0} // disables default MUI shadow
           sx={{
-            p: 3, 
+            p: {xs: 2, sm: 3, md: 3}, 
             minHeight: 'auto',
             display: 'flex',
             flexDirection: 'column',

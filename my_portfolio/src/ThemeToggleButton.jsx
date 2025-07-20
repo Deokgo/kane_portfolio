@@ -22,12 +22,19 @@ export const ThemeToggleButton = ({ sx = {} }) => {
         <IconButton
           onClick={toggleTheme}
           color="inherit"
+          disableRipple
           sx={{
             ...sx,
             transition: 'all 0.3s ease',
             '&:hover': {
               color: '#E7694B',
               transform: 'rotate(180deg)',
+            },
+            '&:focus': {
+              outline: 'none',
+            },
+            '&.Mui-focusVisible': {
+              outline: 'none',
             },
           }}
         >

@@ -80,17 +80,32 @@ export default function Portfolio() {
           <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', px: {xs: 5, md: 20}}}>
             <IconButton
               onClick={() => navigate('/')}
+              sx={{
+                width: 55,
+                height: 55,
+                alignSelf: 'center',
+                borderRadius: '50%',
+                padding: 1,
+                backgroundColor: 'transparent',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  backgroundColor: 'rgba(231, 105, 75, 0.1)',
+                },
+                '&:focus': {
+                  outline: 'none',
+                },
+              }}
             >
-              <img src={mode === 'light' ? light : dark} alt="Logo" style={{ height: 45 }} />
+              <img src={mode === 'light' ? light : dark} alt="Logo" style={{ height: 35, width: 35 }} />
             </IconButton>
             <Typography
               sx={{
                 display: { xs: 'flex', sm: 'flex', md: 'flex', lg: 'none' },
                 fontFamily: 'Kalnia, serif',
                 color: theme.palette.text.primary,
-                py: 3,
+                py: 6,
                 textAlign: 'center',
-                fontSize: '1.5rem'
+                fontSize: '1.25rem'
               }}
             >
               {sections[tab].label}
@@ -98,7 +113,16 @@ export default function Portfolio() {
             {/* Theme toggle for mobile */}
             <Box sx={{ display: { xs: 'flex', sm: 'flex', md: 'flex', lg: 'none' }, alignItems: 'center', gap: 1 }}>
               <ThemeToggleButton />
-              <IconButton sx={{ color: theme.palette.text.primary }} onClick={() => setDrawerOpen(true)}>
+              <IconButton 
+                sx={{ 
+                  color: theme.palette.text.primary,
+                  '&:focus': {
+                    outline: 'none',
+                  },
+                  '&.Mui-focusVisible': {
+                    outline: 'none',
+                  }, 
+                }} onClick={() => setDrawerOpen(true)}>
                 <MenuIcon />
               </IconButton>
             </Box>
