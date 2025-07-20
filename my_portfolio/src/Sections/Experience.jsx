@@ -6,6 +6,8 @@ import WorkIcon from '@mui/icons-material/Work';
 import SchoolIcon from '@mui/icons-material/School';
 import CodeIcon from '@mui/icons-material/Code';
 import BusinessIcon from '@mui/icons-material/Business';
+import petroenergy from '../assets/petroenergy_logo.svg'; 
+import mmcl from '../assets/mmcl_logo.svg';
 
 export function Experience() {
   const theme = useTheme();
@@ -21,7 +23,8 @@ export function Experience() {
       period: "Apr - Jul 2025",
       type: "project",
       description: "Developed a full-stack ESG data management system, from data modeling to deployment. Designed user interfaces and implementingsystem architecture for seamless functionality. Prepared documentation, training materials, andconducting system handover to end-users.",
-      skills: ["Data Warehousing", "Data Analysis", "Project Management", "Wireframing", "Figma", "React.js", "FastAPI", "PostgreSQL", "Python", "Scrum Agile"]
+      skills: ["Data Warehousing", "Data Analysis", "Project Management", "Wireframing", "Figma", "React.js", "FastAPI", "PostgreSQL", "Python", "Scrum Agile"],
+      companyLogo: petroenergy
     },
     {
       id: 2,
@@ -31,7 +34,8 @@ export function Experience() {
       period: "Apr - Jul 2024",
       type: "work",
       description: "Provided academic support required for the students in Mapúa MCL. Maintaining and managing private student information in online and physical files. Interacting with students in person to address any questions or concerns.",
-      skills: ["Student Welfare", "Support Services", "Student Services", "Communication"]
+      skills: ["Student Welfare", "Support Services", "Student Services", "Communication"],
+      companyLogo: mmcl
     },
     {
       id: 3,
@@ -41,7 +45,8 @@ export function Experience() {
       period: "Aug - Sep 2025",
       type: "work",
       description: "Maintaining and managing private student information in online and physical files. Assisting the admissions office in processing admission forms for potential students. Interacting with students in person and via phone to address any questions or concerns.",
-      skills: ["Support Services", "Student Services", "Communication", "Data Entry"]
+      skills: ["Support Services", "Student Services", "Communication", "Data Entry"],
+      companyLogo: mmcl
     },
     {
       id: 4,
@@ -51,7 +56,8 @@ export function Experience() {
       period: "Aug 2021 - Oct 2025",
       type: "education",
       description: "Activities and societies: Student Council, School Events Volunteer, Academic Organization, Member of Junior Philippine Computing Society",
-      skills: ["Software Engineering", "Data Structures", "Algorithms", "Database Systems", "Machine Learning", "Web Development", "Mobile Devlopment"]
+      skills: ["Software Engineering", "Data Structures", "Algorithms", "Database Systems", "Machine Learning", "Web Development", "Mobile Devlopment"],
+      companyLogo: mmcl
     },
   ];
 
@@ -110,7 +116,27 @@ export function Experience() {
                   align={isMobile ? "right" : (index % 2 === 0 ? "right" : "left")}
                   variant="body2"
                 >
-                  {experience.period}
+                  <Box sx={{ 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    gap: 1, 
+                    flexDirection: isMobile ? 'row' : (index % 2 === 0 ? 'row' : 'row-reverse'),
+                    justifyContent: 'space-between',
+                  }}>
+                    <Box
+                      component="img"
+                      src={experience.companyLogo}
+                      alt="Logo"
+                      sx={{
+                        width: { xs: 125, sm: 175, md: 250, lg: 350 },
+                        height: 'auto',
+                        mb: 1.5,
+                        objectFit: 'contain',
+                        transition: 'width 0.3s',
+                      }}
+                    />
+                    {experience.period}
+                  </Box>
                 </TimelineOppositeContent>
                 
                 <TimelineSeparator>

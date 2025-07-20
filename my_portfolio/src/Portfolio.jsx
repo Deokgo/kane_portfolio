@@ -9,6 +9,7 @@ import { About } from './Sections/About';
 import { Projects } from './Sections/Projects';
 import { Practicum } from './Sections/Practicum';
 import { Experience } from './Sections/Experience';
+import { Achievements } from './Sections/Achievements';
 import { useNavigate, useLocation } from 'react-router-dom';
 import dark from './assets/kane_white.svg';
 import light from './assets/kane_light.svg';
@@ -17,6 +18,7 @@ const sections = [
   { label: 'About Me', id: 'about', component: <About /> },
   { label: 'Experience', id: 'experience', component: <Experience /> },
   { label: 'Projects', id: 'projects', component: <Projects /> },
+  { label: 'Achievements', id: 'achievements', component: <Achievements /> },
   { label: 'Practicum', id: 'practicum', component: <Practicum /> },
   { label: 'Contacts', id: 'contact', component: <Contact /> },
 ];
@@ -83,7 +85,7 @@ export default function Portfolio() {
             </IconButton>
             <Typography
               sx={{
-                display: { xs: 'flex', md: 'none' },
+                display: { xs: 'flex', sm: 'flex', md: 'flex', lg: 'none' },
                 fontFamily: 'Kalnia, serif',
                 color: theme.palette.text.primary,
                 py: 3,
@@ -94,14 +96,14 @@ export default function Portfolio() {
               {sections[tab].label}
             </Typography>
             {/* Theme toggle for mobile */}
-            <Box sx={{ display: { xs: 'flex', md: 'none' }, alignItems: 'center', gap: 1 }}>
+            <Box sx={{ display: { xs: 'flex', sm: 'flex', md: 'flex', lg: 'none' }, alignItems: 'center', gap: 1 }}>
               <ThemeToggleButton />
               <IconButton sx={{ color: theme.palette.text.primary }} onClick={() => setDrawerOpen(true)}>
                 <MenuIcon />
               </IconButton>
             </Box>
             {/* Tabs for desktop */}
-            <Box sx={{ display: { xs: 'none', md: 'flex' }, justifyContent: 'center', alignItems: 'center', gap: 2 }}>
+            <Box sx={{ display: { xs: 'none', sm: 'none', md: 'none', lg: 'flex'}, justifyContent: 'center', alignItems: 'center', gap: 2 }}>
               <Tabs
                 value={tab}
                 onChange={handleTabChange}

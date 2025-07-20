@@ -4,12 +4,12 @@ import { GitHub, Launch, Slideshow } from '@mui/icons-material';
 import { useThemeMode } from '../ThemeContext';
 import light from '../assets/poly_image_light.svg';
 import dark from '../assets/poly_image_dark.svg';
-import potfolio1 from '../assets/portfolio1.svg';
-import portfolio2 from '../assets/portfolio2.svg';
-import portfolio3 from '../assets/portfolio3.svg';
-import portfolio4 from '../assets/portfolio4.svg';
-import portfolio5 from '../assets/portfolio5.svg';
-import portfolio6 from '../assets/portfolio6.svg';
+import potfolio1 from '../assets/projects/portfolio1.svg';
+import portfolio2 from '../assets/projects/portfolio2.svg';
+import portfolio3 from '../assets/projects/portfolio3.svg';
+import portfolio4 from '../assets/projects/portfolio4.svg';
+import portfolio5 from '../assets/projects/portfolio5.svg';
+import portfolio6 from '../assets/projects/portfolio6.svg';
 
 export function Projects() {
   const theme = useTheme();
@@ -29,7 +29,7 @@ export function Projects() {
     {
       id: 2,
       name: "ESG Dash",
-      description: "Integrated a repository and interactive dashboard for data analysis and visualization with multiple chart types, and export capabilities.",
+      description: "Developed a full-stack ESG data management system, from planning to implementation. Implemented data warehousing to the company data using medallion architecture. Designed user interfaces and implemented system architecture for seamless functionality.",
       technologies: ["Python", "React", "PostgreSQL", "Github", "Figma"],
       githubUrl: "https://github.com/Deokgo/ESGDash",
       liveUrl: null,
@@ -113,7 +113,7 @@ export function Projects() {
               <Paper
                 elevation={0}
                 sx={{
-                  maxWidth: { xs: 350, sm: 350, md: 380 },
+                  maxWidth: { xs: 350, sm: 300, md: 450, lg: 550 }, // Responsive max width
                   minHeight: 'auto',
                   display: 'flex',
                   flexDirection: 'column',
@@ -145,6 +145,7 @@ export function Projects() {
                         width: '100%',
                         height: 120,
                         objectFit: 'cover',
+                        objectPosition: 'top', // This aligns the image from the top
                         borderTopLeftRadius: 10,
                         borderTopRightRadius: 10,
                         borderBottomLeftRadius: 0,
