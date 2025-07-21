@@ -15,24 +15,25 @@ export function About() {
     <Box
       sx={{
         display: 'flex',
-        flexDirection: { xs: 'column-reverse', md: 'row' }, // Column-reverse on mobile to show image at bottom
+        flexDirection: { xs: 'column', md: 'row' },
         height: { xs: 'auto', md: '100vh' },
-        minHeight: { xs: '100vh', md: 'unset' },
+        minHeight: { xs: 'auto', md: '100vh' }, // Remove fixed minHeight on mobile
         position: 'relative',
         overflow: 'hidden',
-        mt: { xs: 10, md: 0 },
+        mt: { xs: 8, md: 0 },
         px: { xs: 0, md: 10 },
+        pb: { xs: 0, md: 'unset' }, // Remove bottom padding on mobile
       }}
     >
       {/* LEFT: Profile + Decorative Blobs */}
       <Box
         sx={{
           position: 'relative',
-          display: 'flex',
+          display: { xs: 'none', md: 'flex' }, // Hide on mobile since we're showing image at top
           flex: { xs: 'unset', md: '1 1 20%' },
           alignItems: 'flex-end',
           justifyContent: 'center',
-          height: { xs: '40vh', md: '100%' }, // Responsive height
+          height: { xs: 'auto', md: '100%' },
           backgroundImage: {
             xs: 'none',
             md: `url(${polyImage})`
@@ -40,7 +41,7 @@ export function About() {
           backgroundSize: '30rem',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
-          overflow: 'hidden', // Keep image contained
+          overflow: 'hidden',
         }}
       >
         {/* Decorative blobs - only visible on md and up */}
@@ -131,24 +132,6 @@ export function About() {
             mt: 'auto', // Pushes to the bottom
           }}
         />
-        
-        {/* Mobile profile image */}
-        <Box
-          component="img"
-          src={profileSmall}
-          alt="Profile"
-          sx={{
-            display: { xs: 'block', md: 'none' },
-            height: 'auto',
-            maxHeight: '35vh',
-            maxWidth: '100%',
-            objectFit: 'contain',
-            objectPosition: 'bottom',
-            zIndex: 1,
-            borderRadius: 2,
-            mt: 'auto', // Pushes to the bottom
-          }}
-        />
       </Box>
 
 
@@ -158,12 +141,29 @@ export function About() {
           display: 'flex',
           flexDirection: 'column',
           flex: { xs: 'unset', md: '1 1 50%' },
-          px: 5,
-          pb: 5,
+          px: { xs: 3, md: 5 }, // Reduce padding on mobile
+          pb: { xs: 3, md: 5 }, // Reduce padding on mobile
           zIndex: 1,
-          mt: { xs: 3, md: 20},
+          mt: { xs: 2, md: 20 }, // Reduce top margin on mobile
         }}
       >
+        {/* Mobile profile image */}
+        <Box
+          component="img"
+          src={profileSmall}
+          alt="Profile"
+          sx={{
+            display: { xs: 'block', md: 'none' },
+            height: 'auto',
+            maxHeight: '20vh', // Reduce height on mobile
+            maxWidth: '70%', // Limit width
+            objectFit: 'contain',
+            zIndex: 1,
+            borderRadius: 2,
+            mx: 'auto', // Center horizontally
+            mb: 2, // Add some space below
+          }}
+        />
         <Typography
           sx={{
             fontFamily: 'Kalnia, serif',
@@ -201,7 +201,7 @@ export function About() {
           sx={{
             fontFamily: 'Kalnia, serif',
             color: mode === 'light' ? '#666' : '#93BBD',
-            mb: 4,
+            mb: { xs: 2, md: 4 }, // Reduce bottom margin on mobile
             textAlign: 'center',
           }}
         >
@@ -210,8 +210,9 @@ export function About() {
         <Paper
           elevation={0} // disables default MUI shadow
           sx={{
-            p: {xs: 2, sm: 3, md: 3}, 
+            p: {xs: 2, sm: 2.5, md: 3}, 
             minHeight: 'auto',
+            mb: { xs: 0, md: 3 }, // Remove bottom margin on mobile
             display: 'flex',
             flexDirection: 'column',
             backgroundColor: mode === 'light' 
