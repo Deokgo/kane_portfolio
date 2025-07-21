@@ -103,7 +103,7 @@ export default function Landing() {
               src={profileSmall}
               alt="Logo"
               sx={{
-                height: { xs: '10rem', md: '15rem' },
+                height: { xs: '10rem', md: '12rem' },
                 maxWidth: '100%',
               }}
             />

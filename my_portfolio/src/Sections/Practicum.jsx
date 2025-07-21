@@ -26,7 +26,7 @@ export function Practicum() {
       <Paper
         elevation={0}
         sx={{
-          width: {xs: '85vw', md: '75vw'},
+          width: {xs: '85vw', md: '70vw'},
           minHeight: 'auto',
           display: 'flex',
           flexDirection: 'column',
@@ -103,7 +103,7 @@ export function Practicum() {
               src={company}
               alt="Logo"
               sx={{
-                width: { xs: 300, sm: 350, md: 400, lg: 450 },
+                width: { xs: 275, sm: 350, md: 400, lg: 450 },
                 height: 'auto',
                 mb: 1.5,
                 objectFit: 'contain',

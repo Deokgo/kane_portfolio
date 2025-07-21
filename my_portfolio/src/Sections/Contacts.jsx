@@ -161,61 +161,93 @@ export function Contact() {
       }
     }
   }, []);
-  
+
+  const contacts = [
+    {
+      icon: <EmailIcon />,
+      link: "https://mail.google.com/mail/?view=cm&fs=1&to=cometakanejustine@gmail.com",
+      label: 'cometakanejustine@gmail.com'
+    },
+    {
+      icon: <GitHubIcon />,
+      link: "https://github.com/Deokgo",
+      label: 'github.com/Deokgo'
+    },
+    {
+      icon: <LinkedInIcon />,
+      link: "https://linkedin.com/in/kane-justine-cometa",
+      label: 'linkedin.com/in/kane-justine-cometa'
+    },
+  ];
+
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: { xs: 'column', md: 'row' },
-        minHeight: { xs: '100vh', md: 'unset' },
-        position: 'relative',
-        mt: 13,
-        pb: 5,
-        gap: { xs: 2, sm: 3 },
-      }}
-    >
+    <Container maxWidth="lg">
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: { xs: 'column', md: 'row' },
+          minHeight: { xs: '100vh', md: 'unset' },
+          position: 'relative',
+          mt: 13,
+          pb: 5,
+          gap: { xs: 2, sm: 3 },
+        }}
+      > 
         <Paper
           elevation={0}
           sx={{
-            width: {xs: '85vw', sm: '50vw', md: '30vw'},
+            width: 'auto',
             minHeight: 'auto',
             display: 'flex',
             flexDirection: 'column',
-            borderRadius: 3,
             backgroundColor: mode === 'light' 
-              ? 'rgba(255, 255, 255, 0.9)' 
-              : 'rgba(255, 255, 255, 0.07)',
-            backdropFilter: 'blur(10px)',
-            boxShadow: mode === 'light' 
-              ? '0 2px 10px rgba(0, 0, 0, 0.1)' 
-              : 'none',
-            transition: 'all 0.3s ease-in-out',
+                  ? 'rgba(255, 255, 255, 0.8)' 
+                  : 'rgba(255, 255, 255, 0.03)',
+            border: `1px solid ${mode === 'light' ? '#E0E0E0' : '#424242'}`,
+            borderRadius: 5,
+            transition: 'all 0.3s ease',
             '&:hover': {
+              backgroundColor: mode === 'light' 
+                ? 'rgba(231, 105, 75, 0.05)' 
+                : 'rgba(255, 255, 255, 0.05)',
+              borderColor: '#E7694B',
+              transform: 'translateY(-2px)',
               boxShadow: mode === 'light' 
-                ? '0 4px 20px rgba(231, 105, 75, 0.3)' 
-                : '0 1px 7px #fff'
+                ? '0 4px 12px rgba(231, 105, 75, 0.2)' 
+                : '0 4px 12px rgba(255, 255, 255, 0.1)'
             }
           }}
         >
-          <Box sx={{ p: { xs: 2.5, sm: 3 } }}>
-            <Box component="form" ref={form} onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+          <Box sx={{ p: { xs: 3, sm: 3 }, display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, alignItems: 'center' }}>
+            <Box 
+              component="form" 
+              ref={form} 
+              onSubmit={handleSubmit} 
+              sx={{ 
+                display: 'flex', 
+                flexDirection: 'column', 
+                gap: 2,
+                height: '100%',
+                p: { xs: 0, md: 2 }
+              }}
+            >
               <Typography 
                 variant="h4" 
                 sx={{ 
                   fontFamily: 'Kalnia, serif',
-                  lineHeight: 1.3,
-                  m: 2,
-                  textAlign: 'center',
+                  mb: 1,
                   color: theme.palette.text.primary,
                 }}
               >
-                Let's Connect!
+                Leave a Message
               </Typography>
+              
               <TextField 
                 name="name"
                 label="Name" 
                 variant="outlined" 
                 required 
+                fullWidth
                 value={formData.name}
                 onChange={handleChange}
                 sx={{ 
@@ -223,14 +255,17 @@ export function Contact() {
                     color: theme.palette.text.secondary,
                   },
                   '& .MuiOutlinedInput-root': {
+                    borderRadius: 2,
                     '& fieldset': {
                       borderColor: theme.palette.text.secondary,
+                      borderWidth: '1px',
                     },
                     '&:hover fieldset': {
                       borderColor: '#E7694B',
                     },
                     '&.Mui-focused fieldset': {
                       borderColor: '#E7694B',
+                      borderWidth: '2px',
                     },
                     '& input': {
                       color: theme.palette.text.primary,
@@ -244,6 +279,7 @@ export function Contact() {
                 variant="outlined" 
                 type="email"
                 required 
+                fullWidth
                 value={formData.email}
                 onChange={handleChange}
                 sx={{ 
@@ -251,14 +287,17 @@ export function Contact() {
                     color: theme.palette.text.secondary,
                   },
                   '& .MuiOutlinedInput-root': {
+                    borderRadius: 2,
                     '& fieldset': {
                       borderColor: theme.palette.text.secondary,
+                      borderWidth: '1px',
                     },
                     '&:hover fieldset': {
                       borderColor: '#E7694B',
                     },
                     '&.Mui-focused fieldset': {
                       borderColor: '#E7694B',
+                      borderWidth: '2px',
                     },
                     '& input': {
                       color: theme.palette.text.primary,
@@ -271,8 +310,9 @@ export function Contact() {
                 label="Message" 
                 variant="outlined" 
                 multiline 
-                rows={4} 
+                rows={5} 
                 required 
+                fullWidth
                 value={formData.message}
                 onChange={handleChange}
                 sx={{ 
@@ -280,14 +320,17 @@ export function Contact() {
                     color: theme.palette.text.secondary,
                   },
                   '& .MuiOutlinedInput-root': {
+                    borderRadius: 2,
                     '& fieldset': {
                       borderColor: theme.palette.text.secondary,
+                      borderWidth: '1px',
                     },
                     '&:hover fieldset': {
                       borderColor: '#E7694B',
                     },
                     '&.Mui-focused fieldset': {
                       borderColor: '#E7694B',
+                      borderWidth: '2px',
                     },
                     '& textarea': {
                       color: theme.palette.text.primary,
@@ -297,93 +340,106 @@ export function Contact() {
               />
               <Button 
                 type="submit"
-                variant="outlined" 
+                variant="contained" 
                 size="large"
                 disabled={loading || cooldownActive}
                 sx={{
-                  color: (cooldownActive ? theme.palette.text.secondary : '#E7694B'),
-                  borderColor: (cooldownActive ? theme.palette.text.secondary : '#E7694B'),
-                  borderWidth: 2,
+                  backgroundColor: cooldownActive ? 'gray' : '#E7694B',
+                  color: '#FFF',
                   fontWeight: 'bold',
-                  mt: 2,
-                  width: { xs: '100%', sm: 'auto' },
+                  mt: 1,
+                  py: 1,
+                  borderRadius: 2,
+                  textTransform: 'none',
+                  fontSize: '1rem',
+                  boxShadow: mode === 'light' ? '0 4px 12px rgba(231, 105, 75, 0.3)' : 'none',
                   '&:hover': {
-                    color: cooldownActive ? 'gray' : '#FFF',
-                    backgroundColor: cooldownActive ? 'gray' : '#E7694B',
-                    borderColor: cooldownActive ? 'gray' : '#E7694B',
+                    backgroundColor: cooldownActive ? 'gray' : '#D15538',
                   },
                   '&:disabled': {
-                    color: theme.palette.text.secondary,
+                    color: '#FFF',
+                    backgroundColor: theme.palette.action.disabledBackground,
                   },
                 }}
               >
-                Send
+                {loading ? 'Sending...' : 'Send Message'}
               </Button>
+              <Typography
+                variant="body2"
+                sx={{
+                  color: theme.palette.text.primary,
+                  textAlign: 'center',
+                  fontStyle: 'italic',
+                }}
+              >
+                {cooldownActive ? `Please wait for ${Math.ceil(cooldownTime / 60)} minute/s before sending another email` : ''}
+              </Typography>
             </Box>
-            <Typography
-              variant="body1"
-              sx={{
-                mt: 1,
-                color: theme.palette.text.primary,
-                textAlign: 'center',
-              }}
-            >
-              {loading ? 'Sending...' : cooldownActive ? `Please wait for ${Math.ceil(cooldownTime / 60)} minute/s before sending another email` : ''}
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{
-                mt: 3,
-                color: theme.palette.text.primary,
-                textAlign: 'center',
-              }}
-            >
-              OR
-            </Typography>
-            <Box
-              sx={{
-                mt: 3,
-                display: 'flex',
-                flexWrap: 'wrap',
-                justifyContent: 'center',
-                gap: 2,
-              }}
-            >
-              <IconButton
-                size="large"
-                component="a"
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=cometakanejustine@gmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                sx={{
+          
+            <Box 
+              sx={{ 
+                display: 'block',
+                width: {xs: '90%', sm: '1px'}, 
+                height: {xs: '1px', sm: 'auto'}, 
+                minHeight: {xs:'0px', sm: '300px'},
+                mx: {xs: 0, sm: 4},
+                my: {xs: 3, sm: 0},
+                backgroundColor: theme.palette.divider 
+              }} 
+            />
+            
+            <Box sx={{ 
+              display: 'flex', 
+              flexDirection: 'column',
+              alignItems: 'center'
+            }}>
+              <Typography 
+                variant="h4" 
+                sx={{ 
+                  fontFamily: 'Kalnia, serif',
+                  mb: 3,
+                  textAlign: 'center',
                   color: theme.palette.text.primary,
-                  '&:hover': { color: '#E7694B' },
                 }}
               >
-                <EmailIcon />
-              </IconButton>
-              <IconButton
-                size="large"
-                href="https://github.com/Deokgo"
-                target="_blank"
-                sx={{
-                  color: theme.palette.text.primary,
-                  '&:hover': { color: '#E7694B' },
-                }}
-              >
-                <GitHubIcon />
-              </IconButton>
-              <IconButton
-                size="large"
-                href="https://linkedin.com/in/kane-justine-cometa"
-                target="_blank"
-                sx={{
-                  color: theme.palette.text.primary,
-                  '&:hover': { color: '#E7694B' },
-                }}
-              >
-                <LinkedInIcon />
-              </IconButton>
+                Let's Connect!
+              </Typography>
+              <Box sx={{ 
+                display: 'flex', 
+                flexDirection: { xs: 'row', sm: 'column' },
+                gap: {xs: 0, sm: 2.5},
+                alignItems: 'center'
+              }}>
+                { contacts.map((contact, index) => (
+                  <Button
+                    key={index}
+                    startIcon={contact.icon}
+                    component="a"
+                    href={contact.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variant="text"
+                    sx={{
+                      color: theme.palette.text.primary,
+                      border: { xs: 'none', sm: '1px solid' },
+                      borderColor: { xs: 'transparent', sm: mode === 'light' ? theme.palette.text.secondary : theme.palette.text.primary },
+                      borderRadius: 3,
+                      px: 2,
+                      width: '100%',
+                      justifyContent: { xs: 'center', sm: 'flex-start' },
+                      mb: 1,
+                      '&:hover': { 
+                        color: '#E7694B',
+                        backgroundColor: mode === 'light' ? 'rgba(231, 105, 75, 0.05)' : 'rgba(255, 255, 255, 0.05)'
+                      },
+                    }}
+                  >
+                    <Box component="span" sx={{ display: { xs: 'none', sm: 'inline' }, fontSize: '0.75rem' }}>
+                      {contact.label || contact.link}
+                    </Box>  
+                  </Button>
+                ))}
+              </Box>
             </Box>
           </Box>
         </Paper>
@@ -403,6 +459,7 @@ export function Contact() {
             {alert.message}
           </Alert>
         </Snackbar>
-    </Box>
+      </Box>
+    </Container>
   );
 }

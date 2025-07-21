@@ -142,6 +142,7 @@ export default function Portfolio() {
                     minHeight: 70,
                     paddingBottom: 0,
                     color: theme.palette.text.primary,
+                    fontSize: '0.75rem',
                     transition: 'color 0.3s ease',
                     border: 'none',           // Remove borders
                     outline: 'none',          // Remove outline
@@ -150,8 +151,8 @@ export default function Portfolio() {
                   '& .MuiTab-root.Mui-selected': {
                     color: '#E7694B',
                     fontWeight: 'bold',
-                    px: 2,
-                    fontSize: '1.1rem',
+                    px: 1,
+                    fontSize: '1rem',
                     border: 'none',           // Remove any borders
                     outline: 'none',          // Remove outline
                     boxShadow: 'none',        // Remove box shadow

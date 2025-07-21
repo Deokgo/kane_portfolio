@@ -98,7 +98,7 @@ export function Achievements() {
               <Paper
                 elevation={0}
                 sx={{
-                  maxWidth: 360,
+                  maxWidth: 350,
                   display: 'flex',
                   flexDirection: 'column',
                   backgroundColor: mode === 'light' 
@@ -111,7 +111,7 @@ export function Achievements() {
                   '&:hover': {
                     backgroundColor: mode === 'light' 
                       ? 'rgba(231, 105, 75, 0.05)' 
-                      : 'rgba(255, 255, 255, 0.08)',
+                      : 'rgba(255, 255, 255, 0.05)',
                     borderColor: '#E7694B',
                     transform: 'translateY(-2px)',
                     boxShadow: mode === 'light' 

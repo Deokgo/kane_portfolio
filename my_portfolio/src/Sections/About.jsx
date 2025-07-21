@@ -15,49 +15,55 @@ export function About() {
     <Box
       sx={{
         display: 'flex',
-        flexDirection: { xs: 'column', md: 'row' },
+        flexDirection: { xs: 'column-reverse', md: 'row' }, // Column-reverse on mobile to show image at bottom
         height: { xs: 'auto', md: '100vh' },
         minHeight: { xs: '100vh', md: 'unset' },
         position: 'relative',
         overflow: 'hidden',
         mt: { xs: 10, md: 0 },
         px: { xs: 0, md: 10 },
-        gap: { xs: 2, sm: 3 },
       }}
     >
       {/* LEFT: Profile + Decorative Blobs */}
       <Box
         sx={{
           position: 'relative',
-          display: { xs: 'none', md: 'flex' }, // 🔥 Hide on mobile
+          display: 'flex',
+          flex: { xs: 'unset', md: '1 1 20%' },
           alignItems: 'flex-end',
           justifyContent: 'center',
-          backgroundImage: `url(${polyImage})`,
-          backgroundSize: 'full',
+          height: { xs: '40vh', md: '100%' }, // Responsive height
+          backgroundImage: {
+            xs: 'none',
+            md: `url(${polyImage})`
+          },
+          backgroundSize: '30rem',
           backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center ',
+          backgroundPosition: 'center',
+          overflow: 'hidden', // Keep image contained
         }}
       >
-        {/* Decorative blobs (already hidden on mobile via condition)*/}
+        {/* Decorative blobs - only visible on md and up */}
         <Box
           component="img"
           src={poly}
           alt="Decorative blob"
           sx={{
+            display: { xs: 'none', md: 'block' },
             position: 'absolute',
-            top: '10%',
+            top: '12%',
             right: '15%',
             transform: 'rotate(85deg)',
             opacity: 0.8,
             zIndex: 0,
-            width: '10%',
+            width: '8%',
             minWidth: 80,
             animation: 'fadeIn 2s ease-in, float4 4s ease-in-out infinite',
-              '@keyframes float4': {
-                '0%': { transform: 'rotate(85deg) translateY(0px)' },
-                '50%': { transform: 'rotate(85deg) translateX(-10px)' },
-                '100%': { transform: 'rotate(85deg) translateY(0px)' },
-              },
+            '@keyframes float4': {
+              '0%': { transform: 'rotate(85deg) translateY(0px)' },
+              '50%': { transform: 'rotate(85deg) translateX(-10px)' },
+              '100%': { transform: 'rotate(85deg) translateY(0px)' },
+            },
           }}
         />
 
@@ -66,6 +72,7 @@ export function About() {
           src={poly}
           alt="Decorative blob"
           sx={{
+            display: { xs: 'none', md: 'block' },
             position: 'absolute',
             right: '10%',
             bottom: '10%',
@@ -88,10 +95,11 @@ export function About() {
           src={poly}
           alt="Decorative blob"
           sx={{
+            display: { xs: 'none', md: 'block' },
             position: 'absolute',
             left: '15%',
             bottom: '3%',
-            transformOrigin: 'center center', // You can also try 'bottom left' or 'top right' depending on the effect
+            transformOrigin: 'center center',
             opacity: 0.4,
             zIndex: 2,
             width: '25%',
@@ -105,19 +113,40 @@ export function About() {
           }}
         />
 
-        {/* Profile image */}
+        {/* Profile image - desktop */}
         <Box
           component="img"
           src={profile}
           alt="Profile"
           sx={{
-            height: '85vh',
+            display: { xs: 'none', md: 'block' },
+            height: 'auto',
+            maxHeight: '85vh', 
             maxWidth: '100%',
             objectFit: 'contain',
             objectPosition: 'bottom',
             zIndex: 1,
             position: 'relative',
             borderRadius: 2,
+            mt: 'auto', // Pushes to the bottom
+          }}
+        />
+        
+        {/* Mobile profile image */}
+        <Box
+          component="img"
+          src={profileSmall}
+          alt="Profile"
+          sx={{
+            display: { xs: 'block', md: 'none' },
+            height: 'auto',
+            maxHeight: '35vh',
+            maxWidth: '100%',
+            objectFit: 'contain',
+            objectPosition: 'bottom',
+            zIndex: 1,
+            borderRadius: 2,
+            mt: 'auto', // Pushes to the bottom
           }}
         />
       </Box>
@@ -132,25 +161,9 @@ export function About() {
           px: 5,
           pb: 5,
           zIndex: 1,
-          mt: { xs: 0, md: 20},
+          mt: { xs: 3, md: 20},
         }}
       >
-        <Box sx={{ 
-          mb: { xs: 3, sm: 4 }, 
-          display: { xs: 'flex', md: 'none' },
-          justifyContent: 'center'
-        }}>
-          <Box
-            component="img"
-            src={profileSmall}
-            alt="Profile"
-            sx={{
-              py: 2,
-              height: '13rem' ,
-              maxWidth: '100%',
-            }}
-          />
-        </Box>
         <Typography
           sx={{
             fontFamily: 'Kalnia, serif',
@@ -170,7 +183,7 @@ export function About() {
             lineHeight: 0.9,
             py: 2,
             textAlign: 'center',
-            fontSize: { xs: '2.75rem', md: '3rem' },
+            fontSize: { xs: '2.5rem', md: '2.75rem' },
             animation: 'fadeIn 2s ease-in, float 4s ease-in-out infinite',
             '@keyframes float': {
               '0%': { transform: 'translateY(0px)' },
@@ -201,26 +214,30 @@ export function About() {
             minHeight: 'auto',
             display: 'flex',
             flexDirection: 'column',
-            borderRadius: 3,
             backgroundColor: mode === 'light' 
-              ? 'rgba(255, 255, 255, 0.9)' 
-              : 'rgba(255, 255, 255, 0.05)',
-            backdropFilter: 'blur(10px)',
-            boxShadow: mode === 'light' 
-              ? '0 2px 10px rgba(0, 0, 0, 0.1)' 
-              : '0 2px 10px #FFF',
-            transition: 'all 0.3s ease-in-out',
+                  ? 'rgba(255, 255, 255, 0.8)' 
+                  : 'rgba(255, 255, 255, 0.03)',
+            border: `1px solid ${mode === 'light' ? '#E0E0E0' : '#424242'}`,
+            borderRadius: 5,
+            transition: 'all 0.3s ease',
             '&:hover': {
-              boxShadow: '0 2px 10px #E7694B'
+              backgroundColor: mode === 'light' 
+                ? 'rgba(231, 105, 75, 0.05)' 
+                : 'rgba(255, 255, 255, 0.05)',
+              borderColor: '#E7694B',
+              transform: 'translateY(-2px)',
+              boxShadow: mode === 'light' 
+                ? '0 4px 12px rgba(231, 105, 75, 0.2)' 
+                : '0 4px 12px rgba(255, 255, 255, 0.1)'
             }
           }}
         >
           <Typography
-            variant={isMobile ? 'body1' : 'h6'}
+            variant={isMobile ? 'body1' : 'body1'}
             gutterBottom
             sx={{
               color: theme.palette.text.primary,
-              lineHeight: 1.5,
+              lineHeight: 1.8,
               textAlign: 'justify',
               px: { xs: 1, sm: 0 },
             }}
