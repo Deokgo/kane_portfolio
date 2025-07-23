@@ -75,7 +75,7 @@ export default function Landing() {
             backgroundSize: 'auto 100%',        // ✅ Keep aspect ratio, fit height
             backgroundRepeat: 'repeat-x',       // ✅ Repeat horizontally for seamless loop
             backgroundPosition: '0px 0px',
-            animation: 'moveBackground 15s linear infinite',
+            animation: 'moveBackground 30s linear infinite',
             zIndex: 0,
           }}
         >
@@ -91,7 +91,7 @@ export default function Landing() {
             opacity: 0.9,
             bgcolor: mode === 'light' 
               ? 'rgba(255, 255, 255, 0.9)' 
-              : 'rgba(0, 0, 0, 1)',
+              : 'rgba(0, 0, 0, 0.9)',
             zIndex: 1,
           }}
         />
