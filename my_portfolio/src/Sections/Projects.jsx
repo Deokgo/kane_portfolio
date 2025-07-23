@@ -143,7 +143,7 @@ export function Projects() {
                       alt={`${project.name} image`}
                       sx={{
                         width: '100%',
-                        height: 120,
+                        height: 150,
                         objectFit: 'cover',
                         objectPosition: 'top', // This aligns the image from the top
                         borderTopLeftRadius: 10,
@@ -185,7 +185,7 @@ export function Projects() {
                           borderRadius: '50%',
                           zIndex: 2,
                           '&:hover': {
-                            backgroundColor: '#1A1A1A',
+                            backgroundColor: '#D15538',
                             color: '#FFF',
                           }
                         }}

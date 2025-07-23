@@ -18,7 +18,7 @@ export function Achievements() {
   const achievements = [
     {
       id: 1,
-      title: "Colloquium Presentation",
+      title: "Research Colloquium Presentation",
       organization: "CCIS Research Colloquium",
       year: "2025",
       description: "Our team has been selected to join this year's Research Colloquium with the theme: “Unpacking Development Challenges, Fostering Sustainable Solutions”.",
@@ -58,7 +58,7 @@ export function Achievements() {
     },
     {
       id: 5,
-      title: "Cloud Skill and Completion",
+      title: "Google Cloud Course Skill and Completion",
       organization: "Google Cloud Skills Boost",
       year: "2023",
       description: "I have successfully earned multiple Google Cloud Skill Badges, demonstrating hands-on proficiency in cloud infrastructure, application development, and data engineering.",

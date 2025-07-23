@@ -10,9 +10,11 @@ import LockOpenIcon from '@mui/icons-material/LockOpen';
 import ThemeToggleButton from './ThemeToggleButton';
 import polyDark from './assets/poly_image_dark.svg';
 import polyLight from './assets/poly_image_light.svg';
+import bg from './assets/landing_bg.svg';
 import profileSmall from './assets/profile_small.png';
 import Slide from '@mui/material/Slide';
 import DownloadIcon from '@mui/icons-material/Download';
+import { GlobalStyles } from '@mui/material';
 
 export default function Landing() {
   const navigate = useNavigate();
@@ -31,35 +33,54 @@ export default function Landing() {
   };
 
   return (
-    <Slide
-      in={!slideOut}
-      direction="down"
-      timeout={{ enter: 350, exit: 250 }}
-      easing={{
-        enter: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-        exit: 'cubic-bezier(0.55, 0.06, 0.68, 0.19)',
-      }}
-      mountOnEnter
-      unmountOnExit
-    >
-      <Box
-        sx={{
-          minHeight: '100vh',
-          width: '100vw',
-          overflowY: 'auto',         // ✅ Allow vertical scroll
-          overflowX: 'hidden',
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundImage: mode === 'light' ? `url(${polyLight})` : `url(${polyDark})`, // Use different images for different modes
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          zIndex: 0,
+    <>
+      <GlobalStyles
+        styles={{
+          '@keyframes moveBackground': {
+            '0%': {
+              backgroundPosition: '0px 0px',
+            },
+            '100%': {
+              backgroundPosition: '-1920px 0px',
+            },
+          },
         }}
+      />
+
+
+      <Slide
+        in={!slideOut}
+        direction="down"
+        timeout={{ enter: 350, exit: 250 }}
+        easing={{
+          enter: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+          exit: 'cubic-bezier(0.55, 0.06, 0.68, 0.19)',
+        }}
+        mountOnEnter
+        unmountOnExit
       >
+        <Box
+          sx={{
+            minHeight: '100vh',
+            width: '100vw',
+            overflowY: 'auto',
+            overflowX: 'hidden',
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundImage: `url(${bg})`,
+            backgroundSize: 'auto 100%',        // ✅ Keep aspect ratio, fit height
+            backgroundRepeat: 'repeat-x',       // ✅ Repeat horizontally for seamless loop
+            backgroundPosition: '0px 0px',
+            animation: 'moveBackground 15s linear infinite',
+            zIndex: 0,
+          }}
+        >
+
+
         <Box
           sx={{
             position: 'absolute',
@@ -69,8 +90,8 @@ export default function Landing() {
             height: '100vh',
             opacity: 0.9,
             bgcolor: mode === 'light' 
-              ? 'rgba(255, 255, 255, 0.7)' 
-              : 'rgba(0, 0, 0, 0.7)',
+              ? 'rgba(255, 255, 255, 0.9)' 
+              : 'rgba(0, 0, 0, 1)',
             zIndex: 1,
           }}
         />
@@ -85,6 +106,7 @@ export default function Landing() {
         >
           <ThemeToggleButton sx={{ color: theme.palette.text.primary }} />
         </Box>
+        
         <Box
           sx={{
             display: 'flex',
@@ -245,5 +267,6 @@ export default function Landing() {
         </Box>
       </Box>
     </Slide>
+    </>
   );
 }
