@@ -165,7 +165,7 @@ export default function Landing() {
               color: theme.palette.text.secondary,
             }}
           >
-            UI Designer | Software Developer | Data Scientist
+            Computer Science | UI Designer | Web Developer
           </Typography>
 
           <Box

@@ -205,7 +205,7 @@ export function About() {
             textAlign: 'center',
           }}
         >
-          — a 4th-year Computer Science student
+          — a Computer Science Graduate
         </Typography>
         <Paper
           elevation={0} // disables default MUI shadow
@@ -249,7 +249,7 @@ export function About() {
             <br /><br />
 
             I mostly work with React, Node.js, and Python, and I have a keen interest in Front-end Development and UI/UX Design.
-            Most of my work has been in the field of data science, where I have applied my skills in data analysis and visualization.
+            Most of my work has been in the field of data management, where I have applied my skills in data analysis and visualization.
 
             <br /><br />
 
