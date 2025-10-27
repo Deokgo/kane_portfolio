@@ -18,6 +18,16 @@ export function Projects() {
   const projects = [
     {
       id: 1,
+      name: "ESG Dash",
+      description: "Optimized and refined frontend components. Implemented JWT/OAuth authentication, role-based access control (RBAC), input validation, and data encryption. Integrated comprehensive backup and recovery mechanisms, including full and incremental restore procedures",
+      technologies: ["Python", "React", "PostgreSQL", "Github", "Figma"],
+      githubUrl: "",
+      liveUrl: null,
+      figmaUrl: "",
+      imageUrl: portfolio2 || (mode === 'light' ? light : dark),
+    },
+    {
+      id: 2,
       name: "Portfolio Website",
       description: "A personal portfolio built with React and Material-UI showcasing projects, skills, and professional experience with smooth animations and responsive design.",
       technologies: ["React", "Figma", "Github"],
@@ -27,7 +37,7 @@ export function Projects() {
       imageUrl: potfolio1 || (mode === 'light' ? light : dark),
     },
     {
-      id: 2,
+      id: 3,
       name: "ESG Dash",
       description: "Developed a full-stack ESG data management system, from planning to implementation. Implemented data warehousing to the company data using medallion architecture. Designed user interfaces and implemented system architecture for seamless functionality.",
       technologies: ["Python", "React", "PostgreSQL", "Github", "Figma"],
@@ -37,7 +47,7 @@ export function Projects() {
       imageUrl: portfolio2 || (mode === 'light' ? light : dark),
     },
     {
-      id: 3,
+      id: 4,
       name: "Institutional Research Repository",
       description: "Integrated user-friendly interface for managing and visualizing institutional research data with advanced search capabilities and data analytics dashboard.",
       technologies: ["Python", "React", "Postgresql", "Github"],
@@ -47,7 +57,7 @@ export function Projects() {
       imageUrl: portfolio3 || (mode === 'light' ? light : dark),
     },
     {
-      id: 4,
+      id: 5,
       name: "Procurement and Inventory Management System",
       description: "Integrated a simple user interface to facilitate company daily tasks (procurement and inventory management).",
       technologies: ["C#", "SQL", "Github", "Figma"],
@@ -57,7 +67,7 @@ export function Projects() {
       imageUrl: portfolio4 || (mode === 'light' ? light : dark),
     },
     {
-      id: 5,
+      id: 6,
       name: "Final Revelation",
       description: "A game-based software application using Unity game engine and MySQL which consists of interactive puzzle game interface which can be controlled using keyboard.",
       technologies: ["Unity", "MySQL", "Github"],
@@ -67,7 +77,7 @@ export function Projects() {
       imageUrl: portfolio5 || (mode === 'light' ? light : dark),
     },
     {
-      id: 6,
+      id: 7,
       name: "OMG.co",
       description: "Integrated user-friendly interface for handling inventory management, customer orders, which includes sales report.",
       technologies: ["ASP.NET", "C#", "MySQL", "Github"],

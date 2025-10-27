@@ -207,9 +207,6 @@ export function Contact() {
             borderRadius: 5,
             transition: 'all 0.3s ease',
             '&:hover': {
-              backgroundColor: mode === 'light' 
-                ? 'rgba(231, 105, 75, 0.05)' 
-                : 'rgba(255, 255, 255, 0.05)',
               borderColor: '#E7694B',
               transform: 'translateY(-2px)',
               boxShadow: mode === 'light' 
@@ -428,6 +425,7 @@ export function Contact() {
                       width: '100%',
                       justifyContent: { xs: 'center', sm: 'flex-start' },
                       mb: 1,
+                      textTransform: 'none',
                       '&:hover': { 
                         color: '#E7694B',
                         backgroundColor: mode === 'light' ? 'rgba(231, 105, 75, 0.05)' : 'rgba(255, 255, 255, 0.05)'

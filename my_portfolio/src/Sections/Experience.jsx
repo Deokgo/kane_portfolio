@@ -17,7 +17,18 @@ export function Experience() {
   const experiences = [
     {
       id: 1,
-      title: "Full-stack Software Developer Intern",
+      title: "Freelance Full-stack Web Developer",
+      company: "PetroEnergy Resources Corporation",
+      location: "Ortigas Business Center, Pasig City",
+      period: "Sep - October 2025",
+      type: "project",
+      description: "Optimized and refined frontend components. Implemented JWT/OAuth authentication, role-based access control (RBAC), input validation, and data encryption. Integrated comprehensive backup and recovery mechanisms, including full and incremental restore procedures",
+      skills: ["Data Warehousing", "Project Management", "Wireframing", "React.js", "FastAPI", "PostgreSQL", "Python"],
+      companyLogo: petroenergy
+    },
+    {
+      id: 2,
+      title: "Full-stack Web Developer Intern",
       company: "PetroEnergy Resources Corporation",
       location: "Ortigas Business Center, Pasig City",
       period: "Apr - Jul 2025",
@@ -27,7 +38,7 @@ export function Experience() {
       companyLogo: petroenergy
     },
     {
-      id: 2,
+      id: 3,
       title: "IFO - Student Assistant",
       company: "Mapúa Malayan Colleges Laguna",
       location: "Cabuyao, Laguna",
@@ -38,7 +49,7 @@ export function Experience() {
       companyLogo: mmcl
     },
     {
-      id: 3,
+      id: 4,
       title: "ADO - Student Assistant",
       company: "Mapúa Malayan Colleges Laguna",
       location: "Cabuyao, Laguna",
@@ -49,7 +60,7 @@ export function Experience() {
       companyLogo: mmcl
     },
     {
-      id: 4,
+      id: 5,
       title: "Bachelor of Science in Computer Science",
       company: "Mapúa Malayan Colleges Laguna",
       location: "Cabuyao, Laguna",

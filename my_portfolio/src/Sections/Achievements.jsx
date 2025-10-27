@@ -104,7 +104,7 @@ export function Achievements() {
                   backgroundColor: mode === 'light' 
                     ? 'rgba(255, 255, 255, 0.8)' 
                     : 'rgba(255, 255, 255, 0.03)',
-                  border: `1px solid ${mode === 'light' ? '#E0E0E0' : '#424242'}`,
+                  border: `1px solid ${mode === 'light' ? '#ffffffff' : '#424242'}`,
                   borderRadius: 2,
                   overflow: 'hidden',
                   transition: 'all 0.3s ease',
