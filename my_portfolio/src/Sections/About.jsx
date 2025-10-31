@@ -21,7 +21,7 @@ export function About() {
         position: 'relative',
         overflow: 'hidden',
         mt: { xs: 8, md: 0 },
-        px: { xs: 0, md: 10 },
+        px: { xs: 0, md: 20 },
         pb: { xs: 0, md: 'unset' }, // Remove bottom padding on mobile
       }}
     >
