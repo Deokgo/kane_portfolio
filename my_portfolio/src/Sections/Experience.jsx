@@ -112,7 +112,7 @@ export function Experience() {
         gap: 3,
       }}
     >
-        <Box sx={{ p: { xs: 'none', sm: 3 } }}>
+        <Box sx={{ p: { xs: 'none', sm: 3 }, ml: 2 }}>
           <Timeline position={isMobile ? "right" : "alternate"}>
             {experiences.map((experience, index) => (
               <TimelineItem key={experience.id}>

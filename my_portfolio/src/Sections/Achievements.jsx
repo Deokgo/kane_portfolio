@@ -86,7 +86,7 @@ export function Achievements() {
         flexDirection: { xs: 'column', md: 'row' },
         minHeight: { xs: '100vh', md: 'unset' },
         position: 'relative',
-        mt: 13,
+        mt: 15,
         pb: 5,
         gap: { xs: 2, sm: 3 },
       }}

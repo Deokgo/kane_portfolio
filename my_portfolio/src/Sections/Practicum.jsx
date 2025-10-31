@@ -18,7 +18,7 @@ export function Practicum() {
         flexDirection: { xs: 'column', md: 'row' },
         minHeight: { xs: '100vh', md: 'unset' },
         position: 'relative',
-        mt: 13,
+        mt: 15,
         pb: 5,
         gap: { xs: 2, sm: 3 },
       }}
@@ -39,11 +39,7 @@ export function Practicum() {
             ? '0 2px 10px rgba(0, 0, 0, 0.1)' 
             : 'none',
           transition: 'all 0.3s ease-in-out',
-          '&:hover': {
-            boxShadow: mode === 'light' 
-              ? '0 4px 20px rgba(231, 105, 75, 0.3)' 
-              : '0 1px 7px #fff'
-          }
+
         }}
       >
         {/* Image container with overlay title */}

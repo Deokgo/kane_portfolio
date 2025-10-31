@@ -71,13 +71,25 @@ export default function Portfolio() {
 
   return (
     <Box>
-      <AppBar sx={{ 
-        backgroundColor: mode === 'light' ? '#fff' : '#1A1818',
-        color: theme.palette.text.primary,
-        boxShadow: mode === 'light' ? '0 2px 4px rgba(0,0,0,0.1)' : 'none',
-      }}>
-        <Toolbar sx={{ height: 40, px: { xs: 1, sm: 2 } }}>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', px: {xs: 5, md: 20}}}>
+      <AppBar
+        position="fixed"
+        elevation={0}
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          top: 15,
+          width: { xs: '90vw', sm: '85vw', md: '80vw', lg: '75vw', xl: '70vw' },
+          backgroundColor: mode === 'light' ? '#fff' : '#1A1818',
+          color: theme.palette.text.primary,
+          boxShadow: mode === 'light' ? '0 8px 32px rgba(231, 105, 75, 0.12), 0 1.5px 8px rgba(0,0,0,0.08)' : '0 8px 32px rgba(255, 255, 255, 0.15), 0 1.5px 8px rgba(0,0,0,0.18)',
+          borderRadius: 8,
+          zIndex: 1201,
+        }}
+      >
+        <Toolbar sx={{ height: 30, px: { xs: 2, sm: 3 } }}>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%'}}>
             <IconButton
               onClick={() => navigate('/')}
               sx={{
@@ -106,7 +118,7 @@ export default function Portfolio() {
                 py: 6,
                 textAlign: 'center',
                 fontSize: '1.25rem'
-              }}
+              }}  
             >
               {sections[tab].label}
             </Typography>
@@ -127,7 +139,7 @@ export default function Portfolio() {
               </IconButton>
             </Box>
             {/* Tabs for desktop */}
-            <Box sx={{ display: { xs: 'none', sm: 'none', md: 'none', lg: 'flex'}, justifyContent: 'center', alignItems: 'center', gap: 2 }}>
+            <Box sx={{ display: { xs: 'none', sm: 'none', md: 'none', lg: 'flex'}, justifyContent: 'center', alignItems: 'center', gap: 1 }}>
               <Tabs
                 value={tab}
                 onChange={handleTabChange}
@@ -139,11 +151,12 @@ export default function Portfolio() {
                     backgroundColor: '#E7694B',
                   },
                   '& .MuiTab-root': {
-                    minHeight: 70,
+                    minHeight: 65,
+                    width: 120,
                     paddingBottom: 0,
                     color: theme.palette.text.primary,
-                    fontSize: '0.75rem',
-                    transition: 'color 0.3s ease',
+                    fontSize: '0.85rem',
+                    transition: 'color 0.7s ease',
                     border: 'none',           // Remove borders
                     outline: 'none',          // Remove outline
                     boxShadow: 'none',        // Remove box shadow
@@ -152,7 +165,6 @@ export default function Portfolio() {
                     color: '#E7694B',
                     fontWeight: 'bold',
                     px: 1,
-                    fontSize: '1rem',
                     border: 'none',           // Remove any borders
                     outline: 'none',          // Remove outline
                     boxShadow: 'none',        // Remove box shadow
@@ -190,7 +202,7 @@ export default function Portfolio() {
         onClose={() => setDrawerOpen(false)}
         PaperProps={{ 
           sx: { 
-            width: 220, 
+            width: 250, 
             bgcolor: mode === 'light' ? '#fff' : '#1A1818', 
             color: theme.palette.text.primary 
           } 
