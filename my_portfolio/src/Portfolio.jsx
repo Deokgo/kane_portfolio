@@ -145,13 +145,14 @@ export default function Portfolio() {
                 onChange={handleTabChange}
                 centered
                 sx={{
-                  minHeight: 40,
+                  minHeight: 65,
                   '& .MuiTabs-indicator': {
                     bottom: 0,
+                    py: 0.1,
                     backgroundColor: '#E7694B',
                   },
                   '& .MuiTab-root': {
-                    minHeight: 65,
+                    minHeight: 60,
                     width: 120,
                     paddingBottom: 0,
                     color: theme.palette.text.primary,
