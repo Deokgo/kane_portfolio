@@ -43,7 +43,7 @@ export function Projects() {
       technologies: ["Python", "React", "PostgreSQL", "Github", "Figma"],
       githubUrl: "https://github.com/Deokgo/ESGDash",
       liveUrl: null,
-      figmaUrl: "https://www.figma.com/design/CWwOjtrFtjc5pD3XCcJixc/PetroDash---Wireframe?node-id=867-681&t=AHearSpcsmBe1K3B-1",
+      figmaUrl: "https://www.figma.com/design/CWwOjtrFtjc5pD3XCcJixc/PetroDash---Wireframe?node-id=0-1",
       imageUrl: portfolio2 || (mode === 'light' ? light : dark),
     },
     {
