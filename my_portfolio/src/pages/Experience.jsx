@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Typography, Paper, useTheme, Chip, useMediaQuery } from '@mui/material';
 import { Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot, TimelineOppositeContent } from '@mui/lab';
-import { useThemeMode } from '../ThemeContext';
+import { useThemeMode } from '../utils/ThemeContext';
 import WorkIcon from '@mui/icons-material/Work';
 import SchoolIcon from '@mui/icons-material/School';
 import CodeIcon from '@mui/icons-material/Code';

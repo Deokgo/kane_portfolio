@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Box, useTheme } from '@mui/material';
-import { useThemeMode } from './ThemeContext';
-import Portfolio from './Portfolio';
-import Landing from './Landing'; // your landing/home component
+import { useThemeMode } from './utils/ThemeContext';
+import Portfolio from './components/Portfolio';
+import Landing from './pages/Landing'; // your landing/home component
 import polyDark from './assets/poly_image_dark.svg';
 import polyLight from './assets/poly_image_light.svg';
 

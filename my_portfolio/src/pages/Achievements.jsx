@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Box, Typography, Grid, Paper, Chip, useTheme, Button } from '@mui/material';
 import { Launch } from '@mui/icons-material';
-import { useThemeMode } from '../ThemeContext';
+import { useThemeMode } from '../utils/ThemeContext';
 import light from '../assets/poly_image_light.svg';
 import dark from '../assets/poly_image_dark.svg';
 import colloquium from '../assets/achievements/colloquium.jpg';

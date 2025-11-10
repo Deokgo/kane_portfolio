@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Box, Typography, AppBar, Toolbar, Button, Grid, Paper, List, ListItem, ListItemIcon, ListItemText, TextField, Chip, IconButton, useTheme } from '@mui/material';
 import { GitHub, Launch, Slideshow } from '@mui/icons-material';
-import { useThemeMode } from '../ThemeContext';
+import { useThemeMode } from '../utils/ThemeContext';
 import light from '../assets/poly_image_light.svg';
 import dark from '../assets/poly_image_dark.svg';
 import potfolio1 from '../assets/projects/portfolio1.svg';

@@ -2,18 +2,18 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Container, AppBar, Toolbar, Typography, Box, Tabs, Tab, Button, IconButton, Drawer, List, ListItem, ListItemButton, ListItemText, useTheme } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import CallIcon from '@mui/icons-material/Call';
-import ThemeToggleButton from './ThemeToggleButton';
-import { useThemeMode } from './ThemeContext';
-import { Contact } from './pages/Contacts';
-import { About } from './pages/About';
-import { Projects } from './pages/Projects';
-import { Practicum } from './pages/Practicum';
-import { Experience } from './pages/Experience';
-import { Achievements } from './pages/Achievements';
+import ThemeToggleButton from '../utils/ThemeToggleButton';
+import { useThemeMode } from '../utils/ThemeContext';
+import { Contact } from '../pages/Contacts';
+import { About } from '../pages/About';
+import { Projects } from '../pages/Projects';
+import { Practicum } from '../pages/Practicum';
+import { Experience } from '../pages/Experience';
+import { Achievements } from '../pages/Achievements';
 import { useNavigate, useLocation } from 'react-router-dom';
-import dark from './assets/kane_white.svg';
-import light from './assets/kane_light.svg';
+import dark from '../assets/kane_white.svg';
+import light from '../assets/kane_light.svg';
+import ViewPDFButton from './ViewPDFButton';
 
 const sections = [
   { label: 'About Me', id: 'about', component: <About /> },
@@ -81,7 +81,7 @@ export default function Portfolio() {
           left: '50%',
           transform: 'translateX(-50%)',
           top: 15,
-          width: { xs: '90vw', sm: '85vw', md: '80vw', lg: '75vw', xl: '70vw' },
+          width: { xs: '95vw', sm: '95vw', md: '90vw', lg: '85vw', xl: '80vw' },
           backgroundColor: mode === 'light' ? '#fff' : '#1A1818',
           color: theme.palette.text.primary,
           boxShadow: mode === 'light' ? '0 8px 32px rgba(231, 105, 75, 0.12), 0 1.5px 8px rgba(0,0,0,0.08)' : '0 8px 32px rgba(255, 255, 255, 0.15), 0 1.5px 8px rgba(0,0,0,0.18)',
@@ -113,7 +113,7 @@ export default function Portfolio() {
             </IconButton>
             <Typography
               sx={{
-                display: { xs: 'flex', sm: 'flex', md: 'flex', lg: 'none' },
+                display: { xs: 'flex', sm: 'flex', md: 'none', lg: 'none' },
                 fontFamily: 'Kalnia, serif',
                 color: theme.palette.text.primary,
                 py: 6,
@@ -129,7 +129,7 @@ export default function Portfolio() {
               onChange={handleTabChange}
               centered
               sx={{
-                display: { xs: 'none', md: 'none', lg: 'flex' },
+                display: { xs: 'none', md: 'flex', lg: 'flex' },
                 minHeight: 65,
                 '& .MuiTabs-indicator': {
                   bottom: 0,
@@ -138,10 +138,10 @@ export default function Portfolio() {
                 },
                 '& .MuiTab-root': {
                   minHeight: 60,
-                  width: 120,
+                  width: 105,
                   paddingBottom: 0,
                   color: theme.palette.text.primary,
-                  fontSize: '0.85rem',
+                  fontSize: '0.7rem',
                   transition: 'color 0.7s ease',
                   border: 'none',           // Remove borders
                   outline: 'none',          // Remove outline
@@ -172,64 +172,27 @@ export default function Portfolio() {
               }}
             >
               {sections.map((section, idx) => (
-                section.id === 'contact' ? null : <Tab key={section.id} label={section.label} />
+                <Tab key={section.id} label={section.label} />
               ))}
             </Tabs>
-            <Box sx={{ display: { xs: 'none', md: 'none', lg: 'flex' }, flexDirection: 'row', alignItems: 'center' }}>
-              <IconButton
-                onClick={() => handleTabChange(null, sections.findIndex(s => s.id === 'contact'))}
-                sx={{
-                  color: tab === sections.findIndex(s => s.id === 'contact') ? '#E7694B' : theme.palette.text.primary,
-                  borderRadius: 5,
-                  height: 40,
-                  minHeight: 40,
-                  backgroundColor: tab === sections.findIndex(s => s.id === 'contact') ? 'rgba(231, 105, 75, 0.12)' : 'transparent',
-                  transition: 'background 0.2s, box-shadow 0.2s',
-                  p: 1.5,
-                  display: 'flex',
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: 1,
-                  '&:hover': {
-                    backgroundColor: 'rgba(231, 105, 75, 0.18)',
-                  },
-                  '&:focus': {
-                    outline: 'none',
-                  },
-                }}
-              >
-                <CallIcon sx={{ fontSize: 22 }} />
-                <Typography
-                  variant="caption"
-                  sx={{
-                    fontSize: '0.75rem',
-                    color: tab === sections.findIndex(s => s.id === 'contact') ? '#E7694B' : theme.palette.text.primary,
-                    fontWeight: tab === sections.findIndex(s => s.id === 'contact') ? 'bold' : 'normal',
-                  }}
-                >
-                  CONTACTS
-                </Typography>
-              </IconButton>
-              {/* Theme toggle for desktop */}
+
+            <Box sx={{ display: 'flex', alignItems: 'center'}}>
+              <ViewPDFButton pdfUrl="/cometa_kane_curriculum_vitae.pdf" sx={{ color: theme.palette.text.primary, borderColor: theme.palette.text.primary, mx: 1 }} />
               <ThemeToggleButton />
-            </Box>
-            {/* Theme toggle for mobile */}
-            <Box sx={{ display: { xs: 'flex', sm: 'flex', md: 'flex', lg: 'none' }, alignItems: 'center', gap: 1 }}>
-              {/* Theme toggle for desktop */}
-              <ThemeToggleButton />
-              <IconButton 
-                sx={{ 
-                  color: theme.palette.text.primary,
-                  '&:focus': {
-                    outline: 'none',
-                  },
-                  '&.Mui-focusVisible': {
-                    outline: 'none',
-                  }, 
-                }} onClick={() => setDrawerOpen(true)}>
-                <MenuIcon />
-              </IconButton>
+              <Box sx={{ display: { xs: 'flex', sm: 'flex', md: 'none', lg: 'none' }, alignItems: 'center', gap: 1 }}>
+                <IconButton 
+                  sx={{ 
+                    color: theme.palette.text.primary,
+                    '&:focus': {
+                      outline: 'none',
+                    },
+                    '&.Mui-focusVisible': {
+                      outline: 'none',
+                    }, 
+                  }} onClick={() => setDrawerOpen(true)}>
+                  <MenuIcon />
+                </IconButton>
+              </Box>
             </Box>
           </Box>
         </Toolbar>

@@ -1,20 +1,18 @@
 import React from 'react';
 import { Box, Typography, Button, useMediaQuery, useTheme, IconButton } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { useThemeMode } from './ThemeContext';
+import { useThemeMode } from '../utils/ThemeContext';
 import EmailIcon from '@mui/icons-material/Email';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import LockIcon from '@mui/icons-material/Lock';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
-import ThemeToggleButton from './ThemeToggleButton';
-import polyDark from './assets/poly_image_dark.svg';
-import polyLight from './assets/poly_image_light.svg';
-import bg from './assets/landing_bg.svg';
-import profileSmall from './assets/profile_small.png';
+import ThemeToggleButton from '../utils/ThemeToggleButton';
+import bg from '../assets/landing_bg.svg';
+import profileSmall from '../assets/profile_small.png';
 import Slide from '@mui/material/Slide';
-import DownloadIcon from '@mui/icons-material/Download';
 import { GlobalStyles } from '@mui/material';
+import ViewPDFButton from '../components/ViewPDFButton';
 
 export default function Landing() {
   const navigate = useNavigate();
@@ -179,7 +177,7 @@ export default function Landing() {
           >
             <Button
               variant="contained"
-              size="large"
+              size="medium"
               sx={{
                 fontWeight: 'bold',
                 borderColor: theme.palette.text.primary,
@@ -196,27 +194,8 @@ export default function Landing() {
               View Portfolio
             </Button>
 
-            <Button
-              variant="outlined"
-              size="large"
-              component="a"
-              href="/cometa_kane_curriculum_vitae.pdf" // Make sure cv.pdf is in your public folder
-              download
-              sx={{
-                color: theme.palette.text.primary,
-                fontWeight: 'bold',
-                borderColor: theme.palette.text.primary,
-                borderWidth: 2,
-                width: { xs: '100%', sm: 'auto' },
-                '&:hover': {
-                  borderColor: '#E7694B',
-                  backgroundColor: '#E7694B',
-                  color: '#fff',
-                },
-              }}
-            >
-              <DownloadIcon sx={{ mr: 1 }} /> Download CV
-            </Button>
+            {/* View PDF Button for CV */}
+            <ViewPDFButton pdfUrl="/cometa_kane_curriculum_vitae.pdf" sx={{ color: theme.palette.text.primary, borderColor: theme.palette.text.primary }} />
           </Box>
 
           <Box

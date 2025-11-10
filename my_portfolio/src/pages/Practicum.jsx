@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography, Paper, Divider, useTheme, Button } from '@mui/material';
-import { useThemeMode } from '../ThemeContext';
+import { useThemeMode } from '../utils/ThemeContext';
 import BusinessIcon from '@mui/icons-material/Business';
 import ListAltIcon from '@mui/icons-material/ListAlt';
 import HourglassBottomIcon from '@mui/icons-material/HourglassBottom';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography, useMediaQuery, useTheme, Paper } from '@mui/material';
-import { useThemeMode } from '../ThemeContext';
+import { useThemeMode } from '../utils/ThemeContext';
 import polyImage from '../assets/poly_image3.svg';
 import poly from '../assets/poly.svg';
 import profile from '../assets/profile.png';
@@ -29,7 +29,7 @@ export function About() {
       <Box
         sx={{
           position: 'relative',
-          display: { xs: 'none', md: 'flex' }, // Hide on mobile since we're showing image at top
+          display: { xs: 'none', sm: 'none', md: 'flex' }, // Hide on mobile since we're showing image at top
           flex: { xs: 'unset', md: '1 1 20%' },
           alignItems: 'flex-end',
           justifyContent: 'center',
@@ -238,7 +238,7 @@ export function About() {
             gutterBottom
             sx={{
               color: theme.palette.text.primary,
-              lineHeight: 1.5,
+              lineHeight: 1.8,
               textAlign: 'justify',
               px: { xs: 1, sm: 0 },
             }}
