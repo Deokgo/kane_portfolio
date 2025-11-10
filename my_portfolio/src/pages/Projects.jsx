@@ -50,7 +50,7 @@ export function Projects() {
       id: 4,
       name: "Institutional Research Repository",
       description: "Integrated user-friendly interface for managing and visualizing institutional research data with advanced search capabilities and data analytics dashboard.",
-      technologies: ["Python", "React", "Postgresql", "Github"],
+      technologies: ["Python", "React", "Postgresql", "Github", "Figma"],
       githubUrl: "https://github.com/Deokgo/ResearchRepo-Web",
       liveUrl: null,
       figmaUrl: "https://www.figma.com/proto/jnV1GSlOOGuVEqG1sFv6r9/Research-Repository?node-id=776-1401&t=pXTNVBnlj7XuY9pK-1&scaling=scale-down-width&content-scaling=fixed&page-id=441%3A397",

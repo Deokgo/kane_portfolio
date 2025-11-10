@@ -2,14 +2,15 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Container, AppBar, Toolbar, Typography, Box, Tabs, Tab, Button, IconButton, Drawer, List, ListItem, ListItemButton, ListItemText, useTheme } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import CallIcon from '@mui/icons-material/Call';
 import ThemeToggleButton from './ThemeToggleButton';
 import { useThemeMode } from './ThemeContext';
-import { Contact } from './Sections/Contacts';
-import { About } from './Sections/About';
-import { Projects } from './Sections/Projects';
-import { Practicum } from './Sections/Practicum';
-import { Experience } from './Sections/Experience';
-import { Achievements } from './Sections/Achievements';
+import { Contact } from './pages/Contacts';
+import { About } from './pages/About';
+import { Projects } from './pages/Projects';
+import { Practicum } from './pages/Practicum';
+import { Experience } from './pages/Experience';
+import { Achievements } from './pages/Achievements';
 import { useNavigate, useLocation } from 'react-router-dom';
 import dark from './assets/kane_white.svg';
 import light from './assets/kane_light.svg';
@@ -122,8 +123,100 @@ export default function Portfolio() {
             >
               {sections[tab].label}
             </Typography>
+            {/* Tabs for desktop */}
+            <Tabs
+              value={tab}
+              onChange={handleTabChange}
+              centered
+              sx={{
+                display: { xs: 'none', md: 'none', lg: 'flex' },
+                minHeight: 65,
+                '& .MuiTabs-indicator': {
+                  bottom: 0,
+                  py: 0.1,
+                  backgroundColor: '#E7694B',
+                },
+                '& .MuiTab-root': {
+                  minHeight: 60,
+                  width: 120,
+                  paddingBottom: 0,
+                  color: theme.palette.text.primary,
+                  fontSize: '0.85rem',
+                  transition: 'color 0.7s ease',
+                  border: 'none',           // Remove borders
+                  outline: 'none',          // Remove outline
+                  boxShadow: 'none',        // Remove box shadow
+                },
+                '& .MuiTab-root.Mui-selected': {
+                  color: '#E7694B',
+                  fontWeight: 'bold',
+                  px: 1,
+                  border: 'none',           // Remove any borders
+                  outline: 'none',          // Remove outline
+                  boxShadow: 'none',        // Remove box shadow
+                },
+                '& .MuiTab-root:hover': {
+                  color: '#E7694B',
+                  opacity: 0.8,
+                },
+                '& .MuiTab-root:focus': {
+                  outline: 'none',
+                  border: 'none',
+                },
+              }}
+              TabIndicatorProps={{ 
+                style: { 
+                  bottom: 0,
+                  transition: 'all 0.0s cubic-bezier(0.4, 0, 0.2, 1)'
+                } 
+              }}
+            >
+              {sections.map((section, idx) => (
+                section.id === 'contact' ? null : <Tab key={section.id} label={section.label} />
+              ))}
+            </Tabs>
+            <Box sx={{ display: { xs: 'none', md: 'none', lg: 'flex' }, flexDirection: 'row', alignItems: 'center' }}>
+              <IconButton
+                onClick={() => handleTabChange(null, sections.findIndex(s => s.id === 'contact'))}
+                sx={{
+                  color: tab === sections.findIndex(s => s.id === 'contact') ? '#E7694B' : theme.palette.text.primary,
+                  borderRadius: 5,
+                  height: 40,
+                  minHeight: 40,
+                  backgroundColor: tab === sections.findIndex(s => s.id === 'contact') ? 'rgba(231, 105, 75, 0.12)' : 'transparent',
+                  transition: 'background 0.2s, box-shadow 0.2s',
+                  p: 1.5,
+                  display: 'flex',
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: 1,
+                  '&:hover': {
+                    backgroundColor: 'rgba(231, 105, 75, 0.18)',
+                  },
+                  '&:focus': {
+                    outline: 'none',
+                  },
+                }}
+              >
+                <CallIcon sx={{ fontSize: 22 }} />
+                <Typography
+                  variant="caption"
+                  sx={{
+                    fontSize: '0.75rem',
+                    color: tab === sections.findIndex(s => s.id === 'contact') ? '#E7694B' : theme.palette.text.primary,
+                    fontWeight: tab === sections.findIndex(s => s.id === 'contact') ? 'bold' : 'normal',
+                  }}
+                >
+                  CONTACTS
+                </Typography>
+              </IconButton>
+              {/* Theme toggle for desktop */}
+              <ThemeToggleButton />
+            </Box>
             {/* Theme toggle for mobile */}
             <Box sx={{ display: { xs: 'flex', sm: 'flex', md: 'flex', lg: 'none' }, alignItems: 'center', gap: 1 }}>
+              {/* Theme toggle for desktop */}
               <ThemeToggleButton />
               <IconButton 
                 sx={{ 
@@ -137,61 +230,6 @@ export default function Portfolio() {
                 }} onClick={() => setDrawerOpen(true)}>
                 <MenuIcon />
               </IconButton>
-            </Box>
-            {/* Tabs for desktop */}
-            <Box sx={{ display: { xs: 'none', sm: 'none', md: 'none', lg: 'flex'}, justifyContent: 'center', alignItems: 'center', gap: 1 }}>
-              <Tabs
-                value={tab}
-                onChange={handleTabChange}
-                centered
-                sx={{
-                  minHeight: 65,
-                  '& .MuiTabs-indicator': {
-                    bottom: 0,
-                    py: 0.1,
-                    backgroundColor: '#E7694B',
-                  },
-                  '& .MuiTab-root': {
-                    minHeight: 60,
-                    width: 120,
-                    paddingBottom: 0,
-                    color: theme.palette.text.primary,
-                    fontSize: '0.85rem',
-                    transition: 'color 0.7s ease',
-                    border: 'none',           // Remove borders
-                    outline: 'none',          // Remove outline
-                    boxShadow: 'none',        // Remove box shadow
-                  },
-                  '& .MuiTab-root.Mui-selected': {
-                    color: '#E7694B',
-                    fontWeight: 'bold',
-                    px: 1,
-                    border: 'none',           // Remove any borders
-                    outline: 'none',          // Remove outline
-                    boxShadow: 'none',        // Remove box shadow
-                  },
-                  '& .MuiTab-root:hover': {
-                    color: '#E7694B',
-                    opacity: 0.8,
-                  },
-                  '& .MuiTab-root:focus': {
-                    outline: 'none',
-                    border: 'none',
-                  },
-                }}
-                TabIndicatorProps={{ 
-                  style: { 
-                    bottom: 0,
-                    transition: 'all 0.0s cubic-bezier(0.4, 0, 0.2, 1)'
-                  } 
-                }}
-              >
-                {sections.map((section) => (
-                  <Tab key={section.id} label={section.label} />
-                ))}
-              </Tabs>
-              {/* Theme toggle for desktop */}
-              <ThemeToggleButton />
             </Box>
           </Box>
         </Toolbar>

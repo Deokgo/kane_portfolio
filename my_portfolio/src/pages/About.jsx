@@ -21,7 +21,7 @@ export function About() {
         position: 'relative',
         overflow: 'hidden',
         mt: { xs: 8, md: 0 },
-        px: { xs: 0, md: 20 },
+        px: { xs: 0, md: 15 },
         pb: { xs: 0, md: 'unset' }, // Remove bottom padding on mobile
       }}
     >
@@ -38,7 +38,7 @@ export function About() {
             xs: 'none',
             md: `url(${polyImage})`
           },
-          backgroundSize: '30rem',
+          backgroundSize: '25rem',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
           overflow: 'hidden',
@@ -122,7 +122,7 @@ export function About() {
           sx={{
             display: { xs: 'none', md: 'block' },
             height: 'auto',
-            maxHeight: '85vh', 
+            maxHeight: '75vh', 
             maxWidth: '100%',
             objectFit: 'contain',
             objectPosition: 'bottom',
@@ -155,13 +155,13 @@ export function About() {
           sx={{
             display: { xs: 'block', md: 'none' },
             height: 'auto',
-            maxHeight: '20vh', // Reduce height on mobile
+            maxHeight: '50vh', // Reduce height on mobile
             maxWidth: '70%', // Limit width
             objectFit: 'contain',
             zIndex: 1,
             borderRadius: 2,
             mx: 'auto', // Center horizontally
-            mb: 2, // Add some space below
+            py: 2, // Add some space below
           }}
         />
         <Typography
@@ -238,7 +238,7 @@ export function About() {
             gutterBottom
             sx={{
               color: theme.palette.text.primary,
-              lineHeight: 1.8,
+              lineHeight: 1.5,
               textAlign: 'justify',
               px: { xs: 1, sm: 0 },
             }}
