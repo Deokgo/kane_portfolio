@@ -111,18 +111,6 @@ export default function Portfolio() {
             >
               <img src={mode === 'light' ? light : dark} alt="Logo" style={{ height: 35, width: 35 }} />
             </IconButton>
-            <Typography
-              sx={{
-                display: { xs: 'flex', sm: 'flex', md: 'none', lg: 'none' },
-                fontFamily: 'Kalnia, serif',
-                color: theme.palette.text.primary,
-                py: 6,
-                textAlign: 'center',
-                fontSize: '1.25rem'
-              }}  
-            >
-              {sections[tab].label}
-            </Typography>
             {/* Tabs for desktop */}
             <Tabs
               value={tab}
