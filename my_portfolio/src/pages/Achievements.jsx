@@ -10,12 +10,23 @@ import deans from '../assets/achievements/deans.jpg';
 import comptia from '../assets/achievements/comptia.png';
 import googlecloud from '../assets/achievements/googlecloud.jpg';
 import aws from '../assets/achievements/aws.jpg';
+import magnacumlaude from '../assets/achievements/magnacumlaude.jpg';
 
 export function Achievements() {
   const theme = useTheme();
   const { mode } = useThemeMode();
   
   const achievements = [
+    {
+      id: 0,
+      title: "Graduated Magna Cum Laude",
+      organization: "Mapùa Malayan Colleges Laguna",
+      year: "2025",
+      description: "I was awarded by the institution for an excellent academic performance with a final Grade Point Average (GPA) of 3.7 upon graduation.",
+      category: "Academic",
+      link: '',
+      imageUrl: magnacumlaude || (mode === 'light' ? light : dark)
+    },
     {
       id: 1,
       title: "Research Colloquium Presentation",

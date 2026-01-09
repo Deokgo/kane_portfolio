@@ -84,7 +84,7 @@ export default function Portfolio() {
           width: { xs: '95vw', sm: '95vw', md: '90vw', lg: '85vw', xl: '80vw' },
           backgroundColor: mode === 'light' ? '#fff' : '#1A1818',
           color: theme.palette.text.primary,
-          boxShadow: mode === 'light' ? '0 8px 32px rgba(231, 105, 75, 0.12), 0 1.5px 8px rgba(0,0,0,0.08)' : '0 8px 32px rgba(255, 255, 255, 0.15), 0 1.5px 8px rgba(0,0,0,0.18)',
+          boxShadow: mode === 'light' ? '0 8px 32px rgba(231, 105, 75, 0.12), 0 1.5px 8px rgba(0,0,0,0.08)' : '0 8px 32px rgba(255, 255, 255, 0.10), 0 1.5px 8px rgba(0,0,0,0.18)',
           borderRadius: 8,
           zIndex: 1201,
         }}

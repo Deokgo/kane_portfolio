@@ -1,6 +1,7 @@
 import React from 'react';
-import { Box, Typography, useMediaQuery, useTheme, Paper } from '@mui/material';
+import { Box, Typography, useMediaQuery, useTheme, Paper, Button } from '@mui/material';
 import { useThemeMode } from '../utils/ThemeContext';
+import { useNavigate } from 'react-router-dom';
 import polyImage from '../assets/poly_image3.svg';
 import poly from '../assets/poly.svg';
 import profile from '../assets/profile.png';
@@ -10,6 +11,7 @@ export function About() {
   const theme = useTheme();
   const { mode } = useThemeMode();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const navigate = useNavigate();
 
   return (
     <Box
@@ -201,12 +203,59 @@ export function About() {
           sx={{
             fontFamily: 'Kalnia, serif',
             color: mode === 'light' ? '#666' : '#93BBD',
-            mb: { xs: 2, md: 4 }, // Reduce bottom margin on mobile
             textAlign: 'center',
           }}
         >
           — a Computer Science Graduate
         </Typography>
+        {/* Navigation Buttons */}
+        <Box
+          sx={{
+            display: 'flex',
+            gap: 2,
+            justifyContent: 'center',
+            my: 3,
+            flexDirection: { xs: 'column', sm: 'row' },
+            px: { xs: 2, sm: 0 },
+          }}
+        >
+          <Button
+            onClick={() => navigate('/portfolio/experience')}
+            variant="outlined"
+            size="medium"
+            sx={{
+              fontWeight: 'bold',
+              borderColor: theme.palette.text.primary,
+              borderWidth: 1,
+              width: { xs: '100%', sm: 'auto' },
+              '&:hover': {
+                borderColor: '#E7694B',
+                backgroundColor: '#E7694B',
+                color: '#fff',
+              },
+            }}
+          >
+            View Experience
+          </Button>
+          <Button
+            onClick={() => navigate('/portfolio/projects')}
+            variant="outlined"
+            size="medium"
+            sx={{
+              fontWeight: 'bold',
+              borderColor: theme.palette.text.primary,
+              borderWidth: 1,
+              width: { xs: '100%', sm: 'auto' },
+              '&:hover': {
+                borderColor: '#E7694B',
+                backgroundColor: '#E7694B',
+                color: '#fff',
+              },
+            }}
+          >
+            View Projects
+          </Button>
+        </Box>
         <Paper
           elevation={0} // disables default MUI shadow
           sx={{
@@ -234,7 +283,7 @@ export function About() {
           }}
         >
           <Typography
-            variant={isMobile ? 'body1' : 'body1'}
+            variant={isMobile ? 'body2' : 'body1'}
             gutterBottom
             sx={{
               color: theme.palette.text.primary,

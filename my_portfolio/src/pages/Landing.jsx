@@ -160,7 +160,7 @@ export default function Landing() {
             sx={{ 
               maxWidth: 500, 
               px: { xs: 2, sm: 0 },
-              color: theme.palette.text.secondary,
+              color: theme.palette.text.primary,
             }}
           >
             Computer Science | UI Designer | Web Developer

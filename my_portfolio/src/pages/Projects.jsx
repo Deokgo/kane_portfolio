@@ -10,6 +10,7 @@ import portfolio3 from '../assets/projects/portfolio3.svg';
 import portfolio4 from '../assets/projects/portfolio4.svg';
 import portfolio5 from '../assets/projects/portfolio5.svg';
 import portfolio6 from '../assets/projects/portfolio6.svg';
+import portfolio7 from '../assets/projects/portfolio7.svg';
 
 export function Projects() {
   const theme = useTheme();
@@ -23,8 +24,8 @@ export function Projects() {
       technologies: ["Python", "React", "PostgreSQL", "Github", "Figma"],
       githubUrl: "",
       liveUrl: null,
-      figmaUrl: "",
-      imageUrl: portfolio2 || (mode === 'light' ? light : dark),
+      figmaUrl: "https://www.figma.com/design/CWwOjtrFtjc5pD3XCcJixc/PetroDash---Wireframe?node-id=0-1",
+      imageUrl: portfolio7 || (mode === 'light' ? light : dark),
     },
     {
       id: 2,
