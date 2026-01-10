@@ -6,6 +6,7 @@ import ListAltIcon from '@mui/icons-material/ListAlt';
 import HourglassBottomIcon from '@mui/icons-material/HourglassBottom';
 import practicum from '../assets/practicum.jpg'; 
 import company from '../assets/petroenergy_logo.svg'; // Assuming you have a company image
+import ViewPDFButton from '../components/ViewPDFButton';
 
 export function Practicum() {
   const theme = useTheme();
@@ -260,28 +261,16 @@ export function Practicum() {
               equipping me with the technical and professional skills needed for real-world software development.
             </Typography>
           </Box>
-          <Button
-            variant="outlined"
-            size="large"
-            component="a"
-            href="/cometa_practicum_narrative_report.pdf" // Make sure cv.pdf is in your public folder
-            download
+          <Box
             sx={{
-              m: 5,
-              color: theme.palette.text.primary,
-              fontWeight: 'bold',
-              borderColor: theme.palette.text.primary,
-              borderWidth: 2,
-              width: 'auto',
-              '&:hover': {
-                borderColor: '#E7694B',
-                backgroundColor: '#E7694B',
-                color: '#fff',
-              },
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              my: 4,
             }}
           >
-            View Full Report
-          </Button>
+            <ViewPDFButton pdfUrl="/cometa_practicum_narrative_report.pdf" title='View Full Report' sx={{ color: theme.palette.text.primary, borderColor: theme.palette.text.primary, mx: 1 }} />
+          </Box>
         </Box>
       </Paper>
     </Box>

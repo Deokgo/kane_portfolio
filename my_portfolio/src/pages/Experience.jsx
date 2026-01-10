@@ -191,9 +191,6 @@ export function Experience() {
                       borderRadius: 2,
                       transition: 'all 0.3s ease',
                       '&:hover': {
-                        backgroundColor: mode === 'light' 
-                          ? 'rgba(231, 105, 75, 0.05)' 
-                          : 'rgba(255, 255, 255, 0.05)',
                         borderColor: '#E7694B',
                         transform: 'translateY(-2px)',
                         boxShadow: mode === 'light' 
@@ -227,21 +224,20 @@ export function Experience() {
                     </Typography>
                     
                     <Typography 
-                      variant="subtitle1"
+                      variant="subtitle2"
                       sx={{ 
                         color: '#E7694B',
                         fontWeight: 'medium',
-                        mb: 0.5
                       }}
                     >
                       {experience.company}
                     </Typography>
                     
                     <Typography 
-                      variant="body2"
+                      variant="subtitle2"
                       sx={{ 
                         color: theme.palette.text.secondary,
-                        mb: 1.5,
+                        mb: 2,
                         fontStyle: 'italic'
                       }}
                     >

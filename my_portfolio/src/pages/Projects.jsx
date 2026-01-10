@@ -135,9 +135,6 @@ export function Projects() {
                   borderRadius: 2,
                   transition: 'all 0.3s ease',
                   '&:hover': {
-                    backgroundColor: mode === 'light' 
-                      ? 'rgba(231, 105, 75, 0.05)' 
-                      : 'rgba(255, 255, 255, 0.05)',
                     borderColor: '#E7694B',
                     transform: 'translateY(-2px)',
                     boxShadow: mode === 'light' 

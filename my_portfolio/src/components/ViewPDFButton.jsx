@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from '@mui/material';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 
-export default function ViewPDFButton({ pdfUrl, sx }) {
+export default function ViewPDFButton({ pdfUrl, sx, title }) {
   const handleViewPDF = () => {
     window.open(pdfUrl, '_blank', 'noopener,noreferrer');
   };
@@ -28,7 +28,7 @@ export default function ViewPDFButton({ pdfUrl, sx }) {
       }}
       startIcon={<PictureAsPdfIcon />}
     >
-      View CV
+      {title ? title : 'View CV'}
     </Button>
   );
 }

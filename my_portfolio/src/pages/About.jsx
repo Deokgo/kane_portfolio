@@ -1,9 +1,10 @@
-import React from 'react';
 import { Box, Typography, useMediaQuery, useTheme, Paper, Button } from '@mui/material';
 import { useThemeMode } from '../utils/ThemeContext';
 import { useNavigate } from 'react-router-dom';
-import polyImage from '../assets/poly_image3.svg';
-import poly from '../assets/poly.svg';
+import polyImageDark from '../assets/poly_image1.svg';
+import polyImageLight from '../assets/poly_image2.svg';
+import poly1 from '../assets/poly.svg';
+import poly2 from '../assets/poly2.svg';
 import profile from '../assets/profile.png';
 import profileSmall from '../assets/profile_small.png';
 
@@ -12,6 +13,7 @@ export function About() {
   const { mode } = useThemeMode();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const navigate = useNavigate();
+  const poly = mode === 'light' ? poly2 : poly1;
 
   return (
     <Box
@@ -36,16 +38,25 @@ export function About() {
           alignItems: 'flex-end',
           justifyContent: 'center',
           height: { xs: 'auto', md: '100%' },
-          backgroundImage: {
-            xs: 'none',
-            md: `url(${polyImage})`
-          },
-          backgroundSize: '25rem',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
           overflow: 'hidden',
         }}
       >
+        {/* Background poly image */}
+        <Box
+          component="img"
+          src={mode === 'light' ? polyImageLight : polyImageDark}
+          alt=""
+          sx={{
+            position: 'absolute',
+            width: '25rem',
+            height: 'auto',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: 0,
+            pointerEvents: 'none',
+          }}
+        />
         {/* Decorative blobs - only visible on md and up */}
         <Box
           component="img"
@@ -158,7 +169,7 @@ export function About() {
             display: { xs: 'block', md: 'none' },
             height: 'auto',
             maxHeight: '50vh', // Reduce height on mobile
-            maxWidth: '70%', // Limit width
+            maxWidth: '50%', // Limit width
             objectFit: 'contain',
             zIndex: 1,
             borderRadius: 2,
@@ -216,7 +227,6 @@ export function About() {
             justifyContent: 'center',
             my: 3,
             flexDirection: { xs: 'column', sm: 'row' },
-            px: { xs: 2, sm: 0 },
           }}
         >
           <Button
@@ -224,6 +234,7 @@ export function About() {
             variant="outlined"
             size="medium"
             sx={{
+              fontSize: '0.75rem',
               fontWeight: 'bold',
               borderColor: theme.palette.text.primary,
               borderWidth: 1,
@@ -242,6 +253,7 @@ export function About() {
             variant="outlined"
             size="medium"
             sx={{
+              fontSize: '0.75rem',
               fontWeight: 'bold',
               borderColor: theme.palette.text.primary,
               borderWidth: 1,

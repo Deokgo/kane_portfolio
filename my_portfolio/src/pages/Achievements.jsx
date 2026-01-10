@@ -23,7 +23,7 @@ export function Achievements() {
       organization: "Mapùa Malayan Colleges Laguna",
       year: "2025",
       description: "I was awarded by the institution for an excellent academic performance with a final Grade Point Average (GPA) of 3.7 upon graduation.",
-      category: "Academic",
+      category: "Award",
       link: '',
       imageUrl: magnacumlaude || (mode === 'light' ? light : dark)
     },
@@ -120,9 +120,6 @@ export function Achievements() {
                   overflow: 'hidden',
                   transition: 'all 0.3s ease',
                   '&:hover': {
-                    backgroundColor: mode === 'light' 
-                      ? 'rgba(231, 105, 75, 0.05)' 
-                      : 'rgba(255, 255, 255, 0.05)',
                     borderColor: '#E7694B',
                     transform: 'translateY(-2px)',
                     boxShadow: mode === 'light' 
