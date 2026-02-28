@@ -15,9 +15,8 @@ export default function ViewPDFButton({ pdfUrl, sx, title }) {
       sx={{
         color: 'inherit',
         fontWeight: 'bold',
-        borderColor: 'inherit',
+        borderColor: 'transparent',
         textTransform: 'none',
-        borderWidth: 1,
         width: { xs: '100%', sm: 'auto' },
         '&:hover': {
           borderColor: '#E7694B',

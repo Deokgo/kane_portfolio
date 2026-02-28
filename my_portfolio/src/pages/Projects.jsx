@@ -19,33 +19,33 @@ export function Projects() {
   const projects = [
     {
       id: 1,
-      name: "ESG Dash",
-      description: "Optimized and refined frontend components. Implemented JWT/OAuth authentication, role-based access control (RBAC), input validation, and data encryption. Integrated comprehensive backup and recovery mechanisms, including full and incremental restore procedures",
-      technologies: ["Python", "React", "PostgreSQL", "Github", "Figma"],
-      githubUrl: "",
+      name: "OMG.co",
+      description: "Integrated user-friendly interface for handling inventory management, customer orders, which includes sales report.",
+      technologies: ["ASP.NET", "C#", "MySQL", "Github"],
+      githubUrl: "https://github.com/Deokgo/OMG.co",
       liveUrl: null,
-      figmaUrl: "https://www.figma.com/design/CWwOjtrFtjc5pD3XCcJixc/PetroDash---Wireframe?node-id=0-1",
-      imageUrl: portfolio7 || (mode === 'light' ? light : dark),
+      figmaUrl: null,
+      imageUrl: portfolio6 || (mode === 'light' ? light : dark),
     },
     {
       id: 2,
-      name: "Portfolio Website",
-      description: "A personal portfolio built with React and Material-UI showcasing projects, skills, and professional experience with smooth animations and responsive design.",
-      technologies: ["React", "Figma", "Github"],
-      githubUrl: "https://github.com/Deokgo/kane_portfolio",
-      liveUrl: "https://kane-cometa.vercel.app/",
+      name: "Final Revelation",
+      description: "A game-based software application using Unity game engine and MySQL which consists of interactive puzzle game interface which can be controlled using keyboard.",
+      technologies: ["Unity", "MySQL", "Github"],
+      githubUrl: "https://github.com/Deokgo/Final_Revelation_Software_Application",
+      liveUrl: null,
       figmaUrl: null,
-      imageUrl: potfolio1 || (mode === 'light' ? light : dark),
+      imageUrl: portfolio5 || (mode === 'light' ? light : dark),
     },
     {
       id: 3,
-      name: "ESG Dash",
-      description: "Developed a full-stack ESG data management system, from planning to implementation. Implemented data warehousing to the company data using medallion architecture. Designed user interfaces and implemented system architecture for seamless functionality.",
-      technologies: ["Python", "React", "PostgreSQL", "Github", "Figma"],
-      githubUrl: "https://github.com/Deokgo/ESGDash",
+      name: "Procurement and Inventory Management System",
+      description: "Integrated a simple user interface to facilitate company daily tasks (procurement and inventory management).",
+      technologies: ["C#", "SQL", "Github", "Figma"],
+      githubUrl: "https://github.com/Deokgo/Procurement_Inventory_System",
       liveUrl: null,
-      figmaUrl: "https://www.figma.com/design/CWwOjtrFtjc5pD3XCcJixc/PetroDash---Wireframe?node-id=0-1",
-      imageUrl: portfolio2 || (mode === 'light' ? light : dark),
+      figmaUrl: "https://www.figma.com/proto/JOthfOB98p3PRumO2uEni1/Sample-UI-Design--NCT-Corp.-?node-id=12-3&t=tqp8R6KMnSR1d4Fz-1",
+      imageUrl: portfolio4 || (mode === 'light' ? light : dark),
     },
     {
       id: 4,
@@ -59,33 +59,33 @@ export function Projects() {
     },
     {
       id: 5,
-      name: "Procurement and Inventory Management System",
-      description: "Integrated a simple user interface to facilitate company daily tasks (procurement and inventory management).",
-      technologies: ["C#", "SQL", "Github", "Figma"],
-      githubUrl: "https://github.com/Deokgo/Procurement_Inventory_System",
+      name: "ESG Dash",
+      description: "Developed a full-stack ESG data management system, from planning to implementation. Implemented data warehousing to the company data using medallion architecture. Designed user interfaces and implemented system architecture for seamless functionality.",
+      technologies: ["Python", "React", "PostgreSQL", "Github", "Figma"],
+      githubUrl: "https://github.com/Deokgo/ESGDash",
       liveUrl: null,
-      figmaUrl: "https://www.figma.com/proto/JOthfOB98p3PRumO2uEni1/Sample-UI-Design--NCT-Corp.-?node-id=12-3&t=tqp8R6KMnSR1d4Fz-1",
-      imageUrl: portfolio4 || (mode === 'light' ? light : dark),
+      figmaUrl: "https://www.figma.com/design/CWwOjtrFtjc5pD3XCcJixc/PetroDash---Wireframe?node-id=0-1",
+      imageUrl: portfolio2 || (mode === 'light' ? light : dark),
     },
     {
       id: 6,
-      name: "Final Revelation",
-      description: "A game-based software application using Unity game engine and MySQL which consists of interactive puzzle game interface which can be controlled using keyboard.",
-      technologies: ["Unity", "MySQL", "Github"],
-      githubUrl: "https://github.com/Deokgo/Final_Revelation_Software_Application",
-      liveUrl: null,
+      name: "Portfolio Website",
+      description: "A personal portfolio built with React and Material-UI showcasing projects, skills, and professional experience with smooth animations and responsive design.",
+      technologies: ["React", "Figma", "Github"],
+      githubUrl: "https://github.com/Deokgo/kane_portfolio",
+      liveUrl: "https://kane-cometa.vercel.app/",
       figmaUrl: null,
-      imageUrl: portfolio5 || (mode === 'light' ? light : dark),
+      imageUrl: potfolio1 || (mode === 'light' ? light : dark),
     },
     {
       id: 7,
-      name: "OMG.co",
-      description: "Integrated user-friendly interface for handling inventory management, customer orders, which includes sales report.",
-      technologies: ["ASP.NET", "C#", "MySQL", "Github"],
-      githubUrl: "https://github.com/Deokgo/OMG.co",
+      name: "ESG Dash",
+      description: "Optimized and refined frontend components. Implemented JWT/OAuth authentication, role-based access control (RBAC), input validation, and data encryption. Integrated comprehensive backup and recovery mechanisms, including full and incremental restore procedures",
+      technologies: ["Python", "React", "PostgreSQL", "Github", "Figma"],
+      githubUrl: "",
       liveUrl: null,
-      figmaUrl: null,
-      imageUrl: portfolio6 || (mode === 'light' ? light : dark),
+      figmaUrl: "https://www.figma.com/design/CWwOjtrFtjc5pD3XCcJixc/PetroDash---Wireframe?node-id=0-1",
+      imageUrl: portfolio7 || (mode === 'light' ? light : dark),
     }
   ];
 
@@ -113,7 +113,7 @@ export function Projects() {
             alignItems: 'stretch', // Equal height cards
           }}
         >
-          {projects.map((project) => (
+          {projects.slice().reverse().map((project) => (
             <Grid  
               key={project.id}
               sx={{
@@ -238,7 +238,7 @@ export function Projects() {
                     color="text.secondary"
                     sx={{ 
                       lineHeight: 1.6, 
-                      fontSize: '0.95rem',
+                      fontSize: '0.85rem',
                       textAlign: 'left',
                       color: theme.palette.text.secondary,
                       flexGrow: 1, // This makes the description expand to fill space

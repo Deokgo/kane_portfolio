@@ -134,6 +134,7 @@ export function Practicum() {
               variant="body1" 
               sx={{ 
                 lineHeight: 1.8,
+                fontSize: '0.85rem',
                 textAlign: 'justify',
                 textIndent: '2rem',
                 color: theme.palette.text.primary,
@@ -172,6 +173,7 @@ export function Practicum() {
                 lineHeight: 1.8,
                 textAlign: 'justify',
                 textIndent: '2rem',
+                fontSize: '0.85rem',
                 color: theme.palette.text.primary,
               }}
             >
@@ -207,6 +209,7 @@ export function Practicum() {
               sx={{ 
                 lineHeight: 1.8,
                 textAlign: 'justify',
+                fontSize: '0.85rem',
                 textIndent: '2rem',
                 color: theme.palette.text.primary,
               }}
@@ -246,6 +249,7 @@ export function Practicum() {
               sx={{ 
                 lineHeight: 1.8,
                 textAlign: 'justify',
+                fontSize: '0.85rem',
                 textIndent: '2rem',
                 color: theme.palette.text.primary,
               }}

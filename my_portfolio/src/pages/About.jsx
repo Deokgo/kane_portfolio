@@ -223,9 +223,9 @@ export function About() {
         <Box
           sx={{
             display: 'flex',
-            gap: 2,
+            gap: 1,
             justifyContent: 'center',
-            my: 3,
+            my: 2,
             flexDirection: { xs: 'column', sm: 'row' },
           }}
         >
@@ -235,10 +235,10 @@ export function About() {
             size="medium"
             sx={{
               fontSize: '0.75rem',
+              py: 1,
               fontWeight: 'bold',
-              borderColor: theme.palette.text.primary,
-              borderWidth: 1,
               width: { xs: '100%', sm: 'auto' },
+              backgroundColor: mode === 'light' ? '#fff' : 'transparent',
               '&:hover': {
                 borderColor: '#E7694B',
                 backgroundColor: '#E7694B',
@@ -254,10 +254,10 @@ export function About() {
             size="medium"
             sx={{
               fontSize: '0.75rem',
+              py: 1,
               fontWeight: 'bold',
-              borderColor: theme.palette.text.primary,
-              borderWidth: 1,
               width: { xs: '100%', sm: 'auto' },
+              backgroundColor: mode === 'light' ? '#fff' : 'transparent',
               '&:hover': {
                 borderColor: '#E7694B',
                 backgroundColor: '#E7694B',

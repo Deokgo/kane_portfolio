@@ -8,6 +8,7 @@ import CodeIcon from '@mui/icons-material/Code';
 import BusinessIcon from '@mui/icons-material/Business';
 import petroenergy from '../assets/petroenergy_logo.svg'; 
 import mmcl from '../assets/mmcl_logo.svg';
+import cheil from '../assets/cheil_logo.svg';
 
 export function Experience() {
   const theme = useTheme();
@@ -17,25 +18,25 @@ export function Experience() {
   const experiences = [
     {
       id: 1,
-      title: "Freelance Full-stack Web Developer",
-      company: "PetroEnergy Resources Corporation",
-      location: "Ortigas Business Center, Pasig City",
-      period: "Sep - Oct 2025",
-      type: "project",
-      description: "Optimized and refined frontend components. Implemented JWT/OAuth authentication, role-based access control (RBAC), input validation, and data encryption. Integrated comprehensive backup and recovery mechanisms, including full and incremental restore procedures",
-      skills: ["Data Warehousing", "Project Management", "Wireframing", "React.js", "FastAPI", "PostgreSQL", "Python"],
-      companyLogo: petroenergy
+      title: "Bachelor of Science in Computer Science",
+      company: "Mapúa Malayan Colleges Laguna",
+      location: "Cabuyao, Laguna",
+      period: "2021 - 2025",
+      type: "education",
+      description: "Activities and societies: Student Council, School Events Volunteer, Academic Organization, Member of Junior Philippine Computing Society",
+      skills: ["Software Engineering", "Data Structures", "Algorithms", "Database Systems", "Machine Learning", "Web Development", "Mobile Devlopment"],
+      companyLogo: mmcl
     },
     {
       id: 2,
-      title: "Full-stack Web Developer Intern",
-      company: "PetroEnergy Resources Corporation",
-      location: "Ortigas Business Center, Pasig City",
-      period: "Apr - Jul 2025",
-      type: "project",
-      description: "Developed a full-stack ESG data management system, from data modeling to deployment. Designed user interfaces and implementingsystem architecture for seamless functionality. Prepared documentation, training materials, andconducting system handover to end-users.",
-      skills: ["Data Warehousing", "Data Analysis", "Project Management", "Wireframing", "Figma", "React.js", "FastAPI", "PostgreSQL", "Python", "Scrum Agile"],
-      companyLogo: petroenergy
+      title: "ADO - Student Assistant",
+      company: "Mapúa Malayan Colleges Laguna",
+      location: "Cabuyao, Laguna",
+      period: "Aug - Sep 2023",
+      type: "work",
+      description: "Maintaining and managing private student information in online and physical files. Assisting the admissions office in processing admission forms for potential students. Interacting with students in person and via phone to address any questions or concerns.",
+      skills: ["Support Services", "Student Services", "Communication", "Data Entry"],
+      companyLogo: mmcl
     },
     {
       id: 3,
@@ -50,25 +51,36 @@ export function Experience() {
     },
     {
       id: 4,
-      title: "ADO - Student Assistant",
-      company: "Mapúa Malayan Colleges Laguna",
-      location: "Cabuyao, Laguna",
-      period: "Aug - Sep 2023",
-      type: "work",
-      description: "Maintaining and managing private student information in online and physical files. Assisting the admissions office in processing admission forms for potential students. Interacting with students in person and via phone to address any questions or concerns.",
-      skills: ["Support Services", "Student Services", "Communication", "Data Entry"],
-      companyLogo: mmcl
+      title: "Full-stack Web Developer Intern",
+      company: "PetroEnergy Resources Corporation",
+      location: "Ortigas Business Center, Pasig City",
+      period: "Apr - Jul 2025",
+      type: "project",
+      description: "Developed a full-stack ESG data management system, from data modeling to deployment. Designed user interfaces and implementingsystem architecture for seamless functionality. Prepared documentation, training materials, andconducting system handover to end-users.",
+      skills: ["Data Warehousing", "Data Analysis", "Project Management", "Wireframing", "Figma", "React.js", "FastAPI", "PostgreSQL", "Python", "Scrum Agile"],
+      companyLogo: petroenergy
     },
     {
       id: 5,
-      title: "Bachelor of Science in Computer Science",
-      company: "Mapúa Malayan Colleges Laguna",
-      location: "Cabuyao, Laguna",
-      period: "2021 - 2025",
-      type: "education",
-      description: "Activities and societies: Student Council, School Events Volunteer, Academic Organization, Member of Junior Philippine Computing Society",
-      skills: ["Software Engineering", "Data Structures", "Algorithms", "Database Systems", "Machine Learning", "Web Development", "Mobile Devlopment"],
-      companyLogo: mmcl
+      title: "Freelance Full-stack Web Developer",
+      company: "PetroEnergy Resources Corporation",
+      location: "Ortigas Business Center, Pasig City",
+      period: "Sep - Oct 2025",
+      type: "project",
+      description: "Optimized and refined frontend components. Implemented JWT/OAuth authentication, role-based access control (RBAC), input validation, and data encryption. Integrated comprehensive backup and recovery mechanisms, including full and incremental restore procedures",
+      skills: ["Data Warehousing", "Project Management", "Wireframing", "React.js", "FastAPI", "PostgreSQL", "Python"],
+      companyLogo: petroenergy
+    },
+    {
+      id: 6,
+      title: "Front end Developer",
+      company: "Cheil Philippines",
+      location: "Mckinley Hill, Taguig City",
+      period: "Jan 2026 - Present",
+      type: "work",
+      description: "",
+      skills: ["Adobe Experience Manager", "Jira", "Javascript", "HTML", "CSS"],
+      companyLogo: cheil
     },
   ];
 
@@ -114,7 +126,7 @@ export function Experience() {
     >
         <Box sx={{ p: { xs: 'none', sm: 3 }, ml: 2 }}>
           <Timeline position={isMobile ? "right" : "alternate"}>
-            {experiences.map((experience, index) => (
+            {experiences.slice().reverse().map((experience, index) => (
               <TimelineItem key={experience.id}>
                 <TimelineOppositeContent
                   sx={{ 
@@ -183,7 +195,7 @@ export function Experience() {
                   <Paper
                     elevation={0}
                     sx={{
-                      p: 3,
+                      p: 2.5,
                       backgroundColor: mode === 'light' 
                         ? 'rgba(255, 255, 255, 0.8)' 
                         : 'rgba(255, 255, 255, 0.03)',
@@ -217,6 +229,7 @@ export function Experience() {
                       sx={{ 
                         fontFamily: 'Kalnia, serif',
                         lineHeight: 1.3,
+                        fontSize: { xs: '1.25rem', sm: '1.5rem', md: '1.5rem' },
                         color: theme.palette.text.primary,
                       }}
                     >
@@ -249,6 +262,7 @@ export function Experience() {
                       sx={{ 
                         color: theme.palette.text.primary,
                         textAlign: 'justify',
+                        fontSize: '0.75rem',
                         lineHeight: 1.6,
                         mb: 2
                       }}
@@ -268,7 +282,7 @@ export function Experience() {
                           variant="outlined"
                           size="small"
                           sx={{
-                            fontSize: '0.8rem',
+                            fontSize: '0.7rem',
                             height: 22,
                             color: '#E7694B',
                             borderColor: '#E7694B',

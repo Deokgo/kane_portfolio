@@ -165,7 +165,7 @@ export default function Portfolio() {
             </Tabs>
 
             <Box sx={{ display: 'flex', alignItems: 'center'}}>
-              <ViewPDFButton pdfUrl="/cometa_kane_curriculum_vitae.pdf" sx={{ color: theme.palette.text.primary, borderColor: theme.palette.text.primary, mx: 1 }} />
+              <ViewPDFButton pdfUrl="/cometa_kane_curriculum_vitae.pdf" sx={{ color: theme.palette.text.primary, mx: 1 }} />
               <ThemeToggleButton />
               <Box sx={{ display: { xs: 'flex', sm: 'flex', md: 'none', lg: 'none' }, alignItems: 'center', gap: 1 }}>
                 <IconButton 

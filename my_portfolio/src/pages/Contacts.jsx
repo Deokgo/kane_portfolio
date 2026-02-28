@@ -418,9 +418,6 @@ export function Contact() {
                     variant="text"
                     sx={{
                       color: theme.palette.text.primary,
-                      border: { xs: 'none', sm: '1px solid' },
-                      borderColor: { xs: 'transparent', sm: mode === 'light' ? theme.palette.text.secondary : theme.palette.text.primary },
-                      borderRadius: 3,
                       px: 2,
                       width: '100%',
                       justifyContent: { xs: 'center', sm: 'flex-start' },

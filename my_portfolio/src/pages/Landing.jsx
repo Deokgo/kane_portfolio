@@ -195,7 +195,7 @@ export default function Landing() {
             </Button>
 
             {/* View PDF Button for CV */}
-            <ViewPDFButton pdfUrl="/cometa_kane_curriculum_vitae.pdf" sx={{ color: theme.palette.text.primary, borderColor: theme.palette.text.primary }} />
+            <ViewPDFButton pdfUrl="/cometa_kane_curriculum_vitae.pdf" sx={{ color: theme.palette.text.primary }} />
           </Box>
 
           <Box

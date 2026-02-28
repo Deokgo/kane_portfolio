@@ -18,57 +18,17 @@ export function Achievements() {
   
   const achievements = [
     {
-      id: 0,
-      title: "Graduated Magna Cum Laude",
-      organization: "Mapùa Malayan Colleges Laguna",
-      year: "2025",
-      description: "I was awarded by the institution for an excellent academic performance with a final Grade Point Average (GPA) of 3.7 upon graduation.",
-      category: "Award",
-      link: '',
-      imageUrl: magnacumlaude || (mode === 'light' ? light : dark)
-    },
-    {
       id: 1,
-      title: "Research Colloquium Presentation",
-      organization: "CCIS Research Colloquium",
-      year: "2025",
-      description: "Our team has been selected to join this year's Research Colloquium with the theme: “Unpacking Development Challenges, Fostering Sustainable Solutions”.",
-      category: "Academic",
-      link: '',
-      imageUrl: colloquium || (mode === 'light' ? light : dark),
+      title: "AWS Academy Cloud Foundations",
+      organization: "AWS Training and Certification",
+      year: "2023",
+      description: "I have successfully earned the introductory course is intended for overall understanding of cloud computing concepts, independent of specific technical roles.",
+      category: "Badge",
+      link: 'https://www.credly.com/badges/71c69ef1-c14f-4327-9855-3f461199f21d/linked_in_profile',
+      imageUrl: aws || (mode === 'light' ? light : dark),
     },
     {
       id: 2,
-      title: "President's Lister",
-      organization: "Mapùa Malayan Colleges Laguna",
-      year: "2024",
-      description: "I was awarded by the Office of the President for an excellent academic performance for 2 consecutive academic years (2nd year - 3rd year College)",
-      category: "Award",
-      link: '',
-      imageUrl: presidents || (mode === 'light' ? light : dark),
-    },
-    {
-      id: 3,
-      title: "Dean's Lister",
-      organization: "College of Computer and Information Science",
-      year: "2024",
-      description: "I was awarded by the College Dean of CCIS for an excellent academic performance for 3 consecutive academic years (1st year - 3rd Year College).",
-      category: "Award",
-      link: '',
-      imageUrl: deans || (mode === 'light' ? light : dark),
-    },
-    {
-      id: 4,
-      title: "IT Fundamentals+ (ITF+)",
-      organization: "CompTIA",
-      year: "2024",
-      description: "I have attained certification of knowledge and skills required to identify and explain the basics of computing, IT infrastructure, application and software, software development, database fundamentals, and security.",
-      category: "Certification",
-      link: 'https://www.credly.com/badges/f1637df9-b938-45cd-ad7a-676c32d8cbbc/linked_in_profile',
-      imageUrl: comptia || (mode === 'light' ? light : dark),
-    },
-    {
-      id: 5,
       title: "Google Cloud Course Skill and Completion",
       organization: "Google Cloud Skills Boost",
       year: "2023",
@@ -78,15 +38,55 @@ export function Achievements() {
       imageUrl: googlecloud || (mode === 'light' ? light : dark),
     },
     {
-      id: 6,
-      title: "AWS Academy Cloud Foundations",
-      organization: "AWS Training and Certification",
-      year: "2023",
-      description: "I have successfully earned the introductory course is intended for overall understanding of cloud computing concepts, independent of specific technical roles.",
-      category: "Badge",
-      link: 'https://www.credly.com/badges/71c69ef1-c14f-4327-9855-3f461199f21d/linked_in_profile',
-      imageUrl: aws || (mode === 'light' ? light : dark),
+      id: 3,
+      title: "President's Lister",
+      organization: "Mapùa Malayan Colleges Laguna",
+      year: "2024",
+      description: "I was awarded by the Office of the President for an excellent academic performance for 2 consecutive academic years (2nd year - 3rd year College)",
+      category: "Award",
+      link: '',
+      imageUrl: presidents || (mode === 'light' ? light : dark),
     },
+    {
+      id: 4,
+      title: "Dean's Lister",
+      organization: "College of Computer and Information Science",
+      year: "2024",
+      description: "I was awarded by the College Dean of CCIS for an excellent academic performance for 3 consecutive academic years (1st year - 3rd Year College).",
+      category: "Award",
+      link: '',
+      imageUrl: deans || (mode === 'light' ? light : dark),
+    },
+    {
+      id: 5,
+      title: "IT Fundamentals+ (ITF+)",
+      organization: "CompTIA",
+      year: "2024",
+      description: "I have attained certification of knowledge and skills required to identify and explain the basics of computing, IT infrastructure, application and software, software development, database fundamentals, and security.",
+      category: "Certification",
+      link: 'https://www.credly.com/badges/f1637df9-b938-45cd-ad7a-676c32d8cbbc/linked_in_profile',
+      imageUrl: comptia || (mode === 'light' ? light : dark),
+    },
+    {
+      id: 6,
+      title: "Research Colloquium Presentation",
+      organization: "CCIS Research Colloquium",
+      year: "2025",
+      description: "Our team has been selected to join this year's Research Colloquium with the theme: Unpacking Development Challenges, Fostering Sustainable Solutions.",
+      category: "Academic",
+      link: '',
+      imageUrl: colloquium || (mode === 'light' ? light : dark),
+    },
+    {
+      id: 7,
+      title: "Graduated Magna Cum Laude",
+      organization: "Mapùa Malayan Colleges Laguna",
+      year: "2025",
+      description: "I was awarded by the institution for an excellent academic performance with a final Grade Point Average (GPA) of 3.7 upon graduation.",
+      category: "Award",
+      link: '',
+      imageUrl: magnacumlaude || (mode === 'light' ? light : dark)
+    }
 
   ];
 
@@ -104,7 +104,7 @@ export function Achievements() {
     >
       <Container maxWidth="auto">
         <Grid container spacing={{ xs: 3, sm: 2 }} justifyContent="center">
-          {achievements.map((achievement) => (
+          {achievements.slice().reverse().map((achievement) => (
             <Grid key={achievement.id} sx={{ display: 'flex' }}>
               <Paper
                 elevation={0}
@@ -212,7 +212,7 @@ export function Achievements() {
                     color="text.secondary"
                     sx={{ 
                       lineHeight: 1.6, 
-                      fontSize: '0.95rem',
+                      fontSize: '0.85rem',
                       textAlign: 'left',
                       flexGrow: 1, 
                       mb: 2 
