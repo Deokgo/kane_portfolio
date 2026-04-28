@@ -11,6 +11,7 @@ import portfolio4 from '../assets/projects/portfolio4.svg';
 import portfolio5 from '../assets/projects/portfolio5.svg';
 import portfolio6 from '../assets/projects/portfolio6.svg';
 import portfolio7 from '../assets/projects/portfolio7.svg';
+import portfolio8 from '../assets/projects/portfolio8.svg';
 
 export function Projects() {
   const theme = useTheme();
@@ -86,6 +87,16 @@ export function Projects() {
       liveUrl: null,
       figmaUrl: "https://www.figma.com/design/CWwOjtrFtjc5pD3XCcJixc/PetroDash---Wireframe?node-id=0-1",
       imageUrl: portfolio7 || (mode === 'light' ? light : dark),
+    },  
+    {
+      id: 8,
+      name: "Budgent",
+      description: "Developed an AI-driven budget agent using Google Gemini. It contextually analyzes Metro Manila’s cost of living, tax brackets, and 20s-specific lifestyle goals to create an optimized 50/30/20 budget tailored specifically to the user.",
+      technologies: ["Google Cloud Platform", "AI Agents", "Generative AI", "Antigravity", "Github"],
+      githubUrl: "https://github.com/Deokgo/agentic-budgeter",
+      liveUrl: "https://agentic-budget-plan.vercel.app",
+      figmaUrl: null,
+      imageUrl: portfolio8 || (mode === 'light' ? light : dark),
     }
   ];
 
@@ -124,7 +135,7 @@ export function Projects() {
               <Paper
                 elevation={0}
                 sx={{
-                  maxWidth: { xs: 350, sm: 450, md: 500 }, // Responsive max width
+                  maxWidth: { xs: 350, sm: 400, md: 500 }, // Responsive max width
                   minHeight: 'auto',
                   display: 'flex',
                   flexDirection: 'column',
@@ -229,7 +240,33 @@ export function Projects() {
                         color: theme.palette.text.primary,
                       }}
                     >
-                      {project.name}
+                      {project.liveUrl ? (
+                        <Box
+                          component="a"
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title="View Deployed Project"
+                          sx={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: 0.5,
+                            color: 'inherit',
+                            textDecoration: 'none',
+                            borderBottom: '1px solid transparent',
+                            transition: 'border-color 0.2s ease, color 0.2s ease',
+                            '&:hover': {
+                              color: '#fff',
+                              borderBottomColor: '#fff',
+                            },
+                          }}
+                        >
+                          {project.name}
+                          <Launch sx={{ fontSize: '0.95em' }} />
+                        </Box>
+                      ) : (
+                        project.name
+                      )}
                     </Typography>
                   </Box>
 
@@ -312,29 +349,6 @@ export function Projects() {
                           }}
                         >
                           Code
-                        </Button>
-                      )}
-                      {project.liveUrl && (
-                        <Button
-                          variant="outlined"
-                          startIcon={<Launch />}
-                          title="View Deployed Project"
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          size="small"
-                          sx={{
-                            color: theme.palette.text.primary,
-                            borderColor: theme.palette.text.primary,
-                            fontSize: '0.8rem',
-                            '&:hover': {
-                              borderColor: '#E7694B',
-                              backgroundColor: mode === 'light' ? '#E7694B' : '#FFF',
-                              color: mode === 'light' ? '#FFF' : '#E7694B',
-                            }
-                          }}
-                        >
-                          Demo
                         </Button>
                       )}
                     </Box>

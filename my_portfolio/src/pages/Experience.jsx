@@ -73,7 +73,7 @@ export function Experience() {
     },
     {
       id: 6,
-      title: "Front end Developer",
+      title: "Frontend Developer/ LSSO",
       company: "Cheil Philippines",
       location: "Mckinley Hill, Taguig City",
       period: "Jan 2026 - Present",
